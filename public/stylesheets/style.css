@@ -108,6 +108,13 @@ a.unstyled {
 }
 
 
+/* HEADER */
+
+#header {
+	padding: 2em 0;
+}
+
+
 /* FOOTER */
 
 #footer {
