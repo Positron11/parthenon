@@ -80,22 +80,14 @@ a.unstyled {
 }
 
 #navbar_banner .hover-show-text {
-	max-width: 5em;
+	max-width: 8em;
 	overflow: hidden;
+	white-space: nowrap;
 	transition: 0.3s max-width ease, 0.3s opacity ease;
 }
 #navbar_banner:not(:hover) .hover-show-text {
 	opacity: 0;
 	max-width: 0;
-}
-
-#navbar_banner .hover-hide-text {
-	opacity: 0;
-	transition: 0.15s opacity ease, 0.15s margin-right ease;
-}
-#navbar_banner:not(:hover) .hover-hide-text {
-	opacity: 1;
-	margin-right: 0.15em;
 }
 
 #navbar_links {
