@@ -1,0 +1,39 @@
+/* ARTICLE PREVIEWS */
+
+#article_preview_list {
+	display: flex;
+	row-gap: 1.5em;
+	flex-direction: column;
+}
+
+.article-preview {
+	display: flex;
+	align-items: center;
+}
+
+.article-preview .date {
+	font-weight: 500;
+	font-size: 0.6em;
+	text-align: center;
+	color: var(--grey);
+	margin-right: 1rem;
+}
+.article-preview .date .day {
+	font-size: 1.5em;
+}
+
+.article-preview .title {
+	flex: 0 1 40%;
+	margin-right: 2em;
+}
+
+.article-preview .description {
+	flex: 0 1 50%;
+	text-align: right;
+	margin-left: auto;
+	transition: 0.3s ease;
+}
+
+.article-preview:not(:hover) .description {
+	color: var(--grey);
+}
