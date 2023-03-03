@@ -27,15 +27,14 @@ html
 						a.unstyled(href="about") About
 						a.unstyled(href="contact") Contact
 
-			main#main
-				header#main_header
-					block header
-						h1= heading
-						h2= subheading
-						p= content
+			header#header
+				block header
+					h1= heading
+					h2= subheading
+					p= content
 
-				#main_content 
-					block content
+			main#main
+				block content
 
 			footer#footer
 				#footer_banner Fin.
