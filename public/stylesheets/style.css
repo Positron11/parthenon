@@ -71,6 +71,7 @@ a.unstyled {
 	z-index: 1;
 	display: flex;
 	position: sticky;
+	margin-bottom: 2em;
 	align-items: center;
 	background-color: white;
 	justify-content: space-between;
@@ -108,10 +109,10 @@ a.unstyled {
 }
 
 
-/* HEADER */
+/* MAIN */
 
-#header {
-	padding: 2em 0;
+#main > *:first-child {
+	margin-top: 2rem;
 }
 
 
@@ -120,6 +121,7 @@ a.unstyled {
 #footer {
 	display: flex;
 	padding: 3em 0;
+	margin-top: 2em;
 	color: var(--grey);
 	align-items: center;
 	justify-content: space-between;
