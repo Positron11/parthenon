@@ -1,0 +1,50 @@
+doctype html
+html
+	head
+		title= title + " / Parthenon"
+
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+
+		meta(name="description" content="Aarush Kumbhakern's personal homepage.")
+
+		link(rel="stylesheet", href="/stylesheets/reset.css")
+		link(rel="stylesheet", href="/stylesheets/style.css")
+
+		link(rel="stylesheet", href="https://api.fontshare.com/v2/css?f[]=crimson-pro@1&display=swap")
+
+	body
+		#page
+			nav#navbar
+				a.unstyled(href="/")
+					#navbar_banner 
+						span A
+						span.hover-show-text arush
+						span.hover-hide-text .
+
+						span K
+						span.hover-show-text umbhakern
+						span.hover-hide-text .
+
+				#navbar_links
+						a.unstyled(href="explore") Explore
+						a.unstyled(href="about") About
+						a.unstyled(href="contact") Contact
+
+			main#main
+				header#main_header
+					block header
+						h1= heading
+						h2= subheading
+
+				#main_content 
+					block content
+
+			footer#footer
+				#footer_banner Fin.
+
+				#footer_links
+						a.unstyled(href="#") Top
+						a.unstyled(href="#") Github
+
+				
