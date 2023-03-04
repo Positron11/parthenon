@@ -6,33 +6,19 @@ append stylesheets
 prepend header
 	- var heading = "Explore."
 	- var subheading = "See the world."
-	- var content = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id sunt inventore, facilis tempore laborum unde soluta omnis ea maxime qui amet vel molestiae consectetur magnam earum suscipit distinctio eum saepe?"
+	- var content = header_content
 
 block content
 	#main: #article_preview_list
-		.article-preview
-			.date 
-				.month Feb 
-				.day 22
+		for post in posts
+			.article-preview
+				- var date = new Date(post.updated);
+				- var month = date.toLocaleString('default', { month: "short" });
+				- var day = date.getDay().toString().padStart(2, "0");
+				
+				.date 
+					.month= month
+					.day= day
 
-			.title: h3 The Curious Case of Benjamin Button
-
-			.description: p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-
-		.article-preview
-			.date 
-				.month Mar 
-				.day 19
-
-			.title: h3 A Farewell to Arms
-
-			.description: p Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, suscipit explicabo magnam necessitatibus laborum consectetur.
-
-		.article-preview
-			.date 
-				.month Sep 
-				.day 09
-
-			.title: h3 The Remains of the Day
-
-			.description: p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab doloribus laudantium facere id tempore. Cupiditate.
+				.title: h3= post.title
+				.description: p= post.lede
