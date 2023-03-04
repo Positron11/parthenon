@@ -111,8 +111,8 @@ a.unstyled {
 
 /* MAIN */
 
-#main > *:first-child {
-	margin-top: 2rem;
+#main {
+	margin-top: 2.5em;
 }
 
 
