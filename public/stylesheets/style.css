@@ -40,7 +40,7 @@ h4 { font-size: 1.15em; }
 /* Paragraphs */
 
 p {
-	line-height: 1.75em;
+	line-height: 2em;
 }
 
 p:not(:first-child) {
