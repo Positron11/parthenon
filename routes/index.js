@@ -5,10 +5,6 @@ router.get("/", function(req, res, next) {
 	res.render("index", { title: "Home" });
 });
 
-router.get("/explore", function(req, res, next) {
-	res.render("explore", { title: "Explore" });
-});
-
 router.get("/about", function(req, res, next) {
 	res.render("about", { title: "About" });
 });
