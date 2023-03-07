@@ -14,4 +14,5 @@ block content
 			p= article.content
 
 		#article_controls
+			a(href=article.url + "/edit").unstyled: .button Edit
 			a(href=article.url + "/delete").unstyled: .danger.button Delete

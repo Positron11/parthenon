@@ -1,4 +1,5 @@
 #article_controls {
-	margin-top: 2em;
-	text-align: right;
+	display: flex;
+	margin-top: 2.5em;
+	justify-content: space-between;
 }
