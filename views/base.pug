@@ -1,48 +1,48 @@
 doctype html
 html
 	head
-		title= title + " / Parthenon"
-
 		meta(charset="utf-8")
 		meta(name="viewport" content="width=device-width, initial-scale=1")
-
+		
+		title= title + " · Parthenon"
+		meta(name="author" content="Aarush Kumbhakern")
 		meta(name="description" content="Aarush Kumbhakern's personal homepage.")
-
-		block scripts
 
 		block stylesheets
 			link(rel="stylesheet", href="/stylesheets/reset.css")
-			link(rel="stylesheet", href="/stylesheets/style.css")
+			link(rel="stylesheet", href="/stylesheets/main.css")
 			link(rel="stylesheet", href="https://api.fontshare.com/v2/css?f[]=crimson-pro@2,1&display=swap")
+
+		block scripts
 
 	body
 		#page
-			nav#navbar
-				a.unstyled(href="/")
-					#navbar_banner 
-						span Aa
-						span.hover-show-text rush Kumbhakern
-						span .
+			header#navbar
+				a.unstyled(href="/"): #navbar_banner 
+					span Aa
+					span.hover-show-text rush Kumbhakern
+					span .
 
-				#navbar_links
-						a.unstyled(href="/blog/create") New
-						a.unstyled(href="/blog") Blog
-						a.unstyled(href="/about") About
-						a.unstyled(href="/contact") Contact
+				nav#navbar_links
+					a.unstyled(href="/blog/create") New
+					a.unstyled(href="/blog") Blog
+					a.unstyled(href="/about") About
+					a.unstyled(href="/contact") Contact
 
-			header#header
-				block header
-					h1= heading
-					h2.single-line-text= subheading
-					p: i= content
+			main#main
+				#header
+					block header
+						h1!= heading
+						h2.single-line-text!= subheading
+						p: i!= content
 
-			block content
+				block content
 
 			footer#footer
 				#footer_banner Fin.
 
 				#footer_links
-						a.unstyled(href="#page") Top
-						a.unstyled(href="https://github.com/Positron11/parthenon", target="_blank") Github
+					a.unstyled(href="#page") Top
+					a.unstyled(href="https://github.com/Positron11/parthenon", target="_blank") Github
 
 				

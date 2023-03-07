@@ -13,25 +13,23 @@ prepend header
 	- var content = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id sunt inventore, facilis tempore laborum unde soluta omnis ea maxime qui amet vel molestiae consectetur magnam earum suscipit distinctio eum saepe?"
 
 block content
-	#main
-		form(action="", method="post")
-			.field
-				label(for="form_title_field") Title
-				input#form_title_field(type="text", name="title", required="true", maxlength="40", value=(undefined === form_data ? "" : form_data.title))
-			
-			.field
-				label(for="form_subtitle_field") Subtitle
-				input#form_subtitle_field(type="text", name="subtitle", required="true", maxlength="40", value=(undefined === form_data ? "" : form_data.subtitle))
+	form(action="", method="post")
+		.field
+			label(for="form_title_field") Title
+			input#form_title_field(type="text", name="title", required="true", maxlength="40", value=(undefined === form_data ? "" : form_data.title))
+		
+		.field
+			label(for="form_subtitle_field") Subtitle
+			input#form_subtitle_field(type="text", name="subtitle", required="true", maxlength="40", value=(undefined === form_data ? "" : form_data.subtitle))
 
-			.field
-				label(for="form_description_field") Description
-				textarea#form_description_field(name="description", required="true", rows="4", maxlength="300")= (undefined === form_data ? "" : form_data.description)
+		.field
+			label(for="form_description_field") Description
+			textarea#form_description_field(name="description", required="true", rows="4", maxlength="300")= (undefined === form_data ? "" : form_data.description)
 
-			.field
-				label(for="form_content_field") Content
-				textarea#form_content_field(name="content", rows="8", required="true")= (undefined === form_data ? "" : form_data.content)
-			
-			.submit
-				button(type="submit") Create
+		.field
+			label(for="form_content_field") Content
+			textarea#form_content_field(name="content", rows="8", required="true")= (undefined === form_data ? "" : form_data.content)
+		
+		.submit: button(type="submit") Create
 
 
