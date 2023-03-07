@@ -1,6 +1,6 @@
 const express = require("express");
 
-var router = express.Router();
+const router = express.Router();
 
 // import controllers
 const blog_controller = require("../controllers/blog/blog_controller")

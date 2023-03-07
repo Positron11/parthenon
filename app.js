@@ -13,7 +13,7 @@ const compression = require("compression");
 const indexRouter = require('./routes/index');
 const blogRouter = require('./routes/blog');
 
-var app = express();
+const app = express();
 
 // Set up mongoose connection
 const mongoose = require("mongoose");

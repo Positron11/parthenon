@@ -1,6 +1,6 @@
 const express = require("express");
 
-var router = express.Router();
+const router = express.Router();
 
 // import controllers
 const index_controller = require("../controllers/index_controller")
