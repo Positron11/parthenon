@@ -1,0 +1,47 @@
+form {
+	row-gap: 2em;
+	display: flex;
+	flex-direction: column;
+}
+
+label {
+	display: block;
+	font-weight: 450; 
+	margin-bottom: 0.75rem;
+}
+
+input[type="text"],
+textarea {
+	resize: none;
+	border: none;
+	outline: none;
+	max-width: 100%;
+	font-size: inherit;
+	padding: 0.75em 1em;
+	font-family: inherit;
+	border-radius: 0.5em;
+	box-sizing: border-box;
+	background-color: #f8f8f8;
+}
+
+:is(input[type="text"], textarea).invalid {
+	background-color: var(--light-red);
+}
+
+textarea {
+	width: 100%;
+	line-height: 2em;
+}
+
+input[type="submit"] {
+	border: none;
+	font-size: 1em;
+	cursor: pointer;
+	font-weight: 450;
+	margin-left: auto;
+	padding: 0.75em 1em;
+	font-family: inherit;
+	border-radius: 0.625em;
+	color: var(--off-white);
+	background-color: var(--dark-grey);
+}

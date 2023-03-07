@@ -6,6 +6,9 @@
 
 	/* Colors */
 	--grey: #aaa;
+	--dark-grey: #333;
+	--off-white: #eee;
+	--light-red: #ffefef;
 }
 
 
@@ -14,6 +17,7 @@
 html, body {
 	font-size: 26px;
 	font-weight: 350;
+	scroll-padding-top: 147px;
 	font-family: var(--serif-font);
 }
 

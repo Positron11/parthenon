@@ -1,0 +1,4 @@
+#form_title_field,
+#form_subtitle_field {
+	width: min(600px, 100%);
+}

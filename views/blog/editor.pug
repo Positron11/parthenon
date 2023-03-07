@@ -1,0 +1,36 @@
+extends ../base
+
+block scripts
+	script(type="text/javascript", src="/javascripts/custom_invalid_handler.js")
+
+append stylesheets
+	link(rel="stylesheet", href="/stylesheets/forms.css")
+	link(rel="stylesheet", href="/stylesheets/blog-editor.css")
+
+prepend header
+	- var heading = "Create."
+	- var subheading = "Or Forever Hold Your Silence."
+	- var content = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id sunt inventore, facilis tempore laborum unde soluta omnis ea maxime qui amet vel molestiae consectetur magnam earum suscipit distinctio eum saepe?"
+
+block content
+	#main
+		form(action="", method="post")
+			.field
+				label(for="form_title_field") Title
+				input#form_title_field(type="text", name="title", required="true", maxlength="40", value=(undefined===article ? "" : article.title))
+			
+			.field
+				label(for="form_subtitle_field") Subtitle
+				input#form_subtitle_field(type="text", name="subtitle", required="true", maxlength="40", value=(undefined===article ? "" : article.subtitle))
+
+			.field
+				label(for="form_description_field") Description
+				textarea#form_description_field(name="description", rows="4", required="true", maxlength="300")= (undefined===article ? "" : article.description)
+
+			.field
+				label(for="form_content_field") Content
+				textarea#form_content_field(name="content", rows="8", required="true")= (undefined===article ? "" : article.content)
+
+			input(type="submit", value="Submit")
+
+
