@@ -1,9 +1,3 @@
-#article_preview_list {
-	row-gap: 2em;
-	display: flex;
-	flex-direction: column;
-}
-
 .article-preview {
 	display: flex;
 	align-items: center;
@@ -28,18 +22,13 @@
 
 .article-preview .header .subtitle {
 	font-size: 0.9em;
-	margin-top: 1rem;
-	line-height: 1.5em;
+	margin-top: 1.25rem;
 }
 
 .article-preview .description {
-    overflow: hidden;
 	font-size: 0.9em;
 	text-align: right;
 	margin-left: auto;
-	display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
 	transition: 0.3s ease;
 }
 

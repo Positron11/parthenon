@@ -1,11 +1,7 @@
-/* VARIABLES */
+/* =============== VARIABLES =============== */
 
 :root {
-	/* Fonts */
-	--serif-font: "Crimson Pro", serif;
-
-	/* Colors */
-	--grey: #aaa;
+	--grey: #AAA;
 	--dark-grey: #333;
 	--off-white: #EEE;
 	--light-red: #FEEFF1;
@@ -13,53 +9,60 @@
 }
 
 
-/* GLOBAL */
+/* =============== GLOBAL ===============*/
 
-html, body {
+:is(html, body) {
 	font-size: 26px;
 	font-weight: 350;
 	scroll-padding-top: 147px;
-	font-family: var(--serif-font);
+	font-family: "Crimson Pro", serif;
 }
 
 
-/* TEXT STYLING */
+/* =============== TEXT STYLING =============== */
 
-/* Headings */
-
-h1, h2, h3, h4, h5, h6 { 
+:is(h1, h2, h3, h4, h5, h6) { 
 	font-weight: 450; 
+	margin: -0.15em 0;
 	line-height: 1.5em;
-	margin-bottom: -0.15em;
 }
 
 :is(h1, h2, h3, h4, h5, h6):not(:first-child) {
-	margin-top: 1.5em;
+	margin-top: 2.5rem;
 }
 
-h1 { font-size: 4em; max-width: 800px; }
-h2 { font-size: 2.25em; }
-h3 { font-size: 1.5em; }
-h4 { font-size: 1.15em; }
+h1 { 
+	font-size: 4em; 
+	max-width: min(800px, 100%); 
+}
 
-/* Paragraphs */
+h2 { 
+	font-size: 2.25em; 
+}
+
+h3 { 
+	font-size: 1.5em; 
+}
+
+h4 { 
+	font-size: 1.15em; 
+}
 
 p {
 	line-height: 2em;
 }
 
 p:not(:first-child) {
-	margin-top: 1em;
+	margin-top: 1.25em;
 }
-
-/* Links */
 
 a.unstyled {
 	color: inherit;
 	text-decoration: none;
 }
 
-/* Text Utilities */
+
+/* =============== UTILITIES =============== */
 
 .single-line-text {
 	display: block;
@@ -69,10 +72,17 @@ a.unstyled {
 	text-overflow: ellipsis;
 }
 
+.truncate-lines {
+	overflow: hidden;
+	display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--lines);
+}
 
-/* BUTTONS */
 
-button, .button {
+/* =============== BUTTONS =============== */
+
+:is(button, .button) {
 	border: none;
 	font-size: 1em;
 	cursor: pointer;
@@ -89,7 +99,40 @@ button, .button {
 }
 
 
-/* PAGE CONTAINER */
+/* =============== GENERIC ELEMENTS =============== */
+
+.separator {
+	height: 2px;
+	width: 100%;
+	background-color: #F3F3F3;
+}
+
+
+/* =============== LAYOUTS AND CONTAINERS =============== */
+
+.flexbox {
+	display: flex;
+}
+
+.flexbox.column {
+	flex-direction: column;
+}
+
+.flexbox.right-align {
+	justify-content: flex-end;
+}
+
+.flexbox.space-between {
+	justify-content: space-between;
+}
+
+.flexbox.comfortable-spacing {
+	row-gap: 2.5em;
+	column-gap: 2.5em;
+}
+
+
+/* =============== PAGE CONTAINER =============== */
 
 #page {
 	margin: auto;
@@ -106,7 +149,7 @@ button, .button {
 	z-index: 1;
 	display: flex;
 	position: sticky;
-	margin-bottom: 2em;
+	margin-bottom: 1em;
 	align-items: center;
 	background-color: white;
 	justify-content: space-between;
@@ -144,7 +187,7 @@ button, .button {
 }
 
 
-/* MAIN */
+/* =============== MAIN CONTAINER =============== */
 
 #main {
 	display: flex;
@@ -153,12 +196,12 @@ button, .button {
 }
 
 
-/* FOOTER */
+/* =============== FOOTER =============== */
 
 #footer {
 	display: flex;
 	padding: 3em 0;
-	margin-top: 2em;
+	margin-top: 1em;
 	color: var(--grey);
 	align-items: center;
 	justify-content: space-between;

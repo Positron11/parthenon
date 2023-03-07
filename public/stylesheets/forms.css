@@ -1,16 +1,12 @@
-form {
-	row-gap: 2em;
-	display: flex;
-	flex-direction: column;
-}
-
 label {
 	display: block;
-	font-weight: 450; 
+	font-weight: 450;
+	font-size: 1.5em;  
+	line-height: 1.5em;
 	margin-bottom: 0.75rem;
 }
 
-input[type="text"], textarea {
+:is(input[type="text"], textarea) {
 	border: none;
 	outline: none;
 	max-width: 100%;
@@ -30,8 +26,4 @@ textarea {
 	width: 100%;
 	resize: none;
 	line-height: 2em;
-}
-
-form .submit {
-	text-align: right;
 }

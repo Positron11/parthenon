@@ -9,8 +9,10 @@ prepend header
 	- var content = article.description
 
 block content
+	.separator 
+
 	#article_content: p= article.content
 
-	#article_controls
+	.space-between.flexbox
 		a(href=article.url + "/edit").unstyled: .button Edit
 		a(href=article.url + "/delete").unstyled: .danger.button Delete

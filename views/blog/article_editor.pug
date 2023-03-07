@@ -1,7 +1,8 @@
 extends ../base
 
 block scripts
-	script(type="text/javascript", src="/javascripts/custom_invalid_handler.js")
+	script(type="text/javascript", src="/javascripts/autosize.min.js", defer)
+	script(type="text/javascript", src="/javascripts/forms.js", defer)
 
 append stylesheets
 	link(rel="stylesheet", href="/stylesheets/forms.css")
@@ -13,14 +14,16 @@ prepend header
 	- var content = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id sunt inventore, facilis tempore laborum unde soluta omnis ea maxime qui amet vel molestiae consectetur magnam earum suscipit distinctio eum saepe?"
 
 block content
-	form(action="", method="post")
+	.separator 
+
+	form(action="", method="post").comfortable-spacing.column.flexbox
 		.field
 			label(for="form_title_field") Title
-			input#form_title_field(type="text", name="title", required="true", maxlength="40", value=(undefined === form_data ? "" : form_data.title))
+			input#form_title_field(type="text", name="title", size="40", required="true", maxlength="40", value=(undefined === form_data ? "" : form_data.title))
 		
 		.field
 			label(for="form_subtitle_field") Subtitle
-			input#form_subtitle_field(type="text", name="subtitle", required="true", maxlength="40", value=(undefined === form_data ? "" : form_data.subtitle))
+			input#form_subtitle_field(type="text", name="subtitle", size="40", required="true", maxlength="40", value=(undefined === form_data ? "" : form_data.subtitle))
 
 		.field
 			label(for="form_description_field") Description
@@ -30,6 +33,6 @@ block content
 			label(for="form_content_field") Content
 			textarea#form_content_field(name="content", rows="8", required="true")= (undefined === form_data ? "" : form_data.content)
 		
-		.submit: button(type="submit") Create
+		.right-align.flexbox: button(type="submit") Create
 
 
