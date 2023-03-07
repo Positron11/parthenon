@@ -1,8 +1,6 @@
-/* ARTICLE PREVIEWS */
-
 #article_preview_list {
+	row-gap: 2em;
 	display: flex;
-	row-gap: 1.5em;
 	flex-direction: column;
 }
 
@@ -12,25 +10,36 @@
 }
 
 .article-preview .date {
-	font-weight: 500;
+	font-weight: 450;
 	font-size: 0.6em;
 	text-align: center;
 	color: var(--grey);
-	margin-right: 1rem;
+	margin: 0.5em 2rem 0 0;
 }
+
 .article-preview .date .day {
 	font-size: 1.5em;
 }
 
-.article-preview .title {
-	flex: 0 1 40%;
-	margin-right: 2em;
+.article-preview .header {
+	flex: 0 0 35%;
+	margin-right: 4em;
+}
+
+.article-preview .header .subtitle {
+	font-size: 0.9em;
+	margin-top: 1rem;
+	line-height: 1.5em;
 }
 
 .article-preview .description {
-	flex: 0 1 50%;
+    overflow: hidden;
+	font-size: 0.9em;
 	text-align: right;
 	margin-left: auto;
+	display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 	transition: 0.3s ease;
 }
 

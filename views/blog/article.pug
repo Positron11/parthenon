@@ -1,0 +1,10 @@
+extends ../base
+
+prepend header
+	- var heading = article.title
+	- var subheading = article.subtitle
+	- var content = article.description
+
+block content 
+	#main
+		p= article.content

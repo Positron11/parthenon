@@ -1,7 +1,7 @@
 extends ../base
 
 append stylesheets
-	link(rel="stylesheet", href="/stylesheets/explore.css")
+	link(rel="stylesheet", href="/stylesheets/blog-index.css")
 
 prepend header
 	- var heading = "Blog."
@@ -10,29 +10,15 @@ prepend header
 
 block content
 	#main: #article_preview_list
-		.article-preview
-			.date 
-				.month Feb 
-				.day 22
+		each article in articles
+			a.unstyled(href=article.url): .article-preview
+				.date
+					- var date = new Date(article.updated_date);
+					.month= date.toLocaleString('default', { month: "short" })
+					.day= date.getDate().toString().padStart(2, "0")
 
-			.title: h3 The Curious Case of Benjamin Button
+				.header
+					.title: h3!= article.title
+					.subtitle: i!= article.subtitle
 
-			.description: p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-
-		.article-preview
-			.date 
-				.month Mar 
-				.day 19
-
-			.title: h3 A Farewell to Arms
-
-			.description: p Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, suscipit explicabo magnam necessitatibus laborum consectetur.
-
-		.article-preview
-			.date 
-				.month Sep 
-				.day 09
-
-			.title: h3 The Remains of the Day
-
-			.description: p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab doloribus laudantium facere id tempore. Cupiditate.
+				.description: p!= article.description
