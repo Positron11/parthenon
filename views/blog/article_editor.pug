@@ -33,6 +33,6 @@ block content
 			label(for="form_content_field") Content
 			textarea#form_content_field(name="content", rows="8", required="true")= (undefined === form_data ? "" : form_data.content)
 		
-		.right-align.flexbox: button(type="submit") Create
+		.right-align.flexbox: button(type="submit")= action
 
 

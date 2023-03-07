@@ -6,7 +6,8 @@ const Article = require("../../models/blog/article");
 exports.article_create_get = (req, res, next) => {
 	// render article editor view
 	res.render("blog/article_editor", { 
-		title: "Create Article"
+		title: "Create Article",
+		action: "Create"
 	});
 }
 
@@ -25,6 +26,7 @@ exports.article_create_post = [
 		if (!errors.isEmpty()) {
 			res.render("blog/article_editor", {
 				title: "Create Article",
+				action: "Create",
 				form_data: req.body,
 				errors: errors.array()
 			}); return;
@@ -102,6 +104,7 @@ exports.article_update_get = (req, res, next) => {
 			// render article editor view
 			res.render("blog/article_editor", { 
 				title: "Edit Article",
+				action: "Update",
 				form_data: result
 			});
 		},
@@ -123,7 +126,8 @@ exports.article_update_post = [
 		// if errors, re-render form with data
 		if (!errors.isEmpty()) {
 			res.render("blog/article_editor", {
-				title: "Create Article",
+				title: "Edit Article",
+				action: "Update",
 				form_data: req.body,
 				errors: errors.array()
 			}); return;
