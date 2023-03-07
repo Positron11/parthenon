@@ -3,7 +3,7 @@ const Article = require("../../models/blog/article");
 exports.article_list = (req, res, next) => {
 	Article.find().sort({ updated_date: -1 }).then(
 		result => {
-			res.render("blog/index", { 
+			res.render("blog/article_list", { 
 				title: "Blog",
 				articles: result	
 			}); 
@@ -21,7 +21,7 @@ exports.article_detail = (req, res, next) => {
 				return next(error);
 			}
 
-			res.render("blog/article", { 
+			res.render("blog/article_detail", { 
 				title: result.title,
 				article: result	
 			}); 

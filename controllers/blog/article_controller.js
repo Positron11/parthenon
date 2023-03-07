@@ -3,7 +3,7 @@ const { body, validationResult } = require("express-validator");
 const Article = require("../../models/blog/article");
 
 exports.article_create_get = (req, res, next) => {
-	res.render("blog/editor", { 
+	res.render("blog/article_editor", { 
 		title: "Create Article"
 	});
 }
@@ -18,7 +18,7 @@ exports.article_create_post = [
 		const errors = validationResult(req);
 
 		if (!errors.isEmpty()) {
-			res.render("blog/editor", {
+			res.render("blog/article_editor", {
 				title: "Create Article",
 				form_data: req.body,
 				errors: errors.array()
