@@ -1,0 +1,14 @@
+extends ../base
+
+append stylesheets 
+	link(rel="stylesheet", href="/stylesheets/forms.css")
+
+prepend header 
+	- var heading = "Banish."
+	- var subheading = `Deleting: ${article.title}`
+	- var content = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti, accusantium reiciendis exercitationem pariatur distinctio voluptate nam quos id numquam, dolore omnis tempore odio excepturi consequuntur ex. Architecto recusandae magni est."
+
+block content 
+	#main: form(action="", method="post")
+		.submit
+			button(type="submit").danger Yup, Delete

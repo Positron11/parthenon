@@ -18,7 +18,7 @@ ArticleSchema.virtual("url").get(function() {
 });
 
 ArticleSchema.pre("validate", function(next) {
-	this.slug = slugify(this.title, { lower: true });
+	this.slug = slugify(this.title, { lower: true, strict: true });
 	next();
 });
 

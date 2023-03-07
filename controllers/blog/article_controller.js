@@ -40,11 +40,28 @@ exports.article_create_post = [
 ]
 
 exports.article_delete_get = (req, res, next) => {
-	res.send("NOT IMPLEMENTED: Article delete GET.")
+	Article.findOne({ slug: req.params.slug }).then(
+		result => {
+			if (result === null) {
+				const error = new Error("This article does not exist");
+				error.status = 404;
+				return next(error);
+			}
+
+			res.render("blog/article_delete", {
+				title: "Delete Article",
+				article: result
+			});
+		},
+		err => { return next(err); }
+	);
 }
 
 exports.article_delete_post = (req, res, next) => {
-	res.send("NOT IMPLEMENTED: Article delete POST.")
+	Article.findOneAndDelete({ slug: req.params.slug }).then(
+		result => {	res.redirect("/blog") },
+		err => { return next(err); }
+	);
 }
 
 exports.article_update_get = (req, res, next) => {

@@ -10,9 +10,7 @@ label {
 	margin-bottom: 0.75rem;
 }
 
-input[type="text"],
-textarea {
-	resize: none;
+input[type="text"], textarea {
 	border: none;
 	outline: none;
 	max-width: 100%;
@@ -30,18 +28,10 @@ textarea {
 
 textarea {
 	width: 100%;
+	resize: none;
 	line-height: 2em;
 }
 
-input[type="submit"] {
-	border: none;
-	font-size: 1em;
-	cursor: pointer;
-	font-weight: 450;
-	margin-left: auto;
-	padding: 0.75em 1em;
-	font-family: inherit;
-	border-radius: 0.625em;
-	color: var(--off-white);
-	background-color: var(--dark-grey);
+form .submit {
+	text-align: right;
 }
