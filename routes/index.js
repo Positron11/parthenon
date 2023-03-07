@@ -1,16 +1,17 @@
-var express = require("express");
+const express = require("express");
+
 var router = express.Router();
 
-router.get("/", function(req, res, next) {
-	res.render("index", { title: "Home" });
-});
+// import controllers
+const index_controller = require("../controllers/index_controller")
 
-router.get("/about", function(req, res, next) {
-	res.render("about", { title: "About" });
-});
+// home page view
+router.get("/", index_controller.index);
 
-router.get("/contact", function(req, res, next) {
-	res.render("contact", { title: "Contact" });
-});
+// about page view
+router.get("/about", index_controller.about);
+
+// contact page view
+router.get("/contact", index_controller.contact);
 
 module.exports = router;
