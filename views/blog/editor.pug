@@ -17,19 +17,19 @@ block content
 		form(action="", method="post")
 			.field
 				label(for="form_title_field") Title
-				input#form_title_field(type="text", name="title", required="true", maxlength="40", value=(undefined===article ? "" : article.title))
+				input#form_title_field(type="text", name="title", required="true", maxlength="40", value=(undefined === form_data ? "" : form_data.title))
 			
 			.field
 				label(for="form_subtitle_field") Subtitle
-				input#form_subtitle_field(type="text", name="subtitle", required="true", maxlength="40", value=(undefined===article ? "" : article.subtitle))
+				input#form_subtitle_field(type="text", name="subtitle", required="true", maxlength="40", value=(undefined === form_data ? "" : form_data.subtitle))
 
 			.field
 				label(for="form_description_field") Description
-				textarea#form_description_field(name="description", rows="4", required="true", maxlength="300")= (undefined===article ? "" : article.description)
+				textarea#form_description_field(name="description", required="true", rows="4", maxlength="300")= (undefined === form_data ? "" : form_data.description)
 
 			.field
 				label(for="form_content_field") Content
-				textarea#form_content_field(name="content", rows="8", required="true")= (undefined===article ? "" : article.content)
+				textarea#form_content_field(name="content", rows="8", required="true")= (undefined === form_data ? "" : form_data.content)
 
 			input(type="submit", value="Submit")
 

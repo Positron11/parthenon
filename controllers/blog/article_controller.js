@@ -20,7 +20,7 @@ exports.article_create_post = [
 		if (!errors.isEmpty()) {
 			res.render("blog/editor", {
 				title: "Create Article",
-				article: req.body,
+				form_data: req.body,
 				errors: errors.array()
 			}); return;
 		}
