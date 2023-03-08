@@ -32,9 +32,9 @@ html
 			main#main
 				#header
 					block header
-						h1!= heading
-						h2.single-line-text!= subheading
-						p: i!= content
+						h1.heading!= heading
+						h2.subheading: span.single-line-text!= subheading
+						p.content: i!= content
 
 				block content
 

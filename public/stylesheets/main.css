@@ -187,6 +187,13 @@ a.unstyled {
 }
 
 
+/* =============== HEADER =============== */
+
+#header .content {
+	color: var(--grey);
+}
+
+
 /* =============== MAIN CONTAINER =============== */
 
 #main {
