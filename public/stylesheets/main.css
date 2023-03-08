@@ -215,8 +215,8 @@ a.unstyled {
 }}
 
 #navbar_buttons #mobile_navbar_menu_button .bar {
-	margin: 8px 0;
-	width: 32px; height: 4px;
+	margin: 6px 0;
+	width: 30px; height: 4px;
 	background-color: var(--grey);
 	transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
 }
@@ -224,13 +224,13 @@ a.unstyled {
 	background-color: var(--dark-grey);
 }
 #navbar.mobile-menu-open #navbar_buttons #mobile_navbar_menu_button .bar:nth-child(1) {
-	transform: rotate(-45deg) translate(-5px, 12px);
+	transform: rotate(-45deg) translate(-5px, 9px);
 }
 #navbar.mobile-menu-open #navbar_buttons #mobile_navbar_menu_button .bar:nth-child(2) {
 	opacity: 0;
 }
 #navbar.mobile-menu-open #navbar_buttons #mobile_navbar_menu_button .bar:nth-child(3) {
-	transform: rotate(45deg) translate(-5px, -12px);
+	transform: rotate(45deg) translate(-5px, -9px);
 }
 
 
