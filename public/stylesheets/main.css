@@ -192,15 +192,16 @@ a.unstyled {
 }
 
 #navbar_banner .hover-show-text {
-	max-width: 8em;
+	opacity: 0;
+	max-width: 0;
 	overflow: hidden;
 	white-space: nowrap;
 	transition: 0.3s max-width ease, 0.3s opacity ease;
 }
-#navbar_banner:not(:hover) .hover-show-text {
-	opacity: 0;
-	max-width: 0;
-}
+@media only screen and (min-width: 1101px) and (pointer: fine) {#navbar_banner:hover .hover-show-text {
+	opacity: 1;
+	max-width: 8em;
+}}
 
 #navbar_buttons #navbar_links {
 	display: flex;
