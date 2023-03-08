@@ -46,13 +46,11 @@
 }}
 
 .article-preview .header .subtitle {
-	font-size: 0.9em;
-	line-height: 1.75em;
 	margin-top: 1rem;
+	line-height: 1.75em;
 }
 
 .article-preview .description {
-	font-size: 0.9em;
 	transition: 0.3s ease;
 }
 @media only screen and (min-width: 1101px) {.article-preview .description {
