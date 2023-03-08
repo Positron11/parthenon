@@ -15,14 +15,20 @@ const blogRouter = require('./routes/blog');
 
 const app = express();
 
-// Set up mongoose connection
+// set up mongoose connection
 const mongoose = require("mongoose");
 mongoose.set('strictQuery', false);
 
-main().catch(err => console.log(err));
-async function main() {
-	await mongoose.connect(process.env.MONGODB_URL);
+// connect to database
+const connect_db = async () => {
+	return await mongoose.connect(process.env.MONGODB_URL);
 }
+
+// connect to database and then start listening for requests
+connect_db().then(conn => {
+	console.log(`MongoDB connected: ${conn.connection.host}`);
+	app.listen(() => console.log("Listening for requests"));
+}).catch(err => console.log(err));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
