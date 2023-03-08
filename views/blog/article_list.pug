@@ -24,4 +24,4 @@ block content
 					.title: h3!= article.title
 					.subtitle: i!= article.subtitle
 
-				.description.truncate-lines(style="--lines:4"): p!= article.description
+				.description: p.truncate-lines(style="--lines:4")!= article.description
