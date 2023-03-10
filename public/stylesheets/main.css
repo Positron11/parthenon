@@ -232,6 +232,8 @@ a.unstyled {
 }}
 
 #navbar_buttons #mobile_navbar_menu_button {
+	margin: -1em;
+	padding: 1em;
 	cursor: pointer;
 }
 @media only screen and (min-width: 1101px) { #navbar_buttons #mobile_navbar_menu_button {
