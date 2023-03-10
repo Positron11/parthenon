@@ -158,6 +158,11 @@ a.unstyled {
 	column-gap: var(--standard-spacing);
 }
 
+.flexbox.compact-spacing {
+	row-gap: calc(var(--standard-spacing) / 1.5);
+	column-gap: calc(var(--standard-spacing) / 1.5);
+}
+
 
 /* =============== PAGE CONTAINER =============== */
 
