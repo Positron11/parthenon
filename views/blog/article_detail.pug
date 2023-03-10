@@ -13,8 +13,6 @@ block content
 
 	#article_content!= article.renderContent()
 
-	.separator
-
 	.space-between.flexbox
 		a(href=article.url + "/edit").unstyled: .button Edit
 		a(href=article.url + "/delete").unstyled: .danger.button Delete
