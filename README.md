@@ -1,3 +1,3 @@
 # Parthenon
 
-A minimal personal homepage written in Express JS
+A minimal Express JS personal homepage.
