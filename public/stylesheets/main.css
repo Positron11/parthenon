@@ -164,11 +164,11 @@ a.unstyled {
 #page {
 	margin: auto;
 	padding: 0 3em;
-	max-width: 1100px;
+	max-width: 42em;
 	position: relative;
 	box-sizing: border-box;
 }
-@media only screen and (max-width: 1100px) {#page {
+@media only screen and (max-width: 42em) {#page {
 	padding: 0 7.5vw;
 }}
 
@@ -186,10 +186,10 @@ a.unstyled {
 	justify-content: space-between;
 	transition: 0.3s color ease;
 }
-@media only screen and (min-width: 1101px) { #navbar:not(:hover) {
+@media only screen and (min-width: calc(42em + 1px)) { #navbar:not(:hover) {
 	color: var(--grey);
 }}
-@media only screen and (max-width: 1100px) { #navbar:not(.mobile-menu-open) {
+@media only screen and (max-width: 42em) { #navbar:not(.mobile-menu-open) {
 	color: var(--grey);
 }}
 
@@ -208,7 +208,7 @@ a.unstyled {
 	white-space: nowrap;
 	transition: 0.3s max-width ease, 0.3s opacity ease;
 }
-@media only screen and (min-width: 1101px) and (pointer: fine) {#navbar_banner:hover .hover-show-text {
+@media only screen and (min-width: calc(42em + 1px)) and (pointer: fine) {#navbar_banner:hover .hover-show-text {
 	opacity: 1;
 	max-width: 8em;
 }}
@@ -218,7 +218,7 @@ a.unstyled {
 	font-weight: 400;
 	column-gap: 1.25em;
 }
-@media only screen and (max-width: 1100px) { #navbar_buttons #navbar_links {
+@media only screen and (max-width: 42em) { #navbar_buttons #navbar_links {
 	z-index: -1;
 	row-gap: 1em;
 	font-size: 2em;
@@ -230,7 +230,7 @@ a.unstyled {
 	top: 1.5em; left: 0; right: 0; bottom: 0;
 	transition: opacity 0.5s ease;
 }}
-@media only screen and (max-width: 1100px) { #navbar:not(.mobile-menu-open) #navbar_buttons #navbar_links {
+@media only screen and (max-width: 42em) { #navbar:not(.mobile-menu-open) #navbar_buttons #navbar_links {
 	opacity: 0;
 	pointer-events: none;
 }}
@@ -240,7 +240,7 @@ a.unstyled {
 	padding: 1em;
 	cursor: pointer;
 }
-@media only screen and (min-width: 1101px) { #navbar_buttons #mobile_navbar_menu_button {
+@media only screen and (min-width: calc(42em + 1px)) { #navbar_buttons #mobile_navbar_menu_button {
 	display: none;
 }}
 
@@ -279,7 +279,7 @@ a.unstyled {
 	flex-direction: column;
 	row-gap: var(--standard-spacing);
 }
-@media only screen and (max-width: 1100px) { #main {
+@media only screen and (max-width: 42em) { #main {
 	margin: 2em 0;
 }}
 
