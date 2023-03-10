@@ -37,7 +37,7 @@
 	margin: -0.15em 0;
 }
 
-:is(h1, h2, h3, h4):not(:first-child) {
+:is(h1, h2, h3, h4, p) + :is(h1, h2, h3, h4) {
 	margin-top: var(--standard-spacing);
 }
 
@@ -76,7 +76,7 @@ p {
 	line-height: 2em;
 }
 
-p:not(:first-child) {
+:is(h1, h2, h3, h4, p) + p {
 	margin-top: 1.5em;
 }
 
