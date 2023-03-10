@@ -175,6 +175,7 @@ a.unstyled {
 #navbar {
 	top: 0;
 	z-index: 1;
+	height: 5.6em;
 	display: flex;
 	position: sticky;
 	align-items: center;
@@ -190,10 +191,11 @@ a.unstyled {
 }}
 
 #navbar_banner {
+	margin: -1em;
+	padding: 1em;
 	display: flex;
 	font-size: 1.5em;
 	font-weight: 500;
-	padding: 2rem 2rem 2rem 0;
 }
 
 #navbar_banner .hover-show-text {
