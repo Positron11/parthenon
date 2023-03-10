@@ -14,14 +14,14 @@
 /* =============== GLOBAL ===============*/
 
 :is(html, body) {
-	font-size: 26px;
+	font-size: 24px;
 	font-weight: 350;
 	scroll-padding-top: 147px;
 	font-family: "Crimson Pro", serif;
 }
 
-@media only screen and (max-width: 1100px) {:is(html, body) {
-	font-size: 21px;
+@media only screen and (max-width: 42em) {:is(html, body) {
+	font-size: 20px;
 }}
 
 
