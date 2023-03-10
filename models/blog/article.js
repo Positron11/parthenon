@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
 const slugify = require("slugify");
+const MarkdownIt = require('markdown-it');
 
 const Schema = mongoose.Schema;
+
+const md = new MarkdownIt();
 
 // article model schema
 const ArticleSchema = new Schema({
@@ -24,5 +27,15 @@ ArticleSchema.pre("validate", function(next) {
 	this.slug = slugify(this.title, { lower: true, strict: true });
 	next();
 });
+
+// render markdown-parsed description
+ArticleSchema.methods.renderDescription = function() {
+	return md.renderInline(this.description);
+}
+
+// render markdown-parsed content
+ArticleSchema.methods.renderContent = function() {
+	return md.render(this.content);
+}
 
 module.exports = mongoose.model("Article", ArticleSchema);
