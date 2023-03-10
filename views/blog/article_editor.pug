@@ -9,8 +9,8 @@ append stylesheets
 	link(rel="stylesheet", href="/stylesheets/blog/article_editor.css")
 
 prepend header
-	- var heading = "Create."
-	- var subheading = "Or Forever Hold Your Silence."
+	- var heading = `${action}.`
+	- var subheading = action === "Create" ? "Or Forever Hold Your Silence." : "Don't fix what ain't broke."
 	- var content = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id sunt inventore, facilis tempore laborum unde soluta omnis ea maxime qui amet vel molestiae consectetur magnam earum suscipit distinctio eum saepe?"
 
 block content
