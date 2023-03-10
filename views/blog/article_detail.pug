@@ -9,10 +9,8 @@ prepend header
 	- var content = article.renderDescription()
 
 block content
+	a(href=article.url + "/edit").unstyled: .button Edit
+	
 	.separator 
 
 	#article_content!= article.renderContent()
-
-	.space-between.flexbox
-		a(href=article.url + "/edit").unstyled: .button Edit
-		a(href=article.url + "/delete").unstyled: .danger.button Delete

@@ -33,6 +33,10 @@ block content
 			label(for="form_content_field") Content
 			textarea#form_content_field(name="content", rows="8", required="true")!= (undefined === form_data ? "" : form_data.content)
 		
-		.right-align.flexbox: button(type="submit")= action
+		.space-between.right-align.flexbox
+			if action === "Update"
+				a(href=form_data.url + "/delete").unstyled: .danger.button Delete
+				
+			button(type="submit")= action
 
 
