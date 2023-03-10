@@ -16,7 +16,7 @@ prepend header
 block content
 	.separator 
 
-	form(action="", method="post").comfortable-spacing.column.flexbox
+	form(action="", method="post").compact-spacing.column.flexbox
 		.field
 			label(for="form_title_field") Title
 			input#form_title_field(type="text", name="title", size="40", required="true", maxlength="40", value!=(undefined === form_data ? "" : form_data.title))
