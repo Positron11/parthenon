@@ -51,12 +51,12 @@
 }
 
 .article-preview .description {
+	color: var(--grey);
 	transition: 0.3s ease;
 }
 @media only screen and (min-width: 1101px) {.article-preview .description {
 	text-align: right;
 	margin-left: auto;
-	color: var(--grey);
 }}
 
 @media only screen and (pointer: fine) {.article-preview:hover .description {
