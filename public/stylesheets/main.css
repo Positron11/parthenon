@@ -33,6 +33,7 @@
 }
 
 :is(h1, h2, h3, h4) { 
+	color: #222;
 	font-weight: 450; 
 	margin: -0.15em 0;
 }
@@ -44,7 +45,6 @@
 h1 { 
 	font-size: 4em; 
 	line-height: 1.3em;
-	max-width: min(800px, 100%); 
 }
 @media only screen and (max-width: 750px) {h1 {
 	font-size: 2.75em;
