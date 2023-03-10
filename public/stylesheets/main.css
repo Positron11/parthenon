@@ -180,7 +180,6 @@ a.unstyled {
 	align-items: center;
 	background-color: white;
 	justify-content: space-between;
-	margin-bottom: calc(var(--standard-spacing) - 2rem);
 	transition: 0.3s color ease;
 }
 @media only screen and (min-width: 1101px) { #navbar:not(:hover) {
@@ -271,9 +270,13 @@ a.unstyled {
 
 #main {
 	display: flex;
+	margin: 3em 0;
 	flex-direction: column;
 	row-gap: var(--standard-spacing);
 }
+@media only screen and (max-width: 1100px) { #main {
+	margin: 2em 0;
+}}
 
 
 /* =============== FOOTER =============== */
@@ -281,7 +284,6 @@ a.unstyled {
 #footer {
 	display: flex;
 	padding: 2em 0;
-	margin-top: 2em;
 	color: var(--grey);
 	align-items: center;
 	justify-content: space-between;
