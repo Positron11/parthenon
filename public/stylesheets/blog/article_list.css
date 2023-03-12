@@ -1,10 +1,10 @@
 .article-preview {
 	display: flex;
 }
-@media only screen and (min-width: calc(42em + 1px)) {.article-preview {
+@media only screen and (min-width: calc(45em + 1px)) {.article-preview {
 	align-items: center;
 }}
-@media only screen and (max-width: 42em) {.article-preview {
+@media only screen and (max-width: 45em) {.article-preview {
 	row-gap: 1.25rem;
 	flex-direction: column;
 	align-items: flex-start;
@@ -16,31 +16,31 @@
 	font-size: 0.6em;
 	color: var(--grey);
 }
-@media only screen and (min-width: calc(42em + 1px)) {.article-preview .date {
+@media only screen and (min-width: calc(45em + 1px)) {.article-preview .date {
 	margin-right: 2rem;
 	align-items: center;
 	flex-direction: column;
 }}
-@media only screen and (max-width: 42em) {.article-preview .date {
+@media only screen and (max-width: 45em) {.article-preview .date {
 	column-gap: 0.25em;
 }}
 
-@media only screen and (min-width: calc(42em + 1px)) {.article-preview .date .day {
+@media only screen and (min-width: calc(45em + 1px)) {.article-preview .date .day {
 	font-size: 1.5em;
 }}
 
-@media only screen and (min-width: calc(42em + 1px)) {.article-preview .date .year {
+@media only screen and (min-width: calc(45em + 1px)) {.article-preview .date .year {
 	margin-top: 0.75em;
 	padding-top: 0.75em;
 	border-top: 2px solid #F3F3F3;
 }}
-@media only screen and (max-width: 42em) {.article-preview .date .year {
+@media only screen and (max-width: 45em) {.article-preview .date .year {
 	margin-left: 0.25em;
 	padding-left: 0.5em;
 	border-left: 2px solid #F3F3F3;
 }}
 
-@media only screen and (min-width: calc(42em + 1px)) {.article-preview .header {
+@media only screen and (min-width: calc(45em + 1px)) {.article-preview .header {
 	flex: 0 0 35%;
 	margin-right: 4em;
 }}
@@ -54,7 +54,7 @@
 	color: var(--grey);
 	transition: 0.3s ease;
 }
-@media only screen and (min-width: calc(42em + 1px)) {.article-preview .description {
+@media only screen and (min-width: calc(45em + 1px)) {.article-preview .description {
 	text-align: right;
 	margin-left: auto;
 }}
