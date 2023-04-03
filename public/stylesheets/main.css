@@ -237,6 +237,7 @@ a.unstyled {
 	padding: 1em;
 	line-height: 0;
 	max-width: 15em;
+	overflow: hidden;
 	border-radius: 0.625em;
 	justify-content: flex-end;
 	background-color: var(--dark-grey);
