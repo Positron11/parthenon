@@ -16,6 +16,7 @@
 :is(html, body) {
 	font-size: 24px;
 	font-weight: 350;
+	scroll-behavior: smooth;
 	scroll-padding-top: 147px;
 	font-family: "Crimson Pro", serif;
 }
