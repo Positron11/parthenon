@@ -249,6 +249,8 @@ a.unstyled {
 
 #navbar_buttons .navbar-button-icon {
 	width: 1em;
+	padding: 1em 0.5em;
+	margin: -1em -0.5em;
 }
 
 #navbar_menu_button {
