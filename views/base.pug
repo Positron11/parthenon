@@ -47,7 +47,11 @@ html
 				#footer_banner Fin.
 
 				#footer_links
-					a.unstyled(href="#page") Top
-					a.unstyled(href="https://github.com/Positron11/parthenon", target="_blank") Github
+					.clickable(onclick="window.scrollTo(0,0);") Go to Top
+					a.unstyled(href="https://github.com/Positron11/parthenon", target="_blank") Site Repo
 
-				
+			#toolbar.flexbox
+				#toolbar_buttons.minimal-spacing.flexbox
+					img.clickable.toolbar-button-icon(src="/images/icons/top.svg", onclick="window.scrollTo(0,0);")
+					a.unstyled(href="/blog/create"): img.toolbar-button-icon(src="/images/icons/write.svg")
+					block toolbar

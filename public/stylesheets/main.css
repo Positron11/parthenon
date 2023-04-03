@@ -86,6 +86,10 @@ a.unstyled {
 
 /* =============== UTILITIES =============== */
 
+.clickable {
+	cursor: pointer;
+}
+
 .single-line-text {
 	display: block;
 	max-width: 100%;
@@ -159,6 +163,11 @@ a.unstyled {
 .flexbox.compact-spacing {
 	row-gap: calc(var(--standard-spacing) / 1.5);
 	column-gap: calc(var(--standard-spacing) / 1.5);
+}
+
+.flexbox.minimal-spacing {
+	row-gap: calc(var(--standard-spacing) / 3);
+	column-gap: calc(var(--standard-spacing) / 3);
 }
 
 
@@ -291,9 +300,9 @@ a.unstyled {
 
 #footer {
 	display: flex;
-	padding: 2em 0;
 	color: var(--grey);
 	align-items: center;
+	padding: 2em 0 6em 0;
 	justify-content: space-between;
 }
 
@@ -305,4 +314,24 @@ a.unstyled {
 #footer_links {
 	display: flex;
 	column-gap: 1.25em;
+}
+
+
+/* =============== TOOLBAR=============== */
+
+#toolbar {
+	left: 50%;
+	bottom: 1em;
+	padding: 1em;
+	line-height: 0;
+	position: fixed;
+	align-items: center;
+	border-radius: 0.5em;
+	transform: translateX(-50%);
+	background-color: var(--dark-grey);
+	box-shadow: 0 0 5px 2px #00000022;
+}
+
+#toolbar .toolbar-button-icon {
+	width: 1em;
 }

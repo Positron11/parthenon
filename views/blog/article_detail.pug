@@ -8,9 +8,11 @@ prepend header
 	- var subheading = article.subtitle
 	- var content = article.renderDescription()
 
-block content
-	a(href=article.url + "/edit").unstyled: .button Edit
-	
+block content	
 	.separator 
 
 	#article_content!= article.renderContent()
+
+block toolbar 
+	a.unstyled(href=`${article.url}/edit`).toolbar-button: img(src="/images/icons/edit.svg").toolbar-button-icon
+	a.unstyled(href=`${article.url}/delete`).toolbar-button: img(src="/images/icons/trash.svg").toolbar-button-icon
