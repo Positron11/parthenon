@@ -182,17 +182,14 @@ a.unstyled {
 
 #page {
 	margin: auto;
-	padding: 0 3em;
 	max-width: 45em;
 	position: relative;
 	box-sizing: border-box;
+	padding: 0 min(3em, 7.5vw);
 }
-@media only screen and (max-width: 45em) {#page {
-	padding: 0 7.5vw;
-}}
 
 
-/* NAVBAR */
+/* =============== NAVBAR =============== */
 
 #navbar {
 	top: 0;
