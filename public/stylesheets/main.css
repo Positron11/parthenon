@@ -234,45 +234,47 @@ a.unstyled {
 }}
 
 #navbar_buttons {
-	padding: 1em;
-	line-height: 0;
-	max-width: 15em;
-	overflow: hidden;
-	border-radius: 0.625em;
 	justify-content: flex-end;
-	background-color: var(--dark-grey);
-	transition: 0.3s ease max-width;
 }
-#navbar.menu-open #navbar_buttons {
-	max-width: 1em;
+
+#navbar_action_buttons {
+	transition: 0.3s ease opacity;
+}
+#navbar.menu-open #navbar_action_buttons {
+	opacity: 0;
+	pointer-events: none;
 }
 
 #navbar_buttons .navbar-button-icon {
-	width: 1em;
-	padding: 1em 0.5em;
-	margin: -1em -0.5em;
+	width: 1.1em;
 }
 
 #navbar_menu_button {
 	display: flex;
-	flex: 0 0 1em;
-	row-gap: 0.275em;
+	height: 1em;
+	flex: 0 0 1.1em;
 	flex-direction: column;
+	justify-content: space-between;
 }
 #navbar_menu_button .bar {
-	height: 0.1em;
-	border-radius: 1em;
-	background-color: white;
-	transition: 0.3s ease opacity, 0.3s ease transform;
+	height: 0.125em;
+	background-color: var(--grey);
+	transition: 0.3s ease background-color, 0.3s ease opacity, 0.3s ease transform;
 }
+#navbar.menu-open #navbar_menu_button .bar {
+	background-color: var(--dark-grey);
+}
+@media only screen and (pointer: fine) {#navbar:hover #navbar_menu_button .bar {
+	background-color: var(--dark-grey);
+}}
 #navbar.menu-open #navbar_menu_button .bar:nth-child(2) {
 	opacity: 0;
 }
 #navbar.menu-open #navbar_menu_button .bar:nth-child(1) {
-	transform: rotate(-45deg) translate(-0.275em, 0.25em);
+	transform: rotate(-45deg) translate(-0.275em, 0.325em);
 }
 #navbar.menu-open #navbar_menu_button .bar:nth-child(3) {
-	transform: rotate(45deg) translate(-0.275em, -0.25em);
+	transform: rotate(45deg) translate(-0.275em, -0.325em);
 }
 
 #nav_links_wrapper {

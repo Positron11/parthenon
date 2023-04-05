@@ -24,11 +24,12 @@ html
 					span .
 
 				#navbar_buttons.minimal-spacing.vertically-center.flexbox
-					img.clickable.navbar-button-icon(src="/images/icons/top.svg", onclick="window.scrollTo(0,0);")
-					a.unstyled(href="/blog/create"): img.navbar-button-icon(src="/images/icons/write.svg")
-					block navbar_buttons
+					#navbar_action_buttons.minimal-spacing.vertically-center.flexbox
+						img.clickable.navbar-button-icon(src="/images/icons/top.svg", onclick="window.scrollTo(0,0);")
+						a.unstyled(href="/blog/create"): img.navbar-button-icon(src="/images/icons/write.svg")
+						block navbar_buttons
 
-					#navbar_menu_button.clickable.navbar-button-icon(src="/images/icons/menu.svg", onclick="document.getElementById('navbar').classList.toggle('menu-open')")
+					#navbar_menu_button.clickable(src="/images/icons/menu.svg", onclick="document.getElementById('navbar').classList.toggle('menu-open')")
 						.bar 
 						.bar 
 						.bar
