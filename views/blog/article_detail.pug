@@ -14,8 +14,8 @@ block content
 	#article_content!= article.renderContent()
 
 block toolbar_buttons 
-	a.unstyled.toolbar-button-icon(href=`${article.url}/edit`): img(src="/images/icons/edit.svg")
-	a.unstyled.toolbar-button-icon(href=`${article.url}/delete`): img(src="/images/icons/trash.svg")
+	a.unstyled(href=`${article.url}/edit`): img(src="/images/icons/edit.svg").toolbar-button-icon
+	a.unstyled(href=`${article.url}/delete`): img(src="/images/icons/trash.svg").toolbar-button-icon
 
 prepend toolbar_banner
 	- var toolbar_banner_content = "Read."
