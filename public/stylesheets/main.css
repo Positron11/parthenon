@@ -299,6 +299,10 @@ a.unstyled {
 
 /* =============== HEADER =============== */
 
+#header .heading {
+	max-width: min(30rem, 100%);
+}
+
 #header .content {
 	color: var(--grey);
 }
