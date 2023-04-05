@@ -271,7 +271,11 @@ a.unstyled {
 	padding: 0 min(3em, 7.5vw);
 }
 
-#nav_menu a {
+#nav_menu .nav-link img {
+	width: 1.5em;
+}
+
+#nav_menu .nav-link span {
 	font-size: 2em;
 }
 
