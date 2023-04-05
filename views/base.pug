@@ -17,27 +17,21 @@ html
 
 	body
 		#page
-			header#navbar
+			header#navbar.space-between.vertically-center.flexbox
 				a.unstyled(href="/"): #navbar_banner 
 					span Aa
 					span.hover-show-text rush Kumbhakern
 					span .
 
-				#navbar_buttons.minimal-spacing.vertically-center.flexbox
-					#navbar_action_buttons.minimal-spacing.vertically-center.flexbox
-						img.clickable.navbar-button-icon(src="/images/icons/top.svg", onclick="window.scrollTo(0,0);")
-						a.unstyled(href="/blog/create"): img.navbar-button-icon(src="/images/icons/write.svg")
-						block navbar_buttons
+				#nav_menu_button.clickable(src="/images/icons/menu.svg", onclick="document.getElementById('navbar').classList.toggle('menu-open')")
+					.bar 
+					.bar 
+					.bar
 
-					#navbar_menu_button.clickable(src="/images/icons/menu.svg", onclick="document.getElementById('navbar').classList.toggle('menu-open')")
-						.bar 
-						.bar 
-						.bar
-
-				nav#nav_links_wrapper: #nav_links.comfortable-spacing.vertically-center.column.flexbox
-					a.unstyled(href="/blog") Blog
-					a.unstyled(href="/about") About
-					a.unstyled(href="/contact") Contact
+			nav#nav_menu_wrapper.vertically-center.flexbox: #nav_menu.comfortable-spacing.vertically-center.column.flexbox
+				a.unstyled(href="/blog") Blog
+				a.unstyled(href="/about") About
+				a.unstyled(href="/contact") Contact
 
 			main#main
 				#header
@@ -48,9 +42,11 @@ html
 
 				block content
 
-			footer#footer
-				#footer_banner Fin.
+			#toolbar.space-between.vertically-center.flexbox
+				block toolbar_banner
+					#toolbar_banner= toolbar_banner_content
 
-				#footer_links
-					.clickable(onclick="window.scrollTo(0,0);") Go to Top
-					a.unstyled(href="https://github.com/Positron11/parthenon", target="_blank") Site Repo
+				#toolbar_buttons.minimal-spacing.vertically-center.flexbox
+					img.clickable.toolbar-button-icon(src="/images/icons/top.svg", onclick="window.scrollTo(0,0);")
+					a.unstyled(href="/blog/create"): img.toolbar-button-icon(src="/images/icons/write.svg")
+					block toolbar_buttons
