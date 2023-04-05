@@ -254,7 +254,6 @@ a.unstyled {
 }
 
 #navbar_menu_button {
-	width: 1em;
 	display: flex;
 	flex: 0 0 1em;
 	row-gap: 0.275em;
