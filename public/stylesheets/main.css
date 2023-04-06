@@ -201,7 +201,10 @@ a.unstyled {
 	color: var(--grey);
 	backdrop-filter: blur(8px);
 	background-color: #FFFFFF99;
-	transition: 0.3s color ease;
+	transition: 0.3s color ease, 0.3s box-shadow ease;
+}
+#navbar:not(.menu-open) {
+	box-shadow: 0 15px 20px -20px #0000001A;
 }
 #navbar.menu-open {
 	color: unset;
@@ -319,6 +322,7 @@ a.unstyled {
 	color: var(--grey);
 	backdrop-filter: blur(8px);
 	background-color: #FFFFFF99;
+	box-shadow: 0 -15px 20px -20px #0000001A;
 }
 
 #toolbar_banner {
