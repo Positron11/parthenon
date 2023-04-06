@@ -199,8 +199,8 @@ a.unstyled {
 	margin: 0 -1em;
 	position: sticky;
 	color: var(--grey);
-	backdrop-filter: blur(7px);
-	background-color: #FFFFFFBB;
+	backdrop-filter: blur(8px);
+	background-color: #FFFFFF99;
 	transition: 0.3s color ease;
 }
 #navbar.menu-open {
@@ -315,8 +315,8 @@ a.unstyled {
 	padding: 0 1em;
 	position: sticky;
 	color: var(--grey);
-	backdrop-filter: blur(7px);
-	background-color: #FFFFFFBB;
+	backdrop-filter: blur(8px);
+	background-color: #FFFFFF99;
 }
 
 #toolbar_banner {
