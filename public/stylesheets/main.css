@@ -230,6 +230,8 @@ a.unstyled {
 
 #nav_menu_button {
 	height: 1em;
+	margin: -1em;
+	padding: 1em;
 	display: flex;
 	flex: 0 0 1.1em;
 	flex-direction: column;
