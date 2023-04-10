@@ -14,7 +14,7 @@
 /* =============== GLOBAL ===============*/
 
 :is(html, body) {
-	font-size: 24px;
+	font-size: 20px;
 	font-weight: 350;
 	scroll-behavior: smooth;
 	scroll-padding-top: 6em;
@@ -23,7 +23,7 @@
 }
 
 @media only screen and (max-width: 45em) {:is(html, body) {
-	font-size: 20px;
+	font-size: 18px;
 }}
 
 
