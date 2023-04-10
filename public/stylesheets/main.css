@@ -130,9 +130,8 @@ a.unstyled {
 /* =============== GENERIC ELEMENTS =============== */
 
 .separator {
-	height: 2px;
 	width: 100%;
-	background-color: #F3F3F3;
+	border-top: 1px solid #EEE;
 }
 
 
