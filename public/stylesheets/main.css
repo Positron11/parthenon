@@ -271,9 +271,12 @@ a.unstyled {
 
 #nav_menu a {
 	font-size: 2.5em;
-	padding: 1.5rem 0;
+	padding: 0.75em 0;
 	transition: 0.3s ease color;
 }
+@media only screen and (max-width: 45em) {#nav_menu a {
+	font-size: 2em;
+}}
 @media only screen and (pointer: fine) {#nav_menu:hover a:not(:hover) {
 	color: var(--grey);
 }}
