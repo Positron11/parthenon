@@ -30,7 +30,8 @@
 /* =============== TEXT STYLING =============== */
 
 :is(p, h1, h2, h3, h4) {
-	overflow: auto;
+	overflow-x: auto;
+	overflow-y: hidden;
 	text-overflow: ellipsis;
 }
 
