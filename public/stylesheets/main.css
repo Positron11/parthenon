@@ -211,7 +211,6 @@ a.unstyled {
 	color: unset;
 }
 
-
 #navbar_banner {
 	margin: -1rem;
 	padding: 1rem;
@@ -245,6 +244,9 @@ a.unstyled {
 #navbar.menu-open #nav_menu_button .bar:nth-child(3) {
 	transform: rotate(45deg) translate(-0.275em, -0.325em);
 }
+
+
+/* =============== NAV MENU =============== */
 
 #nav_menu_wrapper {
 	z-index: 1;
