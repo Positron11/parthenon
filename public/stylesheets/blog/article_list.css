@@ -52,7 +52,7 @@
 
 .article-preview .description {
 	color: var(--grey);
-	transition: 0.3s ease;
+	transition: 0.3s ease color;
 }
 @media only screen and (min-width: calc(45em + 1px)) {.article-preview .description {
 	text-align: right;
