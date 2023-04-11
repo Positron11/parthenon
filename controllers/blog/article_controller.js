@@ -1,4 +1,5 @@
 const { body, validationResult } = require("express-validator");
+const slugify = require("slugify");
 
 const Article = require("../../models/blog/article");
 
@@ -13,28 +14,16 @@ exports.article_create_get = (req, res, next) => {
 
 // article create view post method controller
 exports.article_create_post = [
-	// form validation
-	body("title", "Invalid title.")
-		.trim()
-		.isLength({ min: 1, max: 40 })
-		.custom(value => { return Article.findOne({ where: { name: value } }).then(() => { return Promise.reject("An article with this title already exists.") }) })
-		.escape(),
+	body("title", "Invalid title.").trim().isLength({ min: 1, max: 40 }).custom(value => { 
+		return Article.findOne({ slug: slugify(value, { lower: true, strict: true }) }).then(result => { 
+			return result ? Promise.reject("An article with this title already exists.") : true 
+		}) 
+	}).escape(),
 	
-	body("subtitle", "Invalid subtitle.")
-		.trim()
-		.isLength({ min: 1, max: 40 })
-		.escape(),
-	
-	body("description", "Invalid description.")
-		.trim()
-		.isLength({ min: 1, max: 300 })
-		.escape(), 
-	
-	body("content", "Invalid content.")
-		.trim()
-		.isLength({ min: 1 })
-		.escape(),
-
+	body("subtitle", "Invalid subtitle.").trim().isLength({ min: 1, max: 40 }).escape(),
+	body("description", "Invalid description.").trim().isLength({ min: 1, max: 300 }).escape(), 
+	body("content", "Invalid content.").trim().isLength({ min: 1 }).escape(),
+		
 	(req, res, next) => {
 		const errors = validationResult(req);
 
@@ -130,7 +119,13 @@ exports.article_update_get = (req, res, next) => {
 
 // article update view post method controller
 exports.article_update_post = [
-	// form validation
+	body("title", "Invalid title.").trim().isLength({ min: 1, max: 40 }).custom((value, { req }) => { 
+		const slug = slugify(value, { lower: true, strict: true });
+		return slug === req.params.slug ? true : Article.findOne({ slug: slug }).then(result => { 
+			return result ? Promise.reject("An article with this title already exists.") : true 
+		}) 
+	}).escape(),
+	
 	body("title", "Invalid title.").trim().isLength({ min: 1, max: 40 }).escape(),
 	body("subtitle", "Invalid subtitle.").trim().isLength({ min: 1, max: 40 }).escape(),
 	body("description", "Invalid description.").trim().isLength({ min: 1, max: 300 }).escape(), 
