@@ -3,7 +3,7 @@ extends ../base
 append stylesheets 
 	link(rel="stylesheet", href="/stylesheets/blog/article_detail.css")
 
-prepend header
+block header_variables
 	- var heading = article.title
 	- var subheading = article.subtitle
 	- var content = article.renderDescription()

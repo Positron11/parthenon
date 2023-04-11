@@ -3,7 +3,7 @@ extends ../base
 append stylesheets
 	link(rel="stylesheet", href="/stylesheets/blog/article_list.css")
 
-prepend header
+block header_variables
 	- var heading = "Blog."
 	- var subheading = "They're Only Words."
 	- var content = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id sunt inventore, facilis tempore laborum unde soluta omnis ea maxime qui amet vel molestiae consectetur magnam earum suscipit distinctio eum saepe?"
