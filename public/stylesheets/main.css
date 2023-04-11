@@ -309,6 +309,7 @@ a.unstyled {
 #toolbar {
 	bottom: 0;
 	height: 5em;
+	line-height: 0;
 	position: sticky;
 	color: var(--grey);
 	background-color: white;
