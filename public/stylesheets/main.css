@@ -37,8 +37,9 @@
 
 :is(h1, h2, h3, h4) { 
 	color: #222;
-	font-weight: 450; 
+	font-weight: 400; 
 	margin: -0.15em 0;
+	font-family: "DM Serif Text", serif;
 }
 
 :is(h1, h2, h3, h4, p) + :is(h1, h2, h3, h4) {
