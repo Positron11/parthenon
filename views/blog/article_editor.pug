@@ -18,7 +18,7 @@ block content
 
 	form(action="", method="post").compact-spacing.column.flexbox
 		.field
-			label(for="form_title_field") Title
+			label#form_title_field_label(for="form_title_field") Title
 			input#form_title_field(type="text", name="title", size="40", required="true", maxlength="40", value!=(undefined === form_data ? "" : form_data.title))
 		
 		.field
@@ -30,11 +30,16 @@ block content
 			textarea#form_description_field(name="description", required="true", rows="4", maxlength="300")!= (undefined === form_data ? "" : form_data.description)
 
 		.field
-			label(for="form_content_field") Content
+			label#form_content_field_label(for="form_content_field") Content
 			textarea#form_content_field(name="content", rows="8", required="true")!= (undefined === form_data ? "" : form_data.content)
 		
 		.space-between.right-align.flexbox
 			if action === "Update"
 				a(href=form_data.url + "/delete").unstyled: .danger.button Delete
 				
-			button(type="submit")= action
+			button#form_submit_button(type="submit")= action
+
+block toolbar_buttons 
+	img.clickable.toolbar-button-icon(src="/images/icons/title.svg", onclick="document.getElementById('form_title_field_label').scrollIntoView();")
+	img.clickable.toolbar-button-icon(src="/images/icons/content.svg", onclick="document.getElementById('form_content_field_label').scrollIntoView();")
+	img.clickable.toolbar-button-icon(src="/images/icons/publish.svg", onclick="document.getElementById('form_submit_button').scrollIntoView();")
