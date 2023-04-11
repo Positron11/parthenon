@@ -14,10 +14,26 @@ exports.article_create_get = (req, res, next) => {
 // article create view post method controller
 exports.article_create_post = [
 	// form validation
-	body("title", "Invalid title.").trim().isLength({ min: 1, max: 40 }).escape(),
-	body("subtitle", "Invalid subtitle.").trim().isLength({ min: 1, max: 40 }).escape(),
-	body("description", "Invalid description.").trim().isLength({ min: 1, max: 300 }).escape(), 
-	body("content", "Invalid content.").trim().isLength({ min: 1 }).escape(),
+	body("title", "Invalid title.")
+		.trim()
+		.isLength({ min: 1, max: 40 })
+		.custom(value => { return Article.findOne({ where: { name: value } }).then(() => { return Promise.reject("An article with this title already exists.") }) })
+		.escape(),
+	
+	body("subtitle", "Invalid subtitle.")
+		.trim()
+		.isLength({ min: 1, max: 40 })
+		.escape(),
+	
+	body("description", "Invalid description.")
+		.trim()
+		.isLength({ min: 1, max: 300 })
+		.escape(), 
+	
+	body("content", "Invalid content.")
+		.trim()
+		.isLength({ min: 1 })
+		.escape(),
 
 	(req, res, next) => {
 		const errors = validationResult(req);

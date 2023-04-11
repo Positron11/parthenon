@@ -194,11 +194,41 @@ a.unstyled {
 }
 
 
+/* =============== MESSAGES =============== */
+
+.message {
+	z-index: 2;
+	color: white;
+	max-width: 75vw;
+	position: absolute;
+	top: 6em; right: 0;
+	padding: 0.75em 1em;
+	border-radius: 0.625em;
+	box-shadow: 2px 2px 4px 2px #00000022;
+	animation: message-hide 5s forwards;
+}
+.message:not(.error) {
+	background-color: var(--dark-grey);
+}
+.message.error {
+	background-color: var(--dark-red);
+}
+
+.message .banner {
+	font-family: var(--display-font);
+}
+
+.message .content {
+	font-weight: 450;
+	font-size: 0.9em;
+}
+
+
 /* =============== NAVBAR =============== */
 
 #navbar {
 	top: 0;
-	z-index: 2;
+	z-index: 4;
 	height: 5em;
 	position: sticky;
 	color: var(--grey);
@@ -250,7 +280,7 @@ a.unstyled {
 /* =============== NAV MENU =============== */
 
 #nav_menu_wrapper {
-	z-index: 1;
+	z-index: 3;
 	position: fixed;
 	padding-top: 2.6em;
 	background-color: white;
@@ -311,6 +341,7 @@ a.unstyled {
 
 #toolbar {
 	bottom: 0;
+	z-index: 1;
 	height: 5em;
 	line-height: 0;
 	position: sticky;
@@ -331,4 +362,13 @@ a.unstyled {
 #toolbar_buttons .toolbar-button-icon {
 	width: 1.2em;
 	opacity: 0.35;
+}
+
+
+/* =============== ANIMATIONS =============== */
+
+@keyframes message-hide {
+	0% { opacity: 1; }
+	80% { opacity: 1; }
+	100% { opacity: 0; pointer-events: none; }
 }

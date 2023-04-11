@@ -13,6 +13,12 @@ block header_variables
 	- var subheading = action === "Create" ? "Or Forever Hold Your Silence." : "Don't fix what ain't broke."
 	- var content = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id sunt inventore, facilis tempore laborum unde soluta omnis ea maxime qui amet vel molestiae consectetur magnam earum suscipit distinctio eum saepe?"
 
+block messages
+	if errors
+		.error.message.minimal-spacing.vertically-center.flexbox
+			.banner Err.
+			.content.single-line-text!= errors[0].msg
+
 block content
 	.separator 
 
