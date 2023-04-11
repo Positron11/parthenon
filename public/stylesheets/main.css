@@ -1,6 +1,9 @@
 /* =============== VARIABLES =============== */
 
 :root {
+	--serif-font: "Crimson Pro", serif;
+	--display-font: "DM Serif Text", serif;
+
 	--grey: #AAA;
 	--dark-grey: #222;
 	--off-white: #EEE;
@@ -19,7 +22,7 @@
 	scroll-behavior: smooth;
 	scroll-padding-top: 6em;
 	scroll-padding-bottom: 6em;
-	font-family: "Crimson Pro", serif;
+	font-family: var(--serif-font);
 }
 
 @media only screen and (max-width: 45em) {:is(html, body) {
@@ -39,7 +42,7 @@
 	color: #222;
 	font-weight: 400; 
 	margin: -0.15em 0;
-	font-family: "DM Serif Text", serif;
+	font-family: var(--display-font);
 }
 
 :is(h1, h2, h3, h4, p) + :is(h1, h2, h3, h4) {
