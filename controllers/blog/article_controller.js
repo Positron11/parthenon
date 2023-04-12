@@ -126,7 +126,6 @@ exports.article_update_post = [
 		}) 
 	}).escape(),
 	
-	body("title", "Invalid title.").trim().isLength({ min: 1, max: 40 }).escape(),
 	body("subtitle", "Invalid subtitle.").trim().isLength({ min: 1, max: 40 }).escape(),
 	body("description", "Invalid description.").trim().isLength({ min: 1, max: 300 }).escape(), 
 	body("content", "Invalid content.").trim().isLength({ min: 1 }).escape(),
