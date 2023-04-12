@@ -364,7 +364,11 @@ a.unstyled {
 	opacity: 0.35;
 	margin: -0.75em;
 	padding: 0.75em;
+	transition: 0.15s ease opacity;
 }
+@media only screen and (pointer: fine) {#toolbar_buttons .toolbar-button-icon:hover {
+	opacity: 1;
+}}
 
 
 /* =============== ANIMATIONS =============== */
