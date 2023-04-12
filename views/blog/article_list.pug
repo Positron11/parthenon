@@ -3,10 +3,12 @@ extends ../base
 append stylesheets
 	link(rel="stylesheet", href="/stylesheets/blog/article_list.css")
 
-block header_variables
-	- var heading = "Blog."
-	- var subheading = "They're Only Words."
-	- var content = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id sunt inventore, facilis tempore laborum unde soluta omnis ea maxime qui amet vel molestiae consectetur magnam earum suscipit distinctio eum saepe?"
+block static_variables
+	- var header_heading = "Blog."
+	- var header_subheading = "They're Only Words."
+	- var header_content = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id sunt inventore, facilis tempore laborum unde soluta omnis ea maxime qui amet vel molestiae consectetur magnam earum suscipit distinctio eum saepe?"
+
+	- var toolbar_banner_content = "Explore."
 
 block content
 	.separator 

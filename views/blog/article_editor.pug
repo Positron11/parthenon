@@ -8,10 +8,12 @@ append stylesheets
 	link(rel="stylesheet", href="/stylesheets/forms.css")
 	link(rel="stylesheet", href="/stylesheets/blog/article_editor.css")
 
-block header_variables
-	- var heading = `${action}.`
-	- var subheading = action === "Create" ? "Or Forever Hold Your Silence." : "Don't fix what ain't broke."
-	- var content = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id sunt inventore, facilis tempore laborum unde soluta omnis ea maxime qui amet vel molestiae consectetur magnam earum suscipit distinctio eum saepe?"
+block static_variables
+	- var header_heading = `${action}.`
+	- var header_subheading = action === "Create" ? "Or Forever Hold Your Silence." : "Don't fix what ain't broke."
+	- var header_content = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id sunt inventore, facilis tempore laborum unde soluta omnis ea maxime qui amet vel molestiae consectetur magnam earum suscipit distinctio eum saepe?"
+
+	- var toolbar_banner_content = action === "Create" ? "Write." : "Edit."
 
 block messages
 	if errors

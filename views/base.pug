@@ -23,6 +23,8 @@ html
 		block scripts
 
 	body
+		block static_variables
+		
 		#page
 			header#navbar.space-between.vertically-center.flexbox
 				a.unstyled(href="/"): #navbar_banner Aa.
@@ -41,15 +43,14 @@ html
 
 			main#main
 				#header
-					block header_variables
-					h1.heading!= heading
-					h2.subheading!= subheading
-					p.content!= content
+					h1.heading!= header_heading
+					h2.subheading!= header_subheading
+					p.content!= header_content
 
 				block content
 
 			#toolbar.space-between.vertically-center.flexbox
-				#toolbar_banner Bar.
+				#toolbar_banner= toolbar_banner_content
 
 				#toolbar_buttons.minimal-spacing.vertically-center.flexbox
 					block toolbar_buttons

@@ -1,9 +1,11 @@
 extends ../base
 
-block header_variables 
-	- var heading = "Banish."
-	- var subheading = `Deleting: ${article.title}`
-	- var content = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti, accusantium reiciendis exercitationem pariatur distinctio voluptate nam quos id numquam, dolore omnis tempore odio excepturi consequuntur ex. Architecto recusandae magni est."
+block static_variables 
+	- var header_heading = "Banish."
+	- var header_subheading = `Deleting: ${article.title}`
+	- var header_content = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti, accusantium reiciendis exercitationem pariatur distinctio voluptate nam quos id numquam, dolore omnis tempore odio excepturi consequuntur ex. Architecto recusandae magni est."
+
+	- var toolbar_banner_content = "Delete."
 
 block content 
 	.separator 

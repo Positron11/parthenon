@@ -3,10 +3,12 @@ extends ../base
 append stylesheets 
 	link(rel="stylesheet", href="/stylesheets/blog/article_detail.css")
 
-block header_variables
-	- var heading = article.title
-	- var subheading = article.subtitle
-	- var content = article.renderDescription()
+block static_variables
+	- var header_heading = article.title
+	- var header_subheading = article.subtitle
+	- var header_content = article.renderDescription()
+
+	- var toolbar_banner_content = "Read."
 
 block content	
 	.separator 
