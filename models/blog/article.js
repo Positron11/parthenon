@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const slugify = require("slugify");
-const MarkdownIt = require('markdown-it');
+const MarkdownIt = require("markdown-it");
+const he = require("he");
 
 const Schema = mongoose.Schema;
 
@@ -24,7 +25,7 @@ ArticleSchema.virtual("url").get(function() {
 
 // generate slug pre-validation
 ArticleSchema.pre("validate", function(next) {
-	this.slug = slugify(this.title, { lower: true, strict: true });
+	this.slug = slugify(he.decode(this.title), { lower: true, strict: true });
 	next();
 });
 
