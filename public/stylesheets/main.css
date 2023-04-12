@@ -178,8 +178,8 @@ a.unstyled {
 }
 
 .flexbox.minimal-spacing {
-	row-gap: calc(var(--standard-spacing) / 2.5);
-	column-gap: calc(var(--standard-spacing) / 2.5);
+	row-gap: calc(var(--standard-spacing) / 2);
+	column-gap: calc(var(--standard-spacing) / 2);
 }
 
 
