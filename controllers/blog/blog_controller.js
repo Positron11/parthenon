@@ -27,7 +27,7 @@ exports.article_detail = (req, res, next) => {
 				return next(error);
 			}
 
-			// render article list view
+			// render article detail view
 			res.render("blog/article_detail", { 
 				title: result.title,
 				article: result	
