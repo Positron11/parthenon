@@ -14,7 +14,7 @@
 	display: flex;
 	font-weight: 450;
 	font-size: 0.6em;
-	color: var(--grey);
+	color: var(--gray);
 }
 @media only screen and (min-width: calc(45em + 1px)) {.article-preview .date {
 	margin-right: 2rem;
@@ -51,7 +51,7 @@
 }
 
 .article-preview .description {
-	color: var(--grey);
+	color: var(--gray);
 	transition: 0.3s ease color;
 }
 @media only screen and (min-width: calc(45em + 1px)) {.article-preview .description {

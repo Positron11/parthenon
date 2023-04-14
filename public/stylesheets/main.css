@@ -4,8 +4,8 @@
 	--serif-font: "Crimson Pro", serif;
 	--display-font: "DM Serif Text", serif;
 
-	--grey: #AAA;
-	--dark-grey: #222;
+	--gray: #AAA;
+	--dark-gray: #222;
 	--off-white: #EEE;
 	--light-red: #FEEFF1;
 	--dark-red: #EF3D59;
@@ -124,7 +124,7 @@ a.unstyled {
 	display: inline-block;
 	border-radius: 0.625em;
 	color: var(--off-white);
-	background-color: var(--dark-grey);
+	background-color: var(--dark-gray);
 }
 :is(button, .button).danger {
 	background-color: var(--dark-red);
@@ -208,7 +208,7 @@ a.unstyled {
 	animation: message-hide 5s forwards;
 }
 .message:not(.error) {
-	background-color: var(--dark-grey);
+	background-color: var(--dark-gray);
 }
 .message.error {
 	background-color: var(--dark-red);
@@ -231,7 +231,7 @@ a.unstyled {
 	z-index: 4;
 	height: 5em;
 	position: sticky;
-	color: var(--grey);
+	color: var(--gray);
 	background-color: white;
 	transition: 0.3s color ease, 0.3s box-shadow ease;
 }
@@ -260,11 +260,11 @@ a.unstyled {
 }
 #nav_menu_button .bar {
 	height: 0.125em;
-	background-color: var(--grey);
+	background-color: var(--gray);
 	transition: 0.3s ease opacity, 0.3s ease transform;
 }
 #navbar.menu-open #nav_menu_button .bar {
-	background-color: var(--dark-grey);
+	background-color: var(--dark-gray);
 }
 #navbar.menu-open #nav_menu_button .bar:nth-child(2) {
 	opacity: 0;
@@ -309,7 +309,7 @@ a.unstyled {
 	font-size: 2em;
 }}
 @media only screen and (pointer: fine) {#nav_menu:hover a:not(:hover) {
-	color: var(--grey);
+	color: var(--gray);
 }}
 
 
@@ -320,7 +320,7 @@ a.unstyled {
 }
 
 #header .content {
-	color: var(--grey);
+	color: var(--gray);
 }
 
 
@@ -345,7 +345,7 @@ a.unstyled {
 	height: 5em;
 	line-height: 0;
 	position: sticky;
-	color: var(--grey);
+	color: var(--gray);
 	background-color: white;
 	border-top: 1px solid #EEE;
 }
