@@ -38,22 +38,20 @@ exports.article_create_post = [
 		}
 
 		// create new article instance
-		const article = new Article({ 
+		Article.create({ 
 			title: req.body.title,
 			subtitle: req.body.subtitle,
 			description: req.body.description,
 			content: req.body.content
-		});
 		
-		// save new article instance
-		article.save().then(
+		}).then( // redirect to article detail
 			result => { res.redirect(result.url); }, 
 			err => { return next(err); }
 		);
 	}
 ]
 
-// article delete view get method controller
+// article confirm delete view controller
 exports.article_delete_get = (req, res, next) => {
 	// get article by unique slug
 	Article.findOne({ slug: req.params.slug }).then(
@@ -143,27 +141,13 @@ exports.article_update_post = [
 			}); return;
 		}
 
-		Article.findOne({ slug: req.params.slug }).then(
-			result => { 
-				// if article does not exist
-				if (result === null) {
-					const error = new Error("This article does not exist");
-					error.status = 404;
-					return next(error);
-				}
-				
-				// update all fields
-				result.title = req.body.title;
-				result.subtitle = req.body.subtitle;
-				result.description = req.body.description;
-				result.content = req.body.content;
-
-				// save article and go to article url
-				result.save().then(
-					result => { res.redirect(result.url); },
-					err => { return next(err); }
-				);
-			 }, 
+		Article.findOneAndUpdate({ slug: req.params.slug }, {
+			title: req.body.title,
+			subtitle: req.body.subtitle,
+			description: req.body.description,
+			content: req.body.content,
+		}).then(
+			result => { res.redirect(result.url); },
 			err => { return next(err); }
 		);
 	}
