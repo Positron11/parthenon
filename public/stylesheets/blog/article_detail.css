@@ -1,0 +1,65 @@
+/* Comment info */
+.comment-wrapper .comment .info { 
+	line-height: 1.5em; 
+}
+.comment-wrapper .comment .info .author { 
+	font-family: var(--display-font); 
+}
+
+/* Comment form show/hide logic */
+.comment-wrapper.edit-mode>.comment .content { 
+	display: none; 
+}
+.comment-wrapper:not(.edit-mode)>.comment .edit-form { 
+	display: none; 
+}
+.comment-wrapper:not(.reply-mode)>.replies>.reply-form { 
+	display: none; 
+}
+
+/* Comment edit form */
+.comment-wrapper .comment .edit-form { 
+	margin-bottom: -3.25em; 
+}
+
+/* Comment action buttons */
+.comment-wrapper .comment .comment-actions {
+	margin: 0.25em 4em 0 0;
+}
+.comment-wrapper .comment .comment-actions .comment-action-button {
+	padding: 0;
+	background-color: transparent;
+}
+.comment-wrapper .comment .comment-actions .comment-action-button img {
+	width: 1em;
+	opacity: 0.35;
+	transition: 0.3s ease opacity;
+}
+@media only screen and (pointer: fine) {.comment-wrapper .comment .comment-actions .comment-action-button:hover img {
+	opacity: 1;
+}}
+
+/* Comment action button indicator mode logic */
+.comment-wrapper.reply-mode>.comment .comment-actions .reply-button img { 
+	opacity: 1; 
+}
+.comment-wrapper.edit-mode>.comment .comment-actions .edit-button img { 
+	opacity: 1; 
+}
+
+/* Comment delete button */
+.comment-wrapper .comment .comment-actions .delete-comment-form { 
+	line-height: 0; 
+}
+
+/* Comment reply tree */
+.comment-wrapper .replies { 
+	border-left: 2px solid #EEE;
+	padding-left: var(--compact-spacing);
+}
+@media only screen and (max-width: 45em) {.comment-wrapper .replies { 
+	padding-left: var(--minimal-spacing);
+}}
+.comment-wrapper:not(.reply-mode)>.replies.empty {
+	margin-top: calc(0px - var(--compact-spacing));
+}

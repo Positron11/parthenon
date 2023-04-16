@@ -4,6 +4,7 @@ const MarkdownIt = require("markdown-it");
 const he = require("he");
 
 const Schema = mongoose.Schema;
+const Comment = require("../../models/blog/comment");
 
 const md = new MarkdownIt();
 
@@ -23,9 +24,23 @@ ArticleSchema.virtual("url").get(function() {
 	return `/blog/article/${this.slug}`;
 });
 
+// article comments virtual
+ArticleSchema.virtual("comments", {
+	ref: "Comment",
+	localField: "_id",
+	foreignField: "article"
+});
+
 // generate slug pre-validation
 ArticleSchema.pre("validate", function(next) {
 	this.slug = slugify(he.decode(this.title), { lower: true, strict: true });
+	next();
+});
+
+// deletion cascade
+ArticleSchema.pre("findOneAndDelete", async function(next) {
+	const article = await this.model.findOne(this.getQuery());
+	await Comment.deleteMany({ article: article._id });
 	next();
 });
 

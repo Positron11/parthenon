@@ -1,6 +1,12 @@
 extends ../base
 
+append scripts
+	script(type="text/javascript", src="/javascripts/autosize.min.js", defer)
+	script(type="text/javascript", src="/javascripts/forms.js", defer)
+	script(type="text/javascript", src="/javascripts/blog/article_detail.js", defer)
+
 append stylesheets 
+	link(rel="stylesheet", href="/stylesheets/forms.css")
 	link(rel="stylesheet", href="/stylesheets/blog/article_detail.css")
 
 block static_variables
@@ -12,8 +18,54 @@ block static_variables
 
 block content	
 	.separator 
-
 	#article_content!= article.renderContent()
+
+	.separator 
+	#comments.compact-spacing.column.flexbox
+		h2 Comments
+
+		form#new_comment_form.minimal-spacing.column.flexbox(action="../comment/create", method="post")
+			input(type="hidden", name="article", value=article._id)
+			textarea(name="content", rows="3", required="true")
+			.space-between.minimal-spacing.vertically-center.flexbox
+				.small.gray.single-line-text= article.comments.length ? "Join the discussion." : "Start the discussion."
+				button#new_comment_form_submit_button(type="submit") Comment
+
+		mixin comment(comment)
+			.comment-wrapper.compact-spacing.column.flexbox
+				.comment.minimal-spacing.column.flexbox(id=comment._id)
+					.info
+						span.author.small John Doe 
+						- var date = new Date(comment.updated_date);
+						span.date.small.gray= ` - ${date.toLocaleTimeString("en-us", { hour: "numeric", minute: "numeric" })} on ${date.toLocaleDateString("en-us", { year:"numeric", month:"long", day:"numeric"})}`
+					
+					.content!= comment.renderContent()
+
+					form.internal-comment-form.edit-form.minimal-spacing.column.flexbox(action=`../comment/${comment._id}/edit`, method="post")
+						textarea(name="content", rows="1", required="true")!= comment.content
+						.right-align.flexbox: button(type="submit") Edit
+			
+					.comment-actions.minimal-spacing.flexbox
+						.reply-button.clickable.comment-action-button(onclick=`toggleCommentForm(this, 'reply'); document.getElementById('${comment._id}').scrollIntoView();`): img(src="/images/icons/reply.svg")
+						.edit-button.clickable.comment-action-button(onclick=`toggleCommentForm(this, 'edit'); document.getElementById('${comment._id}').scrollIntoView();`): img(src="/images/icons/edit.svg")
+						form.delete-comment-form(action=`../comment/${comment._id}/delete`, method="post"): button.comment-action-button(type="submit"): img(src="/images/icons/trash.svg")
+				
+				.replies.compact-spacing.column.flexbox(class=comment.replies.length ? null : "empty")
+					form.internal-comment-form.reply-form.minimal-spacing.column.flexbox(action="../comment/create", method="post")
+						input(type="hidden", name="article", value=comment.article)
+						input(type="hidden", name="parent", value=comment._id)
+						textarea(name="content", rows="2", required="true")
+						.space-between.minimal-spacing.vertically-center.flexbox
+							.small.gray.single-line-text Write a reply to John Doe.
+							button(type="submit") Reply
+
+					for reply in comment.replies
+						+comment(reply)
+
+		if article.comments.length
+			.separator
+			for comment in article.comments
+				+comment(comment)
 
 block toolbar_buttons 
 	a.unstyled(href=`${article.url}/edit`): img(src="/images/icons/edit.svg").toolbar-button-icon

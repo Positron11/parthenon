@@ -11,6 +11,8 @@
 	--dark-red: #EF3D59;
 
 	--standard-spacing: 3rem;
+	--compact-spacing: calc(var(--standard-spacing) / 1.5);
+	--minimal-spacing: calc(var(--standard-spacing) / 2.5);
 }
 
 
@@ -87,6 +89,14 @@ p {
 a.unstyled {
 	color: inherit;
 	text-decoration: none;
+}
+
+.small {
+	font-size: 0.9em;
+}
+
+.gray {
+	color: var(--gray);
 }
 
 
@@ -173,13 +183,13 @@ a.unstyled {
 }
 
 .flexbox.compact-spacing {
-	row-gap: calc(var(--standard-spacing) / 1.5);
-	column-gap: calc(var(--standard-spacing) / 1.5);
+	row-gap: var(--compact-spacing);
+	column-gap: var(--compact-spacing);
 }
 
 .flexbox.minimal-spacing {
-	row-gap: calc(var(--standard-spacing) / 2.5);
-	column-gap: calc(var(--standard-spacing) / 2.5);
+	row-gap: var(--minimal-spacing);
+	column-gap: var(--minimal-spacing);
 }
 
 
