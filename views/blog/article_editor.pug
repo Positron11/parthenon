@@ -41,10 +41,7 @@ block content
 			label#form_content_field_label(for="form_content_field") Content
 			textarea#form_content_field(name="content", rows="8", required="true")!= (undefined === form_data ? "" : form_data.content)
 		
-		.space-between.right-align.flexbox
-			if action === "Update"
-				a(href=form_data.url + "/delete").unstyled: .danger.button Delete
-				
+		.right-align.flexbox
 			button#form_submit_button(type="submit")= action
 
 block toolbar_buttons 
