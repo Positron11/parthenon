@@ -136,8 +136,15 @@ a.unstyled {
 	color: var(--off-white);
 	background-color: var(--dark-gray);
 }
+
 :is(button, .button).danger {
 	background-color: var(--dark-red);
+}
+
+:is(button, .button):disabled {
+	color: var(--gray);
+	pointer-events: none;
+	background-color: var(--off-white);
 }
 
 
