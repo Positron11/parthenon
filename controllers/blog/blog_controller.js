@@ -2,8 +2,8 @@ const Article = require("../../models/blog/article");
 
 // article list view controller
 exports.article_list = (req, res, next) => {
-	// get all articles in reverse order
-	Article.find().sort({ updated_date: -1 }).then(
+	// get all articles in reverse chronological order
+	Article.find().sort({ created_date: -1 }).then(
 		result => {
 			// render article list view
 			res.render("blog/article_list", { 

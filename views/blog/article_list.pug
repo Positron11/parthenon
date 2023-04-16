@@ -17,7 +17,7 @@ block content
 		each article in articles
 			a.unstyled(href=article.url): .article-preview
 				.date
-					- var date = new Date(article.updated_date);
+					- var date = new Date(article.created_date);
 					.day= date.getDate().toString().padStart(2, "0")
 					.month= date.toLocaleString('default', { month: "short" })
 					.year= date.getFullYear()
