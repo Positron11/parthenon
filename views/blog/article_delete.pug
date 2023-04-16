@@ -3,13 +3,10 @@ extends ../base
 block static_variables 
 	- var header_heading = "Banish."
 	- var header_subheading = `Deleting: ${article.title}`
-	- var header_content = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti, accusantium reiciendis exercitationem pariatur distinctio voluptate nam quos id numquam, dolore omnis tempore odio excepturi consequuntur ex. Architecto recusandae magni est."
-
+	- var header_content = "Are you entirely sure you want to delete this article? The article itself, along with all its comments will be gone forever. Proceed if you're okay with this."
 	- var toolbar_banner_content = "Delete."
 
-block content 
-	.separator 
-
+block content
 	.space-between.flexbox
 		a(href=article.url).unstyled: .button Cancel
-		form(action="", method="post"): button(type="submit").danger Yup, Delete
+		form(action="", method="post"): button(type="submit").danger Delete
