@@ -178,8 +178,8 @@ a.unstyled {
 }
 
 .flexbox.minimal-spacing {
-	row-gap: calc(var(--standard-spacing) / 2);
-	column-gap: calc(var(--standard-spacing) / 2);
+	row-gap: calc(var(--standard-spacing) / 2.5);
+	column-gap: calc(var(--standard-spacing) / 2.5);
 }
 
 
@@ -362,7 +362,7 @@ a.unstyled {
 #toolbar_buttons .toolbar-button-icon {
 	width: 1.2em;
 	opacity: 0.35;
-	margin: -0.75em;
+	margin: -0.6em;
 	padding: 0.75em;
 	transition: 0.15s ease opacity;
 }
