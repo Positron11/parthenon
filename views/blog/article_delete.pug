@@ -1,5 +1,11 @@
 extends ../base
 
+append scripts
+	script(type="text/javascript", src="/javascripts/blog/article_delete.js", defer)
+
+append stylesheets
+	link(rel="stylesheet", href="/stylesheets/forms.css")
+
 block static_variables 
 	- var header_heading = "Banish."
 	- var header_subheading = `Deleting "${article.title}".`
@@ -7,6 +13,7 @@ block static_variables
 	- var toolbar_banner_content = "Delete."
 
 block content
-	.space-between.flexbox
-		a(href=article.url).unstyled: .button Cancel
-		form(action="", method="post"): button(type="submit").danger Delete
+	.separator
+	form(action="", method="post").space-between.minimal-spacing.flexbox
+		input#form_title_field(type="text", autofocus, required, pattern!=article.title, oninvalid="setCustomValidity('Type article title to confirm')", onchange="setCustomValidity('')", placeholder="Type article title to confirm...")
+		button#form_submit_button(type="submit").danger Delete
