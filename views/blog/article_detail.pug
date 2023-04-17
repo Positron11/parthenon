@@ -33,7 +33,7 @@ block content
 
 		mixin comment(comment)
 			.comment-wrapper.compact-spacing.column.flexbox
-				.comment.minimal-spacing.column.flexbox(id=comment._id)
+				.comment.column.flexbox(id=comment._id)
 					.info
 						span.author.small John Doe 
 						- var date = new Date(comment.updated_date);

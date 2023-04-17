@@ -1,6 +1,7 @@
 /* Comment info */
 .comment-wrapper .comment .info { 
 	line-height: 1.5em; 
+	margin-bottom: 0.75em;
 }
 .comment-wrapper .comment .info .author { 
 	font-family: var(--display-font); 
@@ -24,7 +25,7 @@
 
 /* Comment action buttons */
 .comment-wrapper .comment .comment-actions {
-	margin: 0.25em 4em 0 0;
+	margin: 1.4em 4em 0 0;
 }
 .comment-wrapper .comment .comment-actions .comment-action-button {
 	padding: 0;
