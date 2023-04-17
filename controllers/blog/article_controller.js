@@ -141,13 +141,19 @@ exports.article_update_post = [
 			}); return;
 		}
 
+		// update article
 		Article.findOneAndUpdate({ slug: req.params.slug }, {
 			title: req.body.title,
 			subtitle: req.body.subtitle,
 			description: req.body.description,
 			content: req.body.content,
+
+		// call save to run pre-validate hooks and redirect to article url
 		}).then(
-			result => { res.redirect(result.url); },
+			async result => { 
+				await result.save(); 
+				res.redirect(result.url); 
+			},
 			err => { return next(err); }
 		);
 	}
