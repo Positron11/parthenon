@@ -16,7 +16,7 @@ label {
 	font-family: inherit;
 	border-radius: 0.5em;
 	box-sizing: border-box;
-	background-color: #f8f8f8;
+	background-color: var(--off-white);
 }
 
 :is(input[type="text"], textarea).invalid {
