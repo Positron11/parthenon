@@ -32,7 +32,7 @@
 }}
 
 
-/* =============== TEXT STYLING =============== */
+/* =============== PARAGRAPHS AND HEADINGS =============== */
 
 :is(p, h1, h2, h3, h4) {
 	overflow-x: auto;
@@ -84,6 +84,13 @@ p {
 
 :is(h1, h2, h3, h4, p) + p {
 	margin-top: 1.25em;
+}
+
+
+/* =============== HEADINGS =============== */
+
+:is(b, strong) {
+	font-weight: 600;
 }
 
 a.unstyled {
