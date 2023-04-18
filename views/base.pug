@@ -26,8 +26,12 @@ html
 		block static_variables
 		
 		#page
-			header#navbar.space-between.vertically-center.flexbox
+			header#navbar.space-between.minimal-spacing.vertically-center.flexbox
 				a.unstyled(href="/"): #navbar_banner Aa.
+
+				#toolbar.minimal-spacing.vertically-center.flexbox
+					block toolbar_buttons
+					img.clickable.toolbar-button-icon(src="/images/icons/top.svg", onclick="window.scrollTo(0,0);")
 
 				#nav_menu_button.clickable(src="/images/icons/menu.svg", onclick="document.getElementById('navbar').classList.toggle('menu-open')")
 					.bar 
@@ -48,10 +52,3 @@ html
 					p.content!= header_content
 
 				block content
-
-			#toolbar.space-between.vertically-center.flexbox
-				#toolbar_banner= toolbar_banner_content
-
-				#toolbar_buttons.minimal-spacing.vertically-center.flexbox
-					block toolbar_buttons
-					img.clickable.toolbar-button-icon(src="/images/icons/top.svg", onclick="window.scrollTo(0,0);")
