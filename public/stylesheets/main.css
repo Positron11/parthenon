@@ -286,6 +286,8 @@ a.unstyled {
 	width: 1.2em;
 	opacity: 0.35;
 	display: block;
+	padding: calc(var(--minimal-spacing) / 2);
+	margin: calc(0px - var(--minimal-spacing) / 2);
 	transition: 0.15s ease opacity;
 }
 @media only screen and (pointer: fine) {#toolbar .toolbar-button-icon:hover {
@@ -294,11 +296,11 @@ a.unstyled {
 
 #nav_menu_button {
 	height: 1em;
-	margin: -1em;
-	padding: 1em;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	padding: calc(var(--minimal-spacing) / 2);
+	margin: calc(0px - var(--minimal-spacing) / 2);
 }
 #nav_menu_button .bar {
 	width: 1.1em;
