@@ -30,6 +30,16 @@ textarea {
 	line-height: 2em;
 }
 
+::-webkit-input-placeholder {
+	color: var(--gray);
+}
+::-moz-placeholder {
+	opacity: 1;
+	color: var(--gray);
+}
+::-ms-placeholder {
+	color: var(--gray);
+}
 ::placeholder {
-	color: gray;
+	color: var(--gray);
 }
