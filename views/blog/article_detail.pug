@@ -46,9 +46,9 @@ block content
 						.right-align.flexbox: button(type="submit") Edit
 			
 					.comment-actions.minimal-spacing.flexbox
-						.reply-button.clickable.comment-action-button(onclick=`toggleCommentForm(this, 'reply'); document.getElementById('${comment._id}').scrollIntoView();`): img(src="/images/icons/reply.svg")
-						.edit-button.clickable.comment-action-button(onclick=`toggleCommentForm(this, 'edit'); document.getElementById('${comment._id}').scrollIntoView();`): img(src="/images/icons/edit.svg")
-						form.delete-comment-form(action=`../comment/${comment._id}/delete`, method="post"): button.comment-action-button(type="submit"): img(src="/images/icons/trash.svg")
+						.small.icon.button: img.reply-button.comment-action-button(src="/images/icons/reply.svg", onclick=`toggleCommentForm(this, 'reply'); document.getElementById('${comment._id}').scrollIntoView();`)
+						.small.icon.button: img.edit-button.comment-action-button(src="/images/icons/edit.svg", onclick=`toggleCommentForm(this, 'edit'); document.getElementById('${comment._id}').scrollIntoView();`)
+						form.delete-comment-form(action=`../comment/${comment._id}/delete`, method="post"): button.small.icon.comment-action-button(type="submit"): img(src="/images/icons/trash.svg")
 				
 				.replies.compact-spacing.column.flexbox(class=comment.replies.length ? null : "empty")
 					form.internal-comment-form.reply-form.minimal-spacing.column.flexbox(action="../comment/create", method="post")
@@ -68,6 +68,6 @@ block content
 				+comment(comment)
 
 block toolbar_buttons 
-	img.clickable.toolbar-button-icon(src="/images/icons/comments.svg", onclick="document.getElementById('comments').scrollIntoView();")
-	a.unstyled(href=`${article.url}/edit`): img(src="/images/icons/edit.svg").toolbar-button-icon
-	a.unstyled(href=`${article.url}/delete`): img(src="/images/icons/trash.svg").toolbar-button-icon
+	.icon.button: img.toolbar-button-icon(src="/images/icons/comments.svg", onclick="document.getElementById('comments').scrollIntoView();")
+	a.unstyled.icon.button(href=`${article.url}/edit`): img.toolbar-button-icon(src="/images/icons/edit.svg")
+	a.unstyled.icon.button(href=`${article.url}/delete`): img.toolbar-button-icon(src="/images/icons/trash.svg")

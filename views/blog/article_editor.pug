@@ -45,6 +45,6 @@ block content
 			button#form_submit_button(type="submit")= action
 
 block toolbar_buttons 
-	img.clickable.toolbar-button-icon(src="/images/icons/title.svg", onclick="document.getElementById('form_title_field_label').scrollIntoView();")
-	img.clickable.toolbar-button-icon(src="/images/icons/content.svg", onclick="document.getElementById('form_content_field_label').scrollIntoView();")
-	img.clickable.toolbar-button-icon(src="/images/icons/publish.svg", onclick="document.getElementById('form_submit_button').scrollIntoView();")
+	.icon.button: img.toolbar-button-icon(src="/images/icons/title.svg", onclick="document.getElementById('form_title_field_label').scrollIntoView();")
+	.icon.button: img.toolbar-button-icon(src="/images/icons/content.svg", onclick="document.getElementById('form_content_field_label').scrollIntoView();")
+	.icon.button: img.toolbar-button-icon(src="/images/icons/publish.svg", onclick="document.getElementById('form_submit_button').scrollIntoView();")

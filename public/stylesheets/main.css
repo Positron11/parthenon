@@ -133,26 +133,44 @@ a.unstyled {
 
 :is(button, .button) {
 	border: none;
-	font-size: 1em;
+	font-size: 1em; 
 	cursor: pointer;
+	background: none;
+	display: inline-block;
+}
+
+:is(button, .button):not(.icon) {
 	font-weight: 450;
 	padding: 0.75em 1em;
 	font-family: inherit;
-	display: inline-block;
 	border-radius: 0.625em;
 	color: var(--off-white);
 	background-color: var(--dark-gray);
 }
-
-:is(button, .button).danger {
+:is(button, .button):not(.icon).danger {
 	background-color: var(--dark-red);
 }
-
-:is(button, .button):disabled {
+:is(button, .button):not(.icon):disabled {
 	color: var(--gray);
 	pointer-events: none;
 	background-color: var(--off-white);
 }
+
+:is(button, .button).icon {
+	line-height: 0;
+}
+
+:is(button, .button).icon img {
+	width: 1.2em;
+	filter: invert(73%) sepia(2%) saturate(23%) hue-rotate(7deg) brightness(93%) contrast(93%);
+	transition: 0.15s ease filter;
+}
+:is(button, .button).icon.small img {
+	width: 1em;
+}
+@media only screen and (pointer: fine) {:is(.button, button).icon:hover img {
+	filter: none;
+}}
 
 
 /* =============== GENERIC ELEMENTS =============== */
@@ -283,16 +301,9 @@ a.unstyled {
 }
 
 #toolbar .toolbar-button-icon {
-	width: 1.2em;
-	opacity: 0.35;
-	display: block;
 	padding: calc(var(--minimal-spacing) / 2);
 	margin: calc(0px - var(--minimal-spacing) / 2);
-	transition: 0.15s ease opacity;
 }
-@media only screen and (pointer: fine) {#toolbar .toolbar-button-icon:hover {
-	opacity: 1;
-}}
 
 #nav_menu_button {
 	height: 1em;
