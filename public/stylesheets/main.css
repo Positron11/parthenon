@@ -343,7 +343,8 @@ a.unstyled {
 
 #nav_menu_button .bar {
 	width: 1.1em;
-	height: 0.125em;
+	height: 0.15em;
+	border-radius: 0.05em;
 	background-color: var(--gray);
 	transition: 0.3s ease opacity, 0.3s ease transform;
 }
@@ -355,10 +356,10 @@ a.unstyled {
 	opacity: 0;
 }
 #navbar.menu-open #nav_menu_button .bar:nth-child(1) {
-	transform: rotate(-45deg) translate(-0.275em, 0.35em);
+	transform: rotate(-45deg) translate(-0.275em, 0.32em);
 }
 #navbar.menu-open #nav_menu_button .bar:nth-child(3) {
-	transform: rotate(45deg) translate(-0.275em, -0.35em);
+	transform: rotate(45deg) translate(-0.275em, -0.32em);
 }
 
 
