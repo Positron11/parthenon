@@ -1,3 +1,5 @@
+/* ========================================================== ARTICLE PREVIEW */
+
 .article-preview {
 	display: flex;
 }
@@ -9,6 +11,8 @@
 	flex-direction: column;
 	align-items: flex-start;
 }}
+
+/* Date */
 
 .article-preview .date {
 	display: flex;
@@ -40,6 +44,8 @@
 	border-left: 2px solid #F3F3F3;
 }}
 
+/* Title Header */
+
 @media only screen and (min-width: calc(45em + 1px)) {.article-preview .header {
 	flex: 0 0 35%;
 	margin-right: 4em;
@@ -50,6 +56,8 @@
 	line-height: 1.75em;
 }
 
+/* Description */
+
 .article-preview .description {
 	color: var(--gray);
 	transition: 0.3s ease color;
@@ -58,7 +66,6 @@
 	text-align: right;
 	margin-left: auto;
 }}
-
 @media only screen and (pointer: fine) {.article-preview:hover .description {
 	color: inherit;
 }}

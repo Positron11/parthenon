@@ -1,3 +1,5 @@
+/* =================================================================== LABELS */
+
 label {
 	display: block;
 	font-weight: 400;
@@ -6,6 +8,9 @@ label {
 	margin-bottom: 0.75rem;
 	font-family: var(--display-font);
 }
+
+
+/* =================================================================== INPUTS */
 
 :is(input[type="text"], textarea) {
 	min-width: 0;
@@ -19,16 +24,19 @@ label {
 	box-sizing: border-box;
 	background-color: var(--off-white);
 }
-
 :is(input[type="text"], textarea).invalid {
 	background-color: var(--light-red);
 }
+
+/* Textarea */ 
 
 textarea {
 	width: 100%;
 	resize: none;
 	line-height: 2em;
 }
+
+/* Placeholder Text */
 
 ::-webkit-input-placeholder {
 	color: var(--gray);

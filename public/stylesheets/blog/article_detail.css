@@ -1,4 +1,7 @@
-/* Comment info */
+/* ================================================================= COMMENTS */
+
+/* Comment Info */
+
 .comment-wrapper .comment .info { 
 	line-height: 1.5em; 
 	margin-bottom: 0.75em;
@@ -8,18 +11,21 @@
 }
 
 /* Comment form show/hide logic */
+
 .comment-wrapper.edit-mode>.comment .content,
 .comment-wrapper:not(.edit-mode)>.comment .edit-form,
 .comment-wrapper:not(.reply-mode)>.replies>.reply-form { 
 	display: none; 
 }
 
-/* Comment edit form */
+/* Comment Edit Form */
+
 .comment-wrapper .comment .edit-form { 
 	margin-bottom: -3.25em; 
 }
 
-/* Comment action buttons */
+/* Comment Action Buttons */
+
 .comment-wrapper .comment .comment-actions {
 	margin: 1.4em 4em 0 0;
 }
@@ -29,12 +35,14 @@
 }
 
 /* Comment action button indicator mode logic */
+
 .comment-wrapper.reply-mode>.comment .comment-actions .reply-button,
 .comment-wrapper.edit-mode>.comment .comment-actions .edit-button { 
 	filter: none;
 }
 
-/* Comment reply tree */
+/* Comment Reply Tree */
+
 .comment-wrapper .replies { 
 	border-left: 2px solid #EEE;
 	padding-left: var(--compact-spacing);

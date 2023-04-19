@@ -1,38 +1,42 @@
-/* =============== VARIABLES =============== */
+/* ================================================================ VARIABLES */
 
 :root {
+	/* Fonts */
 	--serif-font: "Crimson Pro", serif;
 	--display-font: "DM Serif Text", serif;
 
+	/* Colors */
 	--gray: #AAA;
 	--dark-gray: #222;
 	--off-white: #F8F8F8;
 	--light-red: #FEEFF1;
 	--dark-red: #EF3D59;
 
+	/* Spacing */
 	--standard-spacing: 3rem;
 	--compact-spacing: calc(var(--standard-spacing) / 1.5);
 	--minimal-spacing: calc(var(--standard-spacing) / 2.5);
+
+	/* Sizes */
+	--navbar-height: 5em;
 }
 
 
-/* =============== GLOBAL ===============*/
+/* =================================================================== GLOBAL */
 
 :is(html, body) {
 	font-size: 22px;
 	font-weight: 350;
 	scroll-behavior: smooth;
-	scroll-padding-top: 6em;
-	scroll-padding-bottom: 6em;
+	scroll-padding-top: calc(var(--navbar-height) + 1em);
 	font-family: var(--serif-font);
 }
-
 @media only screen and (max-width: 45em) {:is(html, body) {
 	font-size: 19px;
 }}
 
 
-/* =============== PARAGRAPHS AND HEADINGS =============== */
+/* ================================================== PARAGRAPHS AND HEADINGS */
 
 :is(p, h1, h2, h3, h4) {
 	overflow-x: auto;
@@ -40,13 +44,14 @@
 	text-overflow: ellipsis;
 }
 
+/* Headings */
+
 :is(h1, h2, h3, h4) { 
 	color: #222;
 	font-weight: 400; 
 	margin: -0.15em 0;
 	font-family: var(--display-font);
 }
-
 :is(h1, h2, h3, h4, p) + :is(h1, h2, h3, h4) {
 	margin-top: var(--standard-spacing);
 }
@@ -77,6 +82,8 @@ h4 {
 	line-height: 1.7em;
 }
 
+/* Paragraphs */
+
 p {
 	margin: -0.45em 0;
 	line-height: 2em;
@@ -87,15 +94,20 @@ p {
 }
 
 
-/* =============== HEADINGS =============== */
+/* ============================================================= TEXT STYLING */
 
-:is(b, strong) {
-	font-weight: 600;
-}
+/* Links */
 
 a.unstyled {
 	color: inherit;
 	text-decoration: none;
+}
+
+
+/* Generic */
+
+:is(b, strong) {
+	font-weight: 600;
 }
 
 .small {
@@ -107,11 +119,7 @@ a.unstyled {
 }
 
 
-/* =============== UTILITIES =============== */
-
-.clickable {
-	cursor: pointer;
-}
+/* =========================================================== TEXT MODIFIERS */
 
 .single-line-text {
 	display: block;
@@ -129,7 +137,22 @@ a.unstyled {
 }
 
 
-/* =============== BUTTONS =============== */
+/* ======================================================== GENERIC MODIFIERS */
+
+.clickable {
+	cursor: pointer;
+}
+
+
+/* ========================================================= GENERIC ELEMENTS */
+
+.separator {
+	width: 100%;
+	border-top: 1px solid #EEE;
+}
+
+
+/* ================================================================== BUTTONS */
 
 :is(button, .button) {
 	border: none;
@@ -138,6 +161,8 @@ a.unstyled {
 	background: none;
 	display: inline-block;
 }
+
+/* Standard Button */
 
 :is(button, .button):not(.icon) {
 	font-weight: 450;
@@ -156,6 +181,8 @@ a.unstyled {
 	background-color: var(--off-white);
 }
 
+/* Icon Button */
+
 :is(button, .button).icon {
 	line-height: 0;
 }
@@ -173,15 +200,7 @@ a.unstyled {
 }}
 
 
-/* =============== GENERIC ELEMENTS =============== */
-
-.separator {
-	width: 100%;
-	border-top: 1px solid #EEE;
-}
-
-
-/* =============== LAYOUTS AND CONTAINERS =============== */
+/* =================================================== LAYOUTS AND CONTAINERS */
 
 .flexbox {
 	display: flex;
@@ -190,6 +209,8 @@ a.unstyled {
 .flexbox.column {
 	flex-direction: column;
 }
+
+/* Alignment */
 
 .flexbox.right-align {
 	justify-content: flex-end;
@@ -201,6 +222,8 @@ a.unstyled {
 .flexbox.column.vertically-center {
 	justify-content: center;
 }
+
+/* Spacing */ 
 
 .flexbox.space-between {
 	justify-content: space-between;
@@ -225,7 +248,7 @@ a.unstyled {
 }
 
 
-/* =============== PAGE CONTAINER =============== */
+/* =========================================================== PAGE CONTAINER */ 
 
 #page {
 	margin: auto;
@@ -236,7 +259,7 @@ a.unstyled {
 }
 
 
-/* =============== MESSAGES =============== */
+/* ================================================================= MESSAGES */
 
 .message {
 	z-index: 2;
@@ -246,11 +269,9 @@ a.unstyled {
 	top: 6em; right: 0;
 	padding: 0.75em 1em;
 	border-radius: 0.625em;
+	background-color: var(--dark-gray);
 	box-shadow: 2px 2px 4px 2px #00000022;
 	animation: message-hide 5s forwards;
-}
-.message:not(.error) {
-	background-color: var(--dark-gray);
 }
 .message.error {
 	background-color: var(--dark-red);
@@ -266,7 +287,7 @@ a.unstyled {
 }
 
 
-/* =============== NAVBAR =============== */
+/* =================================================================== NAVBAR */
 
 #navbar {
 	top: 0;
@@ -284,12 +305,16 @@ a.unstyled {
 	color: unset;
 }
 
+/* =================================================================== Banner */
+
 #navbar_banner {
 	margin: -1rem;
 	padding: 1rem;
 	font-size: 1.5em;
 	font-weight: 500;
 }
+
+/* Toolbar */
 
 #navbar #toolbar {
 	width: 100%;
@@ -305,6 +330,8 @@ a.unstyled {
 	margin: calc(0px - var(--minimal-spacing) / 2);
 }
 
+/* Menu Button */
+
 #nav_menu_button {
 	height: 1em;
 	display: flex;
@@ -313,6 +340,7 @@ a.unstyled {
 	padding: calc(var(--minimal-spacing) / 2);
 	margin: calc(0px - var(--minimal-spacing) / 2);
 }
+
 #nav_menu_button .bar {
 	width: 1.1em;
 	height: 0.125em;
@@ -322,6 +350,7 @@ a.unstyled {
 #navbar.menu-open #nav_menu_button .bar {
 	background-color: var(--dark-gray);
 }
+
 #navbar.menu-open #nav_menu_button .bar:nth-child(2) {
 	opacity: 0;
 }
@@ -333,7 +362,7 @@ a.unstyled {
 }
 
 
-/* =============== NAV MENU =============== */
+/* ================================================================= NAV MENU */
 
 #nav_menu_wrapper {
 	z-index: 3;
@@ -356,6 +385,8 @@ a.unstyled {
 	padding: 0 min(3em, 7.5vw);
 }
 
+/* Links */
+
 #nav_menu a {
 	font-size: 2.5em;
 	padding: 0.75em 0;
@@ -369,7 +400,17 @@ a.unstyled {
 }}
 
 
-/* =============== HEADER =============== */
+/* =========================================================== MAIN CONTAINER */
+
+#main {
+	display: flex;
+	flex-direction: column;
+	row-gap: var(--standard-spacing);
+	margin: var(--standard-spacing) 0;
+}
+
+
+/* =================================================================== HEADER */
 
 #header .heading {
 	max-width: min(31rem, 100%);
@@ -380,17 +421,7 @@ a.unstyled {
 }
 
 
-/* =============== MAIN CONTAINER =============== */
-
-#main {
-	display: flex;
-	flex-direction: column;
-	row-gap: var(--standard-spacing);
-	margin: var(--standard-spacing) 0;
-}
-
-
-/* =============== ANIMATIONS =============== */
+/* =============================================================== ANIMATIONS */
 
 @keyframes message-hide {
 	0% { opacity: 1; }
