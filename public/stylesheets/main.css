@@ -253,6 +253,7 @@ a.unstyled {
 #page {
 	margin: auto;
 	max-width: 45em;
+	min-height: 100vh;
 	position: relative;
 	box-sizing: border-box;
 	padding: 0 min(3em, 7.5vw);
@@ -404,10 +405,10 @@ a.unstyled {
 /* =========================================================== MAIN CONTAINER */
 
 #main {
+	flex: 1 1 0;
 	display: flex;
 	flex-direction: column;
 	row-gap: var(--standard-spacing);
-	margin: var(--standard-spacing) 0;
 }
 
 
@@ -419,6 +420,20 @@ a.unstyled {
 
 #header .content {
 	color: var(--gray);
+}
+
+
+/* =================================================================== FOOTER */
+
+#footer {
+	color: var(--gray);
+	height: var(--navbar-height);
+	border-top: 1px solid #EEE;
+}
+
+#footer_banner {
+	font-size: 1.5em;
+	font-weight: 500;
 }
 
 

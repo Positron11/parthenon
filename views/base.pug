@@ -25,7 +25,7 @@ html
 	body
 		block static_variables
 		
-		#page
+		#page.comfortable-spacing.column.flexbox
 			header#navbar.space-between.minimal-spacing.vertically-center.flexbox
 				a.unstyled(href="/"): #navbar_banner Aa.
 
@@ -51,3 +51,10 @@ html
 					p.content!= header_content
 
 				block content
+
+			#footer.vertically-center.space-between.flexbox
+					#footer_banner Fin.
+
+					#footer_links.vertically-center.minimal-spacing.flexbox 
+						a.icon.button(href="https://github.com/Positron11/parthenon", target="_blank"): img(src="/images/icons/code.svg")
+						.icon.button: img(src="/images/icons/top.svg", onclick="window.scrollTo(0,0);")
