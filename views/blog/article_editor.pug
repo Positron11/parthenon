@@ -10,7 +10,7 @@ append stylesheets
 
 block static_variables
 	- var header_heading = "Editor."
-	- var header_subheading = action === "Create" ? `New article.` : `Editing "${form_data.title}".`
+	- var header_subheading = action === "Create" ? `New article.` : `Editing "${form_data.title}${ ["!", "?", "."].includes(form_data.title.slice(-1)) ? "" : "."}"`
 	- var header_content = "The difference between the almost right word and the right word is really a large matter. ’tis the difference between the lightning bug and the lightning. - Mark Twain"
 
 	- var toolbar_banner_content = action === "Create" ? "Write." : "Edit."
