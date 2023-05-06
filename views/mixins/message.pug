@@ -1,0 +1,11 @@
+mixin Message(status, content)
+	//- message wrapper
+	.messageWrapper.uCalcDimensions
+		//- message
+		.Message(class={success: "sSuccess", error: "sError"}[status], style=`animation-delay: -0.${Math.floor(Math.random() * 100)}s`).Flexbox.mMinimalSpacing.mVerticallyCenter
+			//- message content
+			.status= {info: "Msg.", success: "Succ.", error: "Err."}[status] 
+			.uSingleLineText= content
+		
+			//- close button
+			.closeButton(onclick="this.closest('.messageWrapper').classList.add('sDismissed');").mClickable: img(src="/images/icons/close.svg")

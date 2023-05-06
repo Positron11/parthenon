@@ -1,5 +1,7 @@
 extends ../base.pug
 
+include ../mixins/comment.pug
+
 append stylesheets
 	link(rel="stylesheet", href="/stylesheets/forms.css")
 	link(rel="stylesheet", href="/stylesheets/blog/article_detail.css")
@@ -55,50 +57,3 @@ block main
 			.Flexbox.mColumn.mCompactSpacing
 				for comment in article.comments 
 					+Comment(comment)
-
-//- comment mixin
-mixin Comment(comment)
-	.Comment(id=comment._id)
-		//- comment content wrapper
-		.content.Flexbox.mColumn
-			//- comment author and date
-			.header.Flexbox
-				.author John Doe 
-				- var date = new Date(comment.updated_date);
-				.date= `${date.toLocaleTimeString("en-us", { hour: "numeric", minute: "numeric" })} on ${date.toLocaleDateString("en-us", { year:"numeric", month:"long", day:"numeric"})}`
-
-			//- comment content
-			.body!= comment.renderContent()
-
-		//- comment edit form
-		form.editForm(action=`../comment/${comment._id}/edit`, method="post").internalCommentForm.Flexbox.mColumn.mMinimalSpacing 
-			textarea(name="content", rows="1", required="true")!= comment.content
-			.Flexbox.mRightAlign: button(type="submit") Edit
-
-		//- action buttons
-		.actions.Flexbox.mInline.mMinimalSpacing 
-			img(src="/images/icons/reply.svg", onclick=`toggleCommentForm(this, 'Reply'); document.getElementById('${comment._id}').scrollIntoView();`).mClickable
-			img(src="/images/icons/edit.svg", onclick=`toggleCommentForm(this, 'Edit'); document.getElementById('${comment._id}').scrollIntoView();`).mClickable
-
-			//- delete form
-			form.deleteForm(action=`../comment/${comment._id}/delete`, method="post")
-				button(type="submit").mDiscreet: img(src="/images/icons/trash.svg")
-
-		//- comment replies wrapper
-		.replies(class=comment.replies.length ? null : "sEmpty").Flexbox.mColumn.mCompactSpacing
-			//- reply form
-			form.replyForm(action="../comment/create", method="post").internalCommentForm.Flexbox.mColumn.mMinimalSpacing
-				//- parent metadata
-				input(type="hidden", name="article", value=comment.article)
-				input(type="hidden", name="parent", value=comment._id)
-
-				//- reply content field
-				textarea(name="content", rows="2", required="true")
-				.Flexbox.mSpaceBetween.mVerticallyCenter
-					//- action dialog
-					.tSmall.tGray.uSingleLineText Write a reply to John Doe.
-					button(type="submit") Reply
-
-			//- reply tree
-			for reply in comment.replies 
-				+Comment(reply)
