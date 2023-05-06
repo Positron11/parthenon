@@ -55,14 +55,16 @@ html
 				#Messages.Flexbox.mColumn.mMinimalSpacing
 					//- message mixin
 					mixin Message(status, content)
-						//- message with status class and randomized animation delay
-						.Message(class={success: "sSuccess", error: "sError"}[status], style=`animation-delay: -0.${Math.floor(Math.random() * 100)}s`).Flexbox.mMinimalSpacing.mVerticallyCenter.uCalcDimensions
-							//- message content
-							.status= {info: "Msg.", success: "Succ.", error: "Err."}[status] 
-							.uSingleLineText= content
+						//- message wrapper
+						.messageWrapper.uCalcDimensions
+							//- message
+							.Message(class={success: "sSuccess", error: "sError"}[status], style=`animation-delay: -0.${Math.floor(Math.random() * 100)}s`).Flexbox.mMinimalSpacing.mVerticallyCenter
+								//- message content
+								.status= {info: "Msg.", success: "Succ.", error: "Err."}[status] 
+								.uSingleLineText= content
 							
-							//- close button
-							.closeButton(onclick="this.closest('.Message').classList.add('sDismissed');").mClickable: img(src="/images/icons/close.svg")
+								//- close button
+								.closeButton(onclick="this.closest('.messageWrapper').classList.add('sDismissed');").mClickable: img(src="/images/icons/close.svg")
 
 					//- messages
 					for category in Object.keys(messages)

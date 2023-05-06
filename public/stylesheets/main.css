@@ -254,30 +254,35 @@ a.mUnstyled {
 /* ================================================================= messages */
 
 #Messages {
+	height: 0;
 	z-index: -2;
 	position: absolute;
 	top: calc(100% + 0.5em); right: 0;
 }
 
+.messageWrapper { 
+	align-self: flex-end;
+	transition: opacity 0.3s ease, transform 0.3s ease, margin-top 0.3s ease; 
+}
+.messageWrapper.sDismissed { 
+	opacity: 0;
+	z-index: -1;
+	pointer-events: none;
+	transform: scale(0.75); 
+}
+.messageWrapper.sDismissed + .messageWrapper { margin-top: calc(0px - (var(--height) + 1em)); }
+
 .Message {
 	padding: 0.8em 1em;
-	align-self: flex-end;
 	box-sizing: border-box;
 	color: var(--off-white);
 	border-radius: 2em 0.75em 2em 2em;
 	background-color: var(--dark-gray);
 	box-shadow: 0.75em 0.75em 0 0 #00000011;
 	max-width: calc(100vw - var(--page-padding) * 2);
-	transition: opacity 0.3s ease, margin-top 0.3s ease, transform 0.3s ease;
-	animation: float 2s ease infinite;
+	transition: opacity 0.3s ease, margin-top 0.3s ease;
 }
-.Message.sDismissed {
-	opacity: 0;
-	animation: none;
-	pointer-events: none;
-	transform: scale(0.75) translateX(20em) !important;
-}
-.Message.sDismissed + .Message { margin-top: calc(0px - (var(--height) + 1em)); }
+.messageWrapper:not(.sDismissed) .Message { animation: float 2s ease infinite; }
 .Message.sSuccess {	background-color: var(--green); }
 .Message.sError { background-color: var(--red); }
 
