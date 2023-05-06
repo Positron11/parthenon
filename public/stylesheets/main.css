@@ -248,6 +248,7 @@ a.mUnstyled {
 	transition: color 0.3s ease;
 	padding: calc(var(--standard-spacing) / 2) 0;
 }
+@media only screen and (max-width: 700px) {#NavLinks a { font-size: 2em; }}
 @media only screen and (pointer: fine) { #navLinksList:hover a:not(:hover) { color: var(--light-gray); }}
 
 /* ================================================================= messages */
