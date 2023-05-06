@@ -186,6 +186,7 @@ a.mUnstyled {
 	font-size: 2em;
 	font-family: var(--display-font);
 }
+@media only screen and (max-width: 700px) {#navbarBanner { font-size: 1.75em; }}
 
 /* ================================================================== toolbar */
 
