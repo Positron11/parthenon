@@ -44,5 +44,8 @@
 
 @media only screen and (min-width: calc(1000px + 1px)) {.ArticlePreview .header { flex: 0 0 15em; }}
 
-.ArticlePreview .description { transition: color 0.3s ease; }
-.ArticlePreview:not(:hover) .description { color: var(--light-gray); }
+.ArticlePreview .description { 
+	color: var(--light-gray); 
+	transition: color 0.3s ease; 
+}
+@media only screen and (pointer: fine) {.ArticlePreview:hover .description { color: unset; }}
