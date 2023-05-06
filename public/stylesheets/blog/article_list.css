@@ -1,71 +1,48 @@
-/* ========================================================== ARTICLE PREVIEW */
+/* ========================================================== article preview */
 
-.article-preview {
-	display: flex;
-}
-@media only screen and (min-width: calc(45em + 1px)) {.article-preview {
+@media only screen and (min-width: calc(1000px + 1px)) {.ArticlePreview { 
 	align-items: center;
+	column-gap: var(--standard-spacing);
 }}
-@media only screen and (max-width: 45em) {.article-preview {
-	row-gap: 1.25rem;
+@media only screen and (max-width: 1000px) {.ArticlePreview { 
 	flex-direction: column;
 	align-items: flex-start;
+	row-gap: calc(var(--standard-spacing) / 3);
 }}
 
-/* Date */
-
-.article-preview .date {
-	display: flex;
+.ArticlePreview .date {
+	font-size: 0.8em;
 	font-weight: 450;
-	font-size: 0.6em;
-	color: var(--gray);
+	background-color: var(--off-white);
 }
-@media only screen and (min-width: calc(45em + 1px)) {.article-preview .date {
-	margin-right: 2rem;
-	align-items: center;
+@media only screen and (min-width: calc(1000px + 1px)) {.ArticlePreview .date { 
+	padding: 1em;
+	text-align: center;
+	border-radius: 5em;
 	flex-direction: column;
 }}
-@media only screen and (max-width: 45em) {.article-preview .date {
-	column-gap: 0.25em;
+@media only screen and (max-width: 1000px) {.ArticlePreview .date { 
+	column-gap: 0.2em;
+	padding: 0.75em 1em;
+	border-radius: 1em 1em 1em 0.5em;
 }}
 
-@media only screen and (min-width: calc(45em + 1px)) {.article-preview .date .day {
-	font-size: 1.5em;
+@media only screen and (min-width: calc(1000px + 1px)) {.ArticlePreview .date .day {
+	font-size: 1.6em;
 }}
 
-@media only screen and (min-width: calc(45em + 1px)) {.article-preview .date .year {
-	margin-top: 0.75em;
-	padding-top: 0.75em;
-	border-top: 2px solid #F3F3F3;
+@media only screen and (min-width: calc(1000px + 1px)) { .ArticlePreview .date .month {
+	font-size: 0.8em;
+	margin-bottom: 0.5em;
+	padding-bottom: 0.7em;
+	text-transform: uppercase;
+	border-bottom: 2px solid var(--lighter-gray);
 }}
-@media only screen and (max-width: 45em) {.article-preview .date .year {
-	margin-left: 0.25em;
-	padding-left: 0.5em;
-	border-left: 2px solid #F3F3F3;
-}}
+@media only screen and (max-width: 1000px) { .ArticlePreview .date .month::after { content: ","; }}
 
-/* Title Header */
+@media only screen and (min-width: calc(1000px + 1px)) {.ArticlePreview .date .year { font-size: 0.8em; }}
 
-@media only screen and (min-width: calc(45em + 1px)) {.article-preview .header {
-	flex: 0 0 35%;
-	margin-right: 4em;
-}}
+@media only screen and (min-width: calc(1000px + 1px)) {.ArticlePreview .header { flex: 0 0 15em; }}
 
-.article-preview .header .subtitle {
-	margin-top: 1rem;
-	line-height: 1.75em;
-}
-
-/* Description */
-
-.article-preview .description {
-	color: var(--gray);
-	transition: 0.3s ease color;
-}
-@media only screen and (min-width: calc(45em + 1px)) {.article-preview .description {
-	text-align: right;
-	margin-left: auto;
-}}
-@media only screen and (pointer: fine) {.article-preview:hover .description {
-	color: inherit;
-}}
+.ArticlePreview .description { transition: color 0.3s ease; }
+.ArticlePreview:not(:hover) .description { color: var(--light-gray); }

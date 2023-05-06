@@ -1,32 +1,37 @@
-extends ../base
+extends ../base.pug
 
 append stylesheets
 	link(rel="stylesheet", href="/stylesheets/blog/article_list.css")
 
-block static_variables
-	- var header_heading = "Blog."
-	- var header_subheading = "They're Only Words."
-	- var header_content = "I often spend my time not writing. Sometimes I do. Even more occasionally, I decide it's worth putting out; here's everything that falls into the latter category. Bad opinions, loose fiction, and confused arguments - you name it, you got it."
+append scripts 
+	script(type="text/javascript", src="/javascripts/balancetext.min.js", defer)
 
-	- var toolbar_banner_content = "Explore."
+block toolbar_buttons
+	a(href="/blog/create").mUnstyled: img(src="/images/icons/write.svg")
 
-block content
-	.separator 
+block main 
+	//- page header
+	#Header
+		h1 The Dispatch.
+		h2 Now, hear me out.
 
-	#article_preview_list.comfortable-spacing.column.flexbox
-		each article in articles
-			a.unstyled(href=article.url): .article-preview
-				.date
+	.Separator
+
+	//- article previews list
+	#ArticlePreviews.Flexbox.mColumn.mStandardSpacing
+		for article in articles
+			a.ArticlePreview(href=article.url).mUnstyled.Flexbox
+				//- preview date
+				.date.Flexbox
 					- var date = new Date(article.created_date);
-					.day= date.getDate().toString().padStart(2, "0")
+					.day= date.getDate().toString().padStart(2, "0") 
 					.month= date.toLocaleString('default', { month: "short" })
 					.year= date.getFullYear()
 
-				.header
+				//- preview header
+				.header.Flexbox.mColumn.mMinimalSpacing
 					.title: h3!= article.title
-					.subtitle!= article.subtitle
-
-				.description: p.truncate-lines(style="--lines:4")!= article.description
-
-block toolbar_buttons 
-	a.unstyled.icon.button(href="/blog/create"): img.toolbar-button-icon(src="/images/icons/write.svg")
+					.subtitle: h4!= article.subtitle 
+				
+				//- preview description
+				p.description.uTruncateLines(style="--lines:3")!= article.renderDescription()

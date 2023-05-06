@@ -12,6 +12,8 @@
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.3",
     "express-validator": "^6.15.0",
     "he": "^1.2.0",
     "http-errors": "~1.6.3",

@@ -1,8 +1,11 @@
-extends base
+extends base.pug
 
-block static_variables
-	- var header_heading = error.status + "."
-	- var header_subheading = message + "."
-	- var header_content = "Cillum esse qui excepteur culpa do tempor ea non esse. Quis culpa veniam non ut id. Amet velit consectetur non mollit non consequat aliquip cillum laborum in pariatur tempor irure mollit. Irure cupidatat nisi minim excepteur est dolore officia."
+block main 
+	//- page header
+	#Header
+		h1= `${error.status}.`
+		h2= `${message}.`
 
-	- var toolbar_banner_content = "Error."
+	.Quote
+		p "Science, my lad, has been built upon many errors; but they are errors which it was good to fall into, for they led to the truth." 
+		p.tGray ― Jules Verne, Journey to the Center of the Earth 

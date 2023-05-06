@@ -24,6 +24,7 @@ exports.comment_create = [
 		}).then( // redirect to article detail and scroll to parent or comment if top-level
 			async result => { 
 				await result.populate("article", "slug");
+				req.flash("success", `Posted comment`);
 				res.redirect(`${result.article.url}#${result.parent ? result.parent : result._id}`) 
 			}, 
 			err => { return next(err); }
@@ -39,7 +40,8 @@ exports.comment_delete = (req, res, next) => {
 			await result.populate("article", "slug");
 
 			// redirect to article detail and scroll to parent or comment form if top-level
-			res.redirect(`${result.article.url}#${result.parent ? result.parent : "comments"}`) 
+			req.flash("success", `Deleted comment`);
+			res.redirect(`${result.article.url}#${result.parent ? result.parent : "CommentSection"}`) 
 		},
 		err => { return next(err); }
 	);
@@ -62,6 +64,7 @@ exports.comment_edit = [
 		}).then( // redirect to article detail and scroll to comment
 			async result => { 
 				await result.populate("article", "slug");
+				req.flash("success", `Edited comment`);
 				res.redirect(`${result.article.url}#${result._id}`) 
 			}, 
 			err => { return next(err); }

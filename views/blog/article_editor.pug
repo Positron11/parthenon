@@ -1,50 +1,42 @@
-extends ../base
-
-block scripts
-	script(type="text/javascript", src="/javascripts/autosize.min.js", defer)
-	script(type="text/javascript", src="/javascripts/forms.js", defer)
+extends ../base.pug
 
 append stylesheets
 	link(rel="stylesheet", href="/stylesheets/forms.css")
-	link(rel="stylesheet", href="/stylesheets/blog/article_editor.css")
 
-block static_variables
-	- var header_heading = "Editor."
-	- var header_subheading = action === "Create" ? `New article.` : `Editing "${form_data.title}${ ["!", "?", "."].includes(form_data.title.slice(-1)) ? "" : "."}"`
-	- var header_content = "The difference between the almost right word and the right word is really a large matter. ’tis the difference between the lightning bug and the lightning. - Mark Twain"
-
-	- var toolbar_banner_content = action === "Create" ? "Write." : "Edit."
-
-block messages
-	if errors
-		.error.message.minimal-spacing.vertically-center.flexbox
-			.banner Err.
-			.content.single-line-text!= errors[0].msg
-
-block content
-	.separator 
-
-	form(action="", method="post").compact-spacing.column.flexbox
-		.field
-			label#form_title_field_label(for="form_title_field") Title
-			input#form_title_field(type="text", name="title", size="40", required="true", maxlength="40", value!=(undefined === form_data ? "" : form_data.title))
-		
-		.field
-			label(for="form_subtitle_field") Subtitle
-			input#form_subtitle_field(type="text", name="subtitle", size="40", required="true", maxlength="40", value!=(undefined === form_data ? "" : form_data.subtitle))
-
-		.field
-			label(for="form_description_field") Description
-			textarea#form_description_field(name="description", required="true", rows="4", maxlength="300")!= (undefined === form_data ? "" : form_data.description)
-
-		.field
-			label#form_content_field_label(for="form_content_field") Content
-			textarea#form_content_field(name="content", rows="8", required="true")!= (undefined === form_data ? "" : form_data.content)
-		
-		.right-align.flexbox
-			button#form_submit_button(type="submit")= action
+append scripts
+	script(type="text/javascript", src="/javascripts/forms.js", defer)
+	script(type="text/javascript", src="/javascripts/autosize.min.js", defer)
 
 block toolbar_buttons 
-	.icon.button: img.toolbar-button-icon(src="/images/icons/title.svg", onclick="document.getElementById('form_title_field_label').scrollIntoView();")
-	.icon.button: img.toolbar-button-icon(src="/images/icons/content.svg", onclick="document.getElementById('form_content_field_label').scrollIntoView();")
-	.icon.button: img.toolbar-button-icon(src="/images/icons/publish.svg", onclick="document.getElementById('form_submit_button').scrollIntoView();")
+	img(src="/images/icons/title.svg", onclick="document.getElementById('articleEditorFormTitleFieldLabel').scrollIntoView();").mClickable
+	img(src="/images/icons/content.svg", onclick="document.getElementById('articleEditorFormContentFieldLabel').scrollIntoView();").mClickable
+	img(src="/images/icons/publish.svg", onclick="document.getElementById('articleEditorFormSubmit').scrollIntoView();").mClickable
+
+block main
+	//- page header
+	#Header
+		h1 Editor.
+		h2!= form_data === undefined ? "New article." : `Editing "${form_data.title}${ ["!", "?", "."].includes(form_data.title.slice(-1)) ? "" : "."}"`
+
+	.Separator 
+
+	//- editor form
+	form#ArticleEditorForm(action="", method="post").Flexbox.mColumn.mCompactSpacing
+		div
+			label#articleEditorFormTitleFieldLabel(for="form_title_field") Title
+			input#articleEditorFormTitleField(type="text", name="title", required="true", maxlength="40", autocomplete="off", value!=(form_data === undefined ? "" : form_data.title))
+		
+		div
+			label(for="form_subtitle_field") Subtitle
+			input#articleEditorFormSubtitleField(type="text", name="subtitle", required="true", maxlength="40", autocomplete="off", value!=(form_data === undefined ? "" : form_data.subtitle))
+
+		div
+			label(for="form_description_field") Description
+			textarea#form_description_field(name="description", required="true", rows="4", maxlength="300")!= (form_data === undefined ? "" : form_data.description)
+
+		div
+			label#articleEditorFormContentFieldLabel(for="form_content_field") Content
+			textarea#articleEditorFormDescriptionField(name="content", rows="8", required="true")!= (form_data === undefined ? "" : form_data.content)
+		
+		#articleEditorFormSubmit.Flexbox.mRightAlign
+			button(type="submit")= action

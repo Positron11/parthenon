@@ -1,130 +1,102 @@
-/* ================================================================ VARIABLES */
+/* ================================================================ variables */
 
 :root {
-	/* Fonts */
-	--serif-font: "Crimson Pro", serif;
-	--display-font: "DM Serif Text", serif;
-
-	/* Colors */
-	--gray: #AAA;
-	--dark-gray: #222;
-	--off-white: #F8F8F8;
-	--light-red: #FEEFF1;
-	--dark-red: #EF3D59;
-
-	/* Spacing */
+	--page-max-width: 1000px;
+	--page-padding: min(3em, 8vw);
+	--navbar-height: 5.5em;
 	--standard-spacing: 3rem;
-	--compact-spacing: calc(var(--standard-spacing) / 1.5);
-	--minimal-spacing: calc(var(--standard-spacing) / 2.5);
 
-	/* Sizes */
-	--navbar-height: 5em;
+	--lighter-gray: #EEE;
+	--light-gray: #BBBBBB;
+	--dark-gray: #111111;
+	--off-white: #F8F8F8;
+	--red: #EF3D59;
+	--green: #45CB85;
+
+	--serif-font: "Crimson Pro", serif;
+	--display-font: "DM Serif Display", serif;
 }
 
-
-/* =================================================================== GLOBAL */
+/* =================================================================== global */
 
 :is(html, body) {
+	margin: 0;
+	padding: 0;
 	font-size: 22px;
-	font-weight: 350;
-	scroll-behavior: smooth;
-	scroll-padding-top: calc(var(--navbar-height) + 1em);
+	font-weight: 400;
+	color: var(--dark-gray);
 	font-family: var(--serif-font);
+	scroll-padding-top: calc(var(--navbar-height) + 1em);
 }
-@media only screen and (max-width: 45em) {:is(html, body) {
-	font-size: 19px;
-}}
+@media only screen and (max-width: 700px) {:is(html, body) { font-size: 19px; }}
 
+/* ============================================================= headings */
 
-/* ================================================== PARAGRAPHS AND HEADINGS */
-
-:is(p, h1, h2, h3, h4) {
-	overflow-x: auto;
-	overflow-y: hidden;
-	text-overflow: ellipsis;
-}
-
-/* Headings */
-
-:is(h1, h2, h3, h4) { 
-	color: #222;
-	font-weight: 400; 
-	margin: -0.15em 0;
+:is(h1, h2, h3, h4) {
+	margin: 0;
+	font-weight: 400;
 	font-family: var(--display-font);
 }
-:is(h1, h2, h3, h4, p) + :is(h1, h2, h3, h4) {
-	margin-top: var(--standard-spacing);
-}
+:is(h1, h2, h3, h4, p) + :is(h1, h2, h3, h4) { margin-top: calc(var(--standard-spacing) / 2); }
 
 h1 { 
 	font-size: 4em; 
-	line-height: 1.4em;
-}
-@media only screen and (max-width: 45em) {h1 {
-	font-size: 2.75em;
-}}
-
-h2 { 
-	font-size: 2.25em; 
 	line-height: 1.5em;
 }
-@media only screen and (max-width: 45em) {h2 {
-	font-size: 1.75em;
-}}
+@media only screen and (max-width: 1000px) {h1 { font-size: 3em; }}
+
+h2 { 
+	font-size: 2.5em; 
+	line-height: 1.6em;
+}
+@media only screen and (max-width: 1000px) {h2 { font-size: 2em; }}
 
 h3 { 
 	font-size: 1.5em; 
-	line-height: 1.6em;
+	line-height: 1.75em;
 }
 
 h4 { 
-	font-size: 1.2em; 
-	line-height: 1.7em;
-}
-
-/* Paragraphs */
-
-p {
-	margin: -0.45em 0;
+	font-size: 1em; 
 	line-height: 2em;
 }
 
-:is(h1, h2, h3, h4) + p {
-	margin-top: 1.25em;
+/* ============================================================= text styling */
+
+p { 
+	margin: 0;
+	text-align: justify;
+	line-height: 2em;
 }
-p + p {
-	margin-top: 1.5em;
-}
+:is(h1, h2, h3, h4, p) + p { margin-top: 1em; }
 
+/* ===================================================== typography modifiers */
 
-/* ============================================================= TEXT STYLING */
+.tSmall { font-size: 0.9em; }
 
-/* Links */
+.tGray { color: var(--light-gray); }
 
-a.unstyled {
+/* ======================================================== unstyle modifiers */
+
+a.mUnstyled {
 	color: inherit;
 	text-decoration: none;
 }
 
+/* ======================================================== generic modifiers */
 
-/* Generic */
+.mClickable {cursor: pointer; }
 
-:is(b, strong) {
-	font-weight: 600;
+/* ======================================================== generic utilities */
+
+.uTruncateLines {
+	overflow: hidden;
+	display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--lines);
 }
 
-.small {
-	font-size: 0.9em;
-}
-
-.gray {
-	color: var(--gray);
-}
-
-
-/* =========================================================== TEXT MODIFIERS */
-
-.single-line-text {
+.uSingleLineText {
 	display: block;
 	max-width: 100%;
 	overflow: hidden;
@@ -132,318 +104,199 @@ a.unstyled {
 	text-overflow: ellipsis;
 }
 
-.truncate-lines {
-	overflow: hidden;
-	display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: var(--lines);
+.uOverlay {
+	position: fixed;
+	top: 0; left: 0; right: 0; bottom: 0;
 }
 
+/* ========================================================= generic elements */
 
-/* ======================================================== GENERIC MODIFIERS */
-
-.clickable {
-	cursor: pointer;
-}
-
-
-/* ========================================================= GENERIC ELEMENTS */
-
-.separator {
+.Separator {
+	height: 3px;
 	width: 100%;
-	border-top: 1px solid #EEE;
-}
-
-
-/* ================================================================== BUTTONS */
-
-:is(button, .button) {
-	border: none;
-	font-size: 1em; 
-	cursor: pointer;
-	background: none;
-	display: inline-block;
-}
-
-/* Standard Button */
-
-:is(button, .button):not(.icon) {
-	font-weight: 450;
-	padding: 0.75em 1em;
-	font-family: inherit;
-	border-radius: 0.625em;
-	color: var(--off-white);
-	background-color: var(--dark-gray);
-}
-:is(button, .button):not(.icon).danger {
-	background-color: var(--dark-red);
-}
-:is(button, .button):not(.icon):disabled {
-	color: var(--gray);
-	pointer-events: none;
+	border-radius: 2px;
+	position: relative;
 	background-color: var(--off-white);
 }
 
-/* Icon Button */
-
-:is(button, .button).icon {
-	line-height: 0;
+.Separator.mSection::after {
+	left: 50%;
+	content: "• • •";
+	position: absolute;
+	border-radius: 1em;
+	outline: 8px solid white;
+	padding: 0.2em 1em 0.4em 1em;
+	transform: translate(-50%, -45%);
+	background-color: var(--off-white);
 }
 
-:is(button, .button).icon img {
-	width: 1.2em;
-	filter: invert(73%) sepia(2%) saturate(23%) hue-rotate(7deg) brightness(93%) contrast(93%);
-	transition: 0.15s ease filter;
-}
-:is(button, .button).icon.small img {
-	width: 1em;
-}
-@media only screen and (pointer: fine) {:is(.button, button).icon:hover img {
-	filter: none;
-}}
+/* ================================================================== flexbox */
 
+.Flexbox { display: flex; }
+.Flexbox.mInline { display: inline-flex; }
 
-/* =================================================== LAYOUTS AND CONTAINERS */
+.Flexbox.mColumn { flex-direction: column; }
 
-.flexbox {
-	display: flex;
-}
+.Flexbox:not(.mColumn).mReverse {	flex-direction: row-reverse; }
+.Flexbox.mColumn.mReverse {	flex-direction: column-reverse; }
 
-.flexbox.column {
-	flex-direction: column;
-}
+.Flexbox:not(.mColumn).mRightAlign {justify-content: flex-end; }
+.Flexbox.mColumn.mRightAlign {align-items: flex-end; }
 
-/* Alignment */
+.Flexbox:is(:not(.mColumn).mVerticallyCenter, .mColumn.mHorizontallyCenter, .mCenter) { align-items: center; }
+.Flexbox:is(:not(.mColumn).mHorizontallyCenter, .mColumn.mVerticallyCenter, .mCenter) {	justify-content: center; }
 
-.flexbox.right-align {
-	justify-content: flex-end;
-}
-
-.flexbox:not(.column).vertically-center {
-	align-items: center;
-}
-.flexbox.column.vertically-center {
-	justify-content: center;
-}
-
-/* Spacing */ 
-
-.flexbox.space-between {
-	justify-content: space-between;
-}
-.flexbox.right-align.space-between > :only-child {
-	margin-left: auto;
-}
-
-.flexbox.comfortable-spacing {
+.Flexbox.mStandardSpacing {
 	row-gap: var(--standard-spacing);
 	column-gap: var(--standard-spacing);
 }
-
-.flexbox.compact-spacing {
-	row-gap: var(--compact-spacing);
-	column-gap: var(--compact-spacing);
+.Flexbox.mCompactSpacing {
+	row-gap: calc(var(--standard-spacing) / 1.5);
+	column-gap: calc(var(--standard-spacing) / 1.5);
+}
+.Flexbox.mMinimalSpacing {
+	row-gap: calc(var(--standard-spacing) / 3);
+	column-gap: calc(var(--standard-spacing) / 3);
 }
 
-.flexbox.minimal-spacing {
-	row-gap: var(--minimal-spacing);
-	column-gap: var(--minimal-spacing);
-}
+.Flexbox.mSpaceBetween { justify-content: space-between; }
 
+/* ===================================================================== page */
 
-/* =========================================================== PAGE CONTAINER */ 
-
-#page {
+#Page {
 	margin: auto;
-	max-width: 45em;
-	min-height: 100vh;
-	position: relative;
 	box-sizing: border-box;
-	padding: 0 min(3em, 7.5vw);
+	padding: 0 var(--page-padding);
+	max-width: var(--page-max-width);
 }
 
+/* =================================================================== navbar */
 
-/* ================================================================= MESSAGES */
-
-.message {
+#Navbar {
+	top: 0;
 	z-index: 2;
-	color: white;
-	max-width: 75vw;
-	position: absolute;
-	top: 6em; right: 0;
-	padding: 0.75em 1em;
-	border-radius: 0.625em;
-	background-color: var(--dark-gray);
-	box-shadow: 2px 2px 4px 2px #00000022;
-	animation: message-hide 5s forwards;
-}
-.message.error {
-	background-color: var(--dark-red);
+	position: sticky;
+	background-color: white;
+	height: var(--navbar-height) ;
 }
 
-.message .banner {
+#navbarBanner {
+	font-size: 2em;
 	font-family: var(--display-font);
 }
 
-.message .content {
-	font-weight: 450;
-	font-size: 0.9em;
+/* ================================================================== toolbar */
+
+#Toolbar {
+	overflow: hidden;
+	padding: 0.8em 1em;
+	border-radius: 5em;
+	margin-right: -1em;
+	transition: background-color 0.15s ease, max-width 0.15s ease;
 }
+#Navbar:not(.sMenuOpen) #Toolbar { background-color: var(--off-white); }
+@media only screen and (pointer: fine) {#Toolbar { max-width: 1.1em; }}
+@media only screen and (pointer: fine) {#Navbar:not(.sMenuOpen) #Toolbar:hover { max-width: calc(var(--content-width) + 1em); }}
+@media only screen and (pointer: coarse) {#Navbar:not(.sMenuOpen) #Toolbar { max-width: calc(var(--content-width) + 1em); }}
+@media only screen and (pointer: coarse) {#Navbar.sMenuOpen #Toolbar { max-width: 1.1em; }}
 
+#toolbarButtons img { width: 1.2em; }
 
-/* =================================================================== NAVBAR */
+/* ======================================================= navbar menu button */
 
-#navbar {
-	top: 0;
-	z-index: 4;
-	position: sticky;
-	color: var(--gray);
-	background-color: white;
-	height: var(--navbar-height);
-	transition: 0.3s color ease, 0.3s box-shadow ease;
-}
-#navbar:not(.menu-open) {
-	border-bottom: 1px solid #EEE;
-}
-#navbar.menu-open {
-	color: unset;
-}
-
-/* Banner */
-
-#navbar_banner {
-	margin: -1rem;
-	padding: 1rem;
-	font-size: 1.5em;
-	font-weight: 500;
-}
-
-/* Toolbar */
-
-#navbar #toolbar {
-	width: 100%;
-	justify-content: flex-end;
-}
-
-#navbar.menu-open #toolbar {
-	visibility: hidden;
-}
-
-#toolbar .toolbar-button-icon {
-	padding: calc(var(--minimal-spacing) / 2);
-	margin: calc(0px - var(--minimal-spacing) / 2);
-}
-
-/* Menu Button */
-
-#nav_menu_button {
-	height: 1em;
+#NavbarMenuButton {
 	display: flex;
+	row-gap: 0.3em;
+	align-items: flex-end;
 	flex-direction: column;
-	justify-content: space-between;
-	padding: calc(var(--minimal-spacing) / 2);
-	margin: calc(0px - var(--minimal-spacing) / 2);
 }
 
-#nav_menu_button .bar {
+#NavbarMenuButton .bar {
 	width: 1.1em;
-	height: 0.15em;
-	border-radius: 0.05em;
-	background-color: var(--gray);
-	transition: 0.3s ease opacity, 0.3s ease transform;
-}
-#navbar.menu-open #nav_menu_button .bar {
+	height: 0.175em;
 	background-color: var(--dark-gray);
+	transition: background-color 0.3s ease, width 0.3s ease, transform 0.3s ease;
 }
+#Navbar.sMenuOpen #NavbarMenuButton .bar:nth-child(2) { width: 0; }
+#Navbar.sMenuOpen #NavbarMenuButton .bar:nth-child(1) {	transform: rotate(-45deg) translate(-0.3em, 0.35em); }
+#Navbar.sMenuOpen #NavbarMenuButton .bar:nth-child(3) {	transform: rotate(45deg) translate(-0.3em, -0.35em); }
 
-#navbar.menu-open #nav_menu_button .bar:nth-child(2) {
-	opacity: 0;
-}
-#navbar.menu-open #nav_menu_button .bar:nth-child(1) {
-	transform: rotate(-45deg) translate(-0.275em, 0.32em);
-}
-#navbar.menu-open #nav_menu_button .bar:nth-child(3) {
-	transform: rotate(45deg) translate(-0.275em, -0.32em);
-}
+/* =============================================================== navigation */
 
-
-/* ================================================================= NAV MENU */
-
-#nav_menu_wrapper {
-	z-index: 3;
-	position: fixed;
-	padding-top: 2.6em;
+#NavLinks {
+	z-index: -1;
 	background-color: white;
-	top: 0; left: 0; right: 0; bottom: 0;
-	transition: 0.3s ease opacity;
+	transition: opacity 0.3s ease;
 }
-#navbar:not(.menu-open)+#nav_menu_wrapper {
+
+#Navbar:not(.sMenuOpen) #NavLinks {
 	opacity: 0;
 	pointer-events: none;
 }
 
-#nav_menu {
-	width: 100%;
-	margin: auto;
-	max-width: 45em;
+#navLinksList {
 	box-sizing: border-box;
-	padding: 0 min(3em, 7.5vw);
+	padding: 0 var(--page-padding);
+	width: min(100%, var(--page-max-width));
+	margin: calc(var(--navbar-height) / 2) auto 0 auto;
 }
 
-/* Links */
-
-#nav_menu a {
-	font-size: 2.5em;
-	padding: 0.75em 0;
-	transition: 0.3s ease color;
+#NavLinks a {
+	font-size: 2.25em;
+	transition: color 0.3s ease;
+	padding: calc(var(--standard-spacing) / 2) 0;
 }
-@media only screen and (max-width: 45em) {#nav_menu a {
-	font-size: 2em;
-}}
-@media only screen and (pointer: fine) {#nav_menu:hover a:not(:hover) {
-	color: var(--gray);
-}}
+@media only screen and (pointer: fine) { #navLinksList:hover a:not(:hover) { color: var(--light-gray); }}
 
+/* ================================================================= messages */
 
-/* =========================================================== MAIN CONTAINER */
-
-#main {
-	flex: 1 1 0;
-	display: flex;
-	flex-direction: column;
-	row-gap: var(--standard-spacing);
+#Messages {
+	z-index: -2;
+	position: absolute;
+	top: calc(100% + 0.5em); right: 0;
 }
 
+.Message {
+	padding: 0.8em 1em;
+	align-self: flex-end;
+	box-sizing: border-box;
+	color: var(--off-white);
+	border-radius: 2em 0.75em 2em 2em;
+	background-color: var(--dark-gray);
+	box-shadow: 0.75em 0.75em 0 0 #00000011;
+	max-width: calc(100vw - var(--page-padding) * 2);
+	transition: opacity 0.3s ease, margin-top 0.3s ease, transform 0.3s ease;
+	animation: float 2s ease infinite;
+}
+.Message.sDismissed {
+	opacity: 0;
+	animation: none;
+	pointer-events: none;
+	transform: scale(0.75) translateX(20em) !important;
+}
+.Message.sDismissed + .Message { margin-top: calc(0px - (var(--height) + 1em)); }
+.Message.sSuccess {	background-color: var(--green); }
+.Message.sError { background-color: var(--red); }
 
-/* =================================================================== HEADER */
-
-#header .heading {
-	max-width: min(31rem, 100%);
+.Message .status {
+	font-size: 1.25em;
+	font-family: var(--display-font);
 }
 
-#header .content {
-	color: var(--gray);
+.Message .closeButton {
+	padding: 0.5em;
+	line-height: 0;
+	border-radius: 5em;
+	background-color: #00000011;
 }
 
-
-/* =================================================================== FOOTER */
-
-#footer {
-	color: var(--gray);
-	height: var(--navbar-height);
-	border-top: 1px solid #EEE;
+.Message .closeButton img {
+	width: 0.6em;
+	filter: invert();
 }
 
-#footer_banner {
-	font-size: 1.5em;
-	font-weight: 500;
-}
-
-
-/* =============================================================== ANIMATIONS */
-
-@keyframes message-hide {
-	0% { opacity: 1; }
-	80% { opacity: 1; }
-	100% { opacity: 0; pointer-events: none; }
+@keyframes float {
+	0% { transform: translateY(0); }
+	50% { transform: translateY(-0.5em); }
+	100% { transform: translatey(0); }
 }

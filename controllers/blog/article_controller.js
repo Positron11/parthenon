@@ -27,13 +27,16 @@ exports.article_create_post = [
 	(req, res, next) => {
 		const errors = validationResult(req);
 
-		// if errors, re-render form with data
+		// if errors...
 		if (!errors.isEmpty()) {
+			// flash error message
+			req.flash("error", errors.array()[0].msg);
+
+			// re-render form with data
 			res.render("blog/article_editor", {
 				title: "Create Article",
 				action: "Create",
-				form_data: req.body,
-				errors: errors.array()
+				form_data: req.body
 			}); return;
 		}
 
@@ -45,7 +48,10 @@ exports.article_create_post = [
 			content: req.body.content
 		
 		}).then( // redirect to article detail
-			result => { res.redirect(result.url); }, 
+			result => { 
+				req.flash("success", "Created article");
+				res.redirect(result.url); 
+			}, 
 			err => { return next(err); }
 		);
 	}
@@ -86,6 +92,7 @@ exports.article_delete_post = (req, res, next) => {
 			}
 
 			// go back to article list view
+			req.flash("success", "Deleted article");
 			res.redirect("/blog") 
 		},
 		err => { return next(err); }
@@ -131,13 +138,16 @@ exports.article_update_post = [
 	(req, res, next) => {
 		const errors = validationResult(req);
 
-		// if errors, re-render form with data
+		// if errors...
 		if (!errors.isEmpty()) {
+			// flash error message
+			req.flash("error", errors.array()[0].msg);
+
+			// re-render form with data
 			res.render("blog/article_editor", {
 				title: "Edit Article",
 				action: "Update",
-				form_data: req.body,
-				errors: errors.array()
+				form_data: req.body
 			}); return;
 		}
 
@@ -152,6 +162,7 @@ exports.article_update_post = [
 		}).then(
 			async result => { 
 				await result.save(); 
+				req.flash("success", "Updated article");
 				res.redirect(result.url); 
 			},
 			err => { return next(err); }

@@ -4,7 +4,7 @@ const Comment = require("../../models/blog/comment");
 // article list view controller
 exports.article_list = (req, res, next) => {
 	// get all articles in reverse chronological order
-	Article.find().sort({ created_date: -1 }).then(
+	Article.find(null, "created_date title subtitle description slug").sort({ created_date: -1 }).then(
 		result => {
 			// render article list view
 			res.render("blog/article_list", { 

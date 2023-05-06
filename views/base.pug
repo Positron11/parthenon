@@ -1,60 +1,74 @@
 doctype html
+
 html
 	head
+		//- page meta
 		meta(charset="utf-8")
-		meta(name="viewport" content="width=device-width, initial-scale=1")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 		
-		title!= `${title} ꞉꞉ Parthenon`
+		//- content meta
+		title!= `${title} // Parthenon`
 		meta(name="author" content="Aarush Kumbhakern")
 		meta(name="description" content="Aarush Kumbhakern's personal homepage.")
 
-		link(rel="shortcut icon" type="image/svg")
-		script(type="text/javascript", src="/javascripts/favicon.js", defer)
+		//- fonts
+		link(rel="preconnect" href="https://fonts.googleapis.com")
+		link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+		link(href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet")
 
+		//- stylesheets
 		block stylesheets
 			link(rel="stylesheet", href="/stylesheets/reset.css")
 			link(rel="stylesheet", href="/stylesheets/main.css")
 
-		link(rel="preconnect" href="https://fonts.googleapis.com")
-		link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
-		link(href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap" rel="stylesheet")
-		link(rel="stylesheet", href="https://api.fontshare.com/v2/css?f[]=crimson-pro@2,1&display=swap")
-
-		block scripts
+		//- scripts
+		block scripts 
+			script(type="text/javascript", src="/javascripts/main.js", defer)
 
 	body
-		block static_variables
-		
-		#page.comfortable-spacing.column.flexbox
-			header#navbar.space-between.minimal-spacing.vertically-center.flexbox
-				a.unstyled(href="/"): #navbar_banner Aa.
+		#Page.Flexbox.mColumn.mStandardSpacing
+			//- navbar
+			header#Navbar.Flexbox.mSpaceBetween.mVerticallyCenter
+				//- navbar banner
+				a(href="/").mUnstyled: #navbarBanner Aa.
 
-				#toolbar.minimal-spacing.vertically-center.flexbox
-					block toolbar_buttons
+				//- toolbar
+				#Toolbar.Flexbox.mReverse.mMinimalSpacing.mVerticallyCenter.uCalcDimensions
+					//- menu button
+					#NavbarMenuButton(onclick="document.getElementById('Navbar').classList.toggle('sMenuOpen')").mClickable
+						for i in Array(3)
+							.bar
+					
+					//- action buttons
+					#toolbarButtons.Flexbox.mMinimalSpacing
+						img(src="/images/icons/top.svg", onclick="window.scrollTo(0,0);").mClickable
+						block toolbar_buttons
 
-				#nav_menu_button.clickable(src="/images/icons/menu.svg", onclick="document.getElementById('navbar').classList.toggle('menu-open')")
-					.bar 
-					.bar 
-					.bar
+				//- navigation links
+				nav#NavLinks.uOverlay.Flexbox.mCenter
+					#navLinksList.Flexbox.mColumn.mVerticallyCenter
+						a(href="/blog").mUnstyled Blog
+						a(href="/about").mUnstyled About 
+						a(href="/contact").mUnstyled Contact
 
-				block messages
+				//- messages container
+				#Messages.Flexbox.mColumn.mMinimalSpacing
+					//- message mixin
+					mixin Message(status, content)
+						//- message with status class and randomized animation delay
+						.Message(class={success: "sSuccess", error: "sError"}[status], style=`animation-delay: -0.${Math.floor(Math.random() * 100)}s`).Flexbox.mMinimalSpacing.mVerticallyCenter.uCalcDimensions
+							//- message content
+							.status= {info: "Msg.", success: "Succ.", error: "Err."}[status] 
+							.uSingleLineText= content
+							
+							//- close button
+							.closeButton(onclick="this.closest('.Message').classList.add('sDismissed');").mClickable: img(src="/images/icons/close.svg")
 
-			nav#nav_menu_wrapper.vertically-center.flexbox: #nav_menu.vertically-center.column.flexbox
-				a.unstyled(href="/blog") Blog
-				a.unstyled(href="/about") About
-				a.unstyled(href="/contact") Contact
+					//- messages
+					for category in Object.keys(messages)
+						for message in messages[category] 
+							+Message(category, message)
 
-			main#main
-				#header
-					h1.heading!= header_heading
-					h2.subheading!= header_subheading
-					p.content!= header_content
-
-				block content
-
-			#footer.vertically-center.space-between.flexbox
-					#footer_banner Fin.
-
-					#footer_links.vertically-center.minimal-spacing.flexbox 
-						a.icon.button(href="https://github.com/Positron11/parthenon", target="_blank"): img(src="/images/icons/code.svg")
-						.icon.button: img(src="/images/icons/top.svg", onclick="window.scrollTo(0,0);")
+			//- main content container
+			main#Main.Flexbox.mColumn.mStandardSpacing
+				block main

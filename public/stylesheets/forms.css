@@ -1,53 +1,73 @@
-/* =================================================================== LABELS */
+/* =================================================================== labels */
 
 label {
 	display: block;
-	font-weight: 400;
-	font-size: 1.2em; 
-	line-height: 1.7em;
-	margin-bottom: 0.75rem;
+	font-size: 1.25em;
+	margin-bottom: 0.5em;
 	font-family: var(--display-font);
 }
 
+/* ============================================================== text inputs */
 
-/* =================================================================== INPUTS */
-
-:is(input[type="text"], textarea) {
-	min-width: 0;
+:is(textarea, input[type="text"]) {
 	border: none;
 	outline: none;
-	max-width: 100%;
-	font-size: inherit;
-	padding: 0.75em 1em;
+	font-size: 1em;
 	font-family: inherit;
-	border-radius: 0.5em;
+	border-radius: 0.75em;
 	box-sizing: border-box;
 	background-color: var(--off-white);
 }
-:is(input[type="text"], textarea).invalid {
-	background-color: var(--light-red);
-}
 
-/* Textarea */ 
+input[type="text"] {
+	min-width: 0;
+	padding: 0.75em 1em;
+	width: min(20em, 100%);
+}
 
 textarea {
 	width: 100%;
 	resize: none;
 	line-height: 2em;
+	padding: 0.75em 1.25em;
 }
 
-/* Placeholder Text */
-
 ::-webkit-input-placeholder {
-	color: var(--gray);
+	color: var(--light-gray);
 }
 ::-moz-placeholder {
 	opacity: 1;
-	color: var(--gray);
+	color: var(--light-gray);
 }
 ::-ms-placeholder {
-	color: var(--gray);
+	color: var(--light-gray);
 }
 ::placeholder {
-	color: var(--gray);
+	color: var(--light-gray);
+}
+
+/* ================================================================== buttons */
+
+button {
+	border: none;
+	font: inherit;
+	cursor: pointer;
+	font-weight: 450;
+	padding: 0.75em 1em;
+	border-radius: 0.75em;
+	color: var(--off-white);
+	background-color: var(--dark-gray);
+}
+
+button.mDanger { background-color: var(--red); }
+
+button.mDiscreet {
+	padding: 0;
+	background: none;
+}
+
+button[disabled] {
+	cursor: not-allowed;
+	color: var(--light-gray);
+	background-color: var(--off-white);
 }

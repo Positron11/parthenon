@@ -1,55 +1,39 @@
-/* ================================================================= COMMENTS */
+/* ================================================================== comment */
 
-/* Comment Info */
-
-.comment-wrapper .comment .info { 
-	line-height: 1.5em; 
-	margin-bottom: 0.75em;
-}
-.comment-wrapper .comment .info .author { 
-	font-family: var(--display-font); 
+.Comment .content .header {
+	column-gap: 0.5em;
+	align-items: center;
 }
 
-/* Comment form show/hide logic */
+.Comment .content .header .author {	font-family: var(--display-font); }
 
-.comment-wrapper.edit-mode>.comment .content,
-.comment-wrapper:not(.edit-mode)>.comment .edit-form,
-.comment-wrapper:not(.reply-mode)>.replies>.reply-form { 
-	display: none; 
+.Comment .content .header .date {
+	font-size: 0.9em;
+	color: var(--light-gray);
 }
 
-/* Comment Edit Form */
+.Comment .content .body { margin-top: 0.5em; }
+.Comment.sEditMode > .content .body { display: none; }
 
-.comment-wrapper .comment .edit-form { 
-	margin-bottom: -3.25em; 
+.Comment .editForm { margin: 1em 0 -3.25em 0; }
+.Comment:not(.sEditMode) > .editForm { display: none; }
+
+.Comment .actions {
+	margin-top: 0.8em;
+	padding: 0.75em 1em;
+	border-radius: 0.75em 2em 2em 2em;
+	background-color: var(--off-white);
 }
 
-/* Comment Action Buttons */
+.Comment .actions img { width: 0.96em; }
 
-.comment-wrapper .comment .comment-actions {
-	margin: 1.4em 4em 0 0;
-}
-.comment-wrapper .comment .comment-actions .comment-action-button {
-	padding: calc(var(--minimal-spacing) / 2);
-	margin: calc(0px - var(--minimal-spacing) / 2);
-}
+#commentDeleteForm { line-height: 0; }
 
-/* Comment action button indicator mode logic */
-
-.comment-wrapper.reply-mode>.comment .comment-actions .reply-button,
-.comment-wrapper.edit-mode>.comment .comment-actions .edit-button { 
-	filter: none;
+.Comment .replies {
+	border-left: 2px solid var(--lighter-gray);
+	padding-left: calc(var(--standard-spacing) / 1.5);
 }
+@media only screen and (max-width: 1000px) {.Comment .replies { padding-left: calc(var(--standard-spacing) / 2.5); }}
+.Comment .replies:not(.sEmpty), .Comment.sReplyMode > .replies { margin-top: calc(var(--standard-spacing) / 1.5); }
 
-/* Comment Reply Tree */
-
-.comment-wrapper .replies { 
-	border-left: 2px solid #EEE;
-	padding-left: var(--compact-spacing);
-}
-@media only screen and (max-width: 45em) {.comment-wrapper .replies { 
-	padding-left: var(--minimal-spacing);
-}}
-.comment-wrapper:not(.reply-mode)>.replies.empty {
-	margin-top: calc(0px - var(--compact-spacing));
-}
+.Comment:not(.sReplyMode) > .replies > .replyForm {	display: none; }

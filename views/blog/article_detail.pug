@@ -1,73 +1,104 @@
-extends ../base
+extends ../base.pug
 
-append scripts
-	script(type="text/javascript", src="/javascripts/autosize.min.js", defer)
-	script(type="text/javascript", src="/javascripts/forms.js", defer)
-	script(type="text/javascript", src="/javascripts/blog/article_detail.js", defer)
-
-append stylesheets 
+append stylesheets
 	link(rel="stylesheet", href="/stylesheets/forms.css")
 	link(rel="stylesheet", href="/stylesheets/blog/article_detail.css")
 
-block static_variables
-	- var header_heading = article.title
-	- var header_subheading = article.subtitle
-	- var header_content = article.renderDescription()
+append scripts
+	script(type="text/javascript", src="/javascripts/autosize.min.js", defer)
+	script(type="text/javascript", src="/javascripts/balancetext.min.js", defer)
+	script(type="text/javascript", src="/javascripts/forms.js", defer)
+	script(type="text/javascript", src="/javascripts/blog/article_detail.js", defer)
 
-	- var toolbar_banner_content = "Read."
+block toolbar_buttons
+	img(src="/images/icons/comments.svg", onclick="document.getElementById('CommentSection').scrollIntoView();").mClickable
+	a(href=`${article.url}/edit`).mUnstyled: img(src="/images/icons/edit.svg")
+	a(href=`${article.url}/delete`).mUnstyled: img(src="/images/icons/trash.svg")
 
-block content	
-	.separator 
-	#article_content!= article.renderContent()
+block main 
+	//- article
+	#Article.Flexbox.mColumn.mStandardSpacing
+		//- header
+		#articleHeader
+			h1.balance-text!= article.title
+			h2!= article.subtitle
 
-	.separator 
-	#comments.compact-spacing.column.flexbox
-		h2 Comments.
+		.Separator
 
-		form#new_comment_form.minimal-spacing.column.flexbox(action="../comment/create", method="post")
-			input(type="hidden", name="article", value=article._id)
-			textarea(name="content", rows="3", required="true")
-			.space-between.minimal-spacing.vertically-center.flexbox
-				.small.gray.single-line-text= article.comments.length ? "Join the discussion." : "Start the discussion."
-				button#new_comment_form_submit_button(type="submit") Comment
+		//- content
+		#articleContent!= article.renderContent()
 
-		mixin comment(comment)
-			.comment-wrapper.compact-spacing.column.flexbox
-				.comment.column.flexbox(id=comment._id)
-					.info
-						span.author.small John Doe 
-						- var date = new Date(comment.updated_date);
-						span.date.small.gray= ` - ${date.toLocaleTimeString("en-us", { hour: "numeric", minute: "numeric" })} on ${date.toLocaleDateString("en-us", { year:"numeric", month:"long", day:"numeric"})}`
+	.Separator.mSection
+
+	//- comments
+	#CommentSection.Flexbox.mColumn.mStandardSpacing
+		.Flexbox.mColumn.mMinimalSpacing
+			h2 Comments.
+
+			//- new comment form
+			form(action="../comment/create", method="post").Flexbox.mColumn.mMinimalSpacing
+				//- comment article id
+				input(type="hidden", name="article", value=article._id)
+
+				//- comment content field
+				textarea(name="content", rows="3", required="true")
+				.Flexbox.mSpaceBetween.mVerticallyCenter
+					//- action dialog
+					.tSmall.tGray.uSingleLineText= article.comments.length ? "Join the discussion." : "Start the discussion."
 					
-					.content!= comment.renderContent()
-
-					form.internal-comment-form.edit-form.minimal-spacing.column.flexbox(action=`../comment/${comment._id}/edit`, method="post")
-						textarea(name="content", rows="1", required="true")!= comment.content
-						.right-align.flexbox: button(type="submit") Edit
-			
-					.comment-actions.minimal-spacing.flexbox
-						.small.icon.button: img.reply-button.comment-action-button(src="/images/icons/reply.svg", onclick=`toggleCommentForm(this, 'reply'); document.getElementById('${comment._id}').scrollIntoView();`)
-						.small.icon.button: img.edit-button.comment-action-button(src="/images/icons/edit.svg", onclick=`toggleCommentForm(this, 'edit'); document.getElementById('${comment._id}').scrollIntoView();`)
-						form.delete-comment-form(action=`../comment/${comment._id}/delete`, method="post"): button.small.icon.comment-action-button(type="submit"): img(src="/images/icons/trash.svg")
-				
-				.replies.compact-spacing.column.flexbox(class=comment.replies.length ? null : "empty")
-					form.internal-comment-form.reply-form.minimal-spacing.column.flexbox(action="../comment/create", method="post")
-						input(type="hidden", name="article", value=comment.article)
-						input(type="hidden", name="parent", value=comment._id)
-						textarea(name="content", rows="2", required="true")
-						.space-between.minimal-spacing.vertically-center.flexbox
-							.small.gray.single-line-text Write a reply to John Doe.
-							button(type="submit") Reply
-
-					for reply in comment.replies
-						+comment(reply)
+					button(type="submit") Comment
 
 		if article.comments.length
-			.separator
-			for comment in article.comments
-				+comment(comment)
+			.Separator
 
-block toolbar_buttons 
-	.icon.button: img.toolbar-button-icon(src="/images/icons/comments.svg", onclick="document.getElementById('comments').scrollIntoView();")
-	a.unstyled.icon.button(href=`${article.url}/edit`): img.toolbar-button-icon(src="/images/icons/edit.svg")
-	a.unstyled.icon.button(href=`${article.url}/delete`): img.toolbar-button-icon(src="/images/icons/trash.svg")
+			//- comment tree
+			.Flexbox.mColumn.mCompactSpacing
+				for comment in article.comments 
+					+Comment(comment)
+
+//- comment mixin
+mixin Comment(comment)
+	.Comment(id=comment._id)
+		//- comment content wrapper
+		.content.Flexbox.mColumn
+			//- comment author and date
+			.header.Flexbox
+				.author John Doe 
+				- var date = new Date(comment.updated_date);
+				.date= `${date.toLocaleTimeString("en-us", { hour: "numeric", minute: "numeric" })} on ${date.toLocaleDateString("en-us", { year:"numeric", month:"long", day:"numeric"})}`
+
+			//- comment content
+			.body!= comment.renderContent()
+
+		//- comment edit form
+		form.editForm(action=`../comment/${comment._id}/edit`, method="post").internalCommentForm.Flexbox.mColumn.mMinimalSpacing 
+			textarea(name="content", rows="1", required="true")!= comment.content
+			.Flexbox.mRightAlign: button(type="submit") Edit
+
+		//- action buttons
+		.actions.Flexbox.mInline.mMinimalSpacing 
+			img(src="/images/icons/reply.svg", onclick=`toggleCommentForm(this, 'Reply'); document.getElementById('${comment._id}').scrollIntoView();`).mClickable
+			img(src="/images/icons/edit.svg", onclick=`toggleCommentForm(this, 'Edit'); document.getElementById('${comment._id}').scrollIntoView();`).mClickable
+
+			//- delete form
+			form.deleteForm(action=`../comment/${comment._id}/delete`, method="post")
+				button(type="submit").mDiscreet: img(src="/images/icons/trash.svg")
+
+		//- comment replies wrapper
+		.replies(class=comment.replies.length ? null : "sEmpty").Flexbox.mColumn.mCompactSpacing
+			//- reply form
+			form.replyForm(action="../comment/create", method="post").internalCommentForm.Flexbox.mColumn.mMinimalSpacing
+				//- parent metadata
+				input(type="hidden", name="article", value=comment.article)
+				input(type="hidden", name="parent", value=comment._id)
+
+				//- reply content field
+				textarea(name="content", rows="2", required="true")
+				.Flexbox.mSpaceBetween.mVerticallyCenter
+					//- action dialog
+					.tSmall.tGray.uSingleLineText Write a reply to John Doe.
+					button(type="submit") Reply
+
+			//- reply tree
+			for reply in comment.replies 
+				+Comment(reply)

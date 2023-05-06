@@ -1,5 +1,5 @@
-const submitButton = document.getElementById("form_submit_button");
-const titleInput = document.getElementById("form_title_field");
+const submitButton = document.getElementById("articleDeleteFormSubmit");
+const titleInput = document.getElementById("articleDeleteFormValidator");
 
 // initialize submit button
 submitButton.disabled = true;
