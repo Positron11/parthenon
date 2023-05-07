@@ -12,7 +12,7 @@ block main
 		h1 Banish.
 		h2!= `Deleting "${article.title}${ ["!", "?", "."].includes(article.title.slice(-1)) ? "" : "."}"`
 
-	p If you proceed, you will permanently delete the article and all associated comments. There is no going back. If you are sure you want to do this, type the article's title in the input below.
+	p If you proceed, you will permanently delete the article and all associated comments. There is no going back. If you are sure you want to do this, <b>type the article's title in the input below</b>.
 		
 	.Separator
 		
@@ -20,6 +20,6 @@ block main
 	form#ArticleDeleteForm(action="", method="post").Flexbox.mSpaceBetween.mMinimalSpacing.mVerticallyCenter
 		//- confirmation step
 		input#articleDeleteFormValidator(
-			type="text", autofocus, required, pattern!=article.title, title="article title", placeholder="Type article title to confirm...")
+			type="text", required, pattern!=article.title, title="article title", placeholder="Type article title to confirm...")
 		
 		button#articleDeleteFormSubmit(type="submit").mDanger Delete
