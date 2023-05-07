@@ -72,6 +72,8 @@ p {
 }
 :is(h1, h2, h3, h4, p) + p { margin-top: 1em; }
 
+b { font-weight: 600; }
+
 /* ===================================================== typography modifiers */
 
 .tSmall { font-size: 0.9em; }
