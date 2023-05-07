@@ -269,7 +269,7 @@ a.mUnstyled {
 	opacity: 0;
 	z-index: -1;
 	pointer-events: none;
-	transform: scale(0.75); 
+	transform: scale(0.75) translate(2em, -2em); 
 }
 .messageWrapper.sDismissed + .messageWrapper { margin-top: calc(0px - (var(--height) + 1em)); }
 
