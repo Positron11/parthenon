@@ -193,6 +193,7 @@ a.mUnstyled {
 /* ================================================================== toolbar */
 
 #Toolbar {
+	line-height: 0;
 	overflow: hidden;
 	padding: 0.8em 1em;
 	border-radius: 5em;
