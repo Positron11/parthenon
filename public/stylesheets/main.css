@@ -32,7 +32,7 @@
 	--bg-lc: #1F1F1F;
 	--bg-df: #FFFFFF11;
 
-	--fg-lc: #444444;
+	--fg-lc: #555;
 }
 
 :root.sChangingColorScheme * {
