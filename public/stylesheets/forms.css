@@ -14,9 +14,10 @@ label {
 	outline: none;
 	font-size: 1em;
 	font-family: inherit;
+	color: var(--fg-main);
 	border-radius: 0.75em;
 	box-sizing: border-box;
-	background-color: var(--off-white);
+	background-color: var(--bg-lc);
 }
 
 input[type="text"] {
@@ -32,18 +33,12 @@ textarea {
 	padding: 0.75em 1.25em;
 }
 
-::-webkit-input-placeholder {
-	color: var(--light-gray);
-}
+::placeholder {	color: var(--fg-lc); }
+::-ms-placeholder { color: var(--fg-lc); }
+::-webkit-input-placeholder { color: var(--fg-lc); }
 ::-moz-placeholder {
 	opacity: 1;
-	color: var(--light-gray);
-}
-::-ms-placeholder {
-	color: var(--light-gray);
-}
-::placeholder {
-	color: var(--light-gray);
+	color: var(--fg-lc);
 }
 
 /* ================================================================== buttons */
@@ -58,16 +53,17 @@ button {
 	color: var(--off-white);
 	background-color: var(--dark-gray);
 }
+:root.sDarkMode button { background-color: var(--bg-lc); }
 
 button.mDanger { background-color: var(--red); }
 
 button.mDiscreet {
-	padding: 0;
-	background: none;
+	padding: 0 !important;
+	background: none !important;
 }
 
 button[disabled] {
+	color: var(--fg-lc);
 	cursor: not-allowed;
-	color: var(--light-gray);
-	background-color: var(--off-white);
+	background-color: var(--bg-lc);
 }

@@ -9,7 +9,7 @@
 
 .Comment .content .header .date {
 	font-size: 0.9em;
-	color: var(--light-gray);
+	color: var(--fg-lc);
 }
 
 .Comment .content .body { margin-top: 0.5em; }
@@ -22,15 +22,16 @@
 	margin-top: 0.8em;
 	padding: 0.75em 1em;
 	border-radius: 0.75em 2em 2em 2em;
-	background-color: var(--off-white);
+	background-color: var(--bg-lc);
 }
 
 .Comment .actions img { width: 0.96em; }
+:root.sDarkMode .Comment .actions img { filter: invert(); }
 
 #commentDeleteForm { line-height: 0; }
 
 .Comment .replies {
-	border-left: 2px solid var(--lighter-gray);
+	border-left: 3px solid var(--bg-lc);
 	padding-left: calc(var(--standard-spacing) / 1.5);
 }
 @media only screen and (max-width: 1000px) {.Comment .replies { padding-left: calc(var(--standard-spacing) / 2.5); }}

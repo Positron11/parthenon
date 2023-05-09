@@ -28,7 +28,8 @@ html
 
 		//- scripts
 		block scripts
-			script(type="text/javascript", src="/javascripts/main.js", defer)
+			script(type="text/javascript", src="/javascripts/main-preload.js")
+			script(type="text/javascript", src="/javascripts/main-loaded.js", defer)
 
 	body
 		#Page.Flexbox.mColumn.mStandardSpacing
@@ -46,7 +47,11 @@ html
 					
 					//- action buttons
 					#toolbarButtons.Flexbox.mMinimalSpacing
+						//- dark mode toggle
+						#DarkModeToggle(onclick="toggleDarkMode(!(localStorage.getItem('dark-mode') == 'true'));").mClickable
+						//- scroll to top
 						img(src="/images/icons/top.svg", onclick="window.scrollTo(0,0);").mClickable
+						//- other buttons
 						block toolbar_buttons
 
 				//- navigation links
