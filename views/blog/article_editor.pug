@@ -23,20 +23,20 @@ block main
 	//- editor form
 	form#ArticleEditorForm(action="", method="post").Flexbox.mColumn.mCompactSpacing
 		div
-			label#articleEditorFormTitleFieldLabel(for="form_title_field") Title
+			label#articleEditorFormTitleFieldLabel(for="articleEditorFormTitleField") Title
 			input#articleEditorFormTitleField(type="text", name="title", required="true", maxlength="40", autocomplete="off", value!=(form_data === undefined ? "" : form_data.title))
 		
 		div
-			label(for="form_subtitle_field") Subtitle
+			label(for="articleEditorFormSubtitleField") Subtitle
 			input#articleEditorFormSubtitleField(type="text", name="subtitle", required="true", maxlength="40", autocomplete="off", value!=(form_data === undefined ? "" : form_data.subtitle))
 
 		div
-			label(for="form_description_field") Description
-			textarea#form_description_field(name="description", required="true", rows="4", maxlength="300")!= (form_data === undefined ? "" : form_data.description)
+			label(for="articleEditorFormDescriptionField") Description
+			textarea#articleEditorFormDescriptionField(name="description", required="true", rows="4", maxlength="300")!= (form_data === undefined ? "" : form_data.description)
 
 		div
-			label#articleEditorFormContentFieldLabel(for="form_content_field") Content
-			textarea#articleEditorFormDescriptionField(name="content", rows="8", required="true")!= (form_data === undefined ? "" : form_data.content)
+			label#articleEditorFormContentFieldLabel(for="articleEditorFormContentField") Content
+			textarea#articleEditorFormContentField(name="content", rows="8", required="true")!= (form_data === undefined ? "" : form_data.content)
 		
 		#articleEditorFormSubmit.Flexbox.mRightAlign
 			button(type="submit")= action
