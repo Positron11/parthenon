@@ -12,8 +12,12 @@ const compression = require('compression');
 const flash = require('express-flash');
 const passport = require('passport');
 
+// custom middleware imports
+const authMiddleware = require("./middleware/auth_middleware");
+
 // routing file paths
 const indexRouter = require('./routes/index');
+const authRouter = require('./routes/auth');
 const blogRouter = require('./routes/blog');
 
 // models
@@ -40,7 +44,7 @@ connect_db().then(conn => {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-// middleware
+// external middleware
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -56,11 +60,15 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+// custom middleware
+app.use(authMiddleware.sessionAuthData);
+
 // static files
 app.use(express.static(path.join(__dirname, 'public')));
 
 // routing
 app.use('/', indexRouter);
+app.use('/', authRouter);
 app.use('/blog', blogRouter);
 
 // catch 404 and forward to error handler

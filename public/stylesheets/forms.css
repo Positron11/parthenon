@@ -9,7 +9,7 @@ label {
 
 /* ============================================================== text inputs */
 
-:is(textarea, input[type="text"]) {
+:is(textarea, input:is([type="text"], [type="password"])) {
 	border: none;
 	outline: none;
 	font-size: 1em;
@@ -20,7 +20,7 @@ label {
 	background-color: var(--bg-lc);
 }
 
-input[type="text"] {
+input:is([type="text"], [type="password"]) {
 	min-width: 0;
 	padding: 0.75em 1em;
 	width: min(20em, 100%);

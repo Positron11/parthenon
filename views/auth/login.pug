@@ -1,0 +1,24 @@
+extends ../base.pug
+
+append stylesheets
+	link(rel="stylesheet", href="/stylesheets/forms.css")
+
+block main 
+	//- page header
+	#Header
+		h1 Log In.
+
+	.Separator
+
+	//- login form
+	form#LoginForm(action="/login", method="post").Flexbox.mColumn.mCompactSpacing
+		div
+			label(for="loginFormUsernameField") Username
+			input#loginFormUsernameField(type="text", name="username", required)
+
+		div
+			label(for="loginFormPasswordField") Password
+			input#loginFormPasswordField(type="password", name="password", required)
+		
+		.Flexbox.mRightAlign
+			button(type="submit") Log In
