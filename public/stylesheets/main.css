@@ -381,3 +381,8 @@ a.mUnstyled {
 	50% { transform: translateY(-0.5em); }
 	100% { transform: translatey(0); }
 }
+
+/* =================================================================== footer */
+
+#Footer { padding-bottom: var(--standard-spacing); }
+#Footer p { text-align: center; }
