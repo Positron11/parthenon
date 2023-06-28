@@ -1,5 +1,6 @@
-// initialize dark mode
+// initialize site settings
 toggleDarkMode(localStorage.getItem("dark-mode") == "true");
+toggleNavtrayPinned(localStorage.getItem("navtray-pinned") == "true");
 
 // initialize favicon
 document.querySelector("link[rel~='icon']").href = `/images/site/favicon-${window.matchMedia('(prefers-color-scheme: dark)').matches ? "light" : "dark"}.svg`;
@@ -20,4 +21,12 @@ function toggleDarkMode(state) {
 	// force reflow and re-enable transitions
 	document.documentElement.offsetHeight;
 	document.documentElement.classList.remove("sChangingColorScheme");
+}
+
+// toggle navtray pinned state
+function toggleNavtrayPinned(state) {
+	// set local storage value
+	localStorage.setItem("navtray-pinned", state);
+	// toggle pinned state
+	document.documentElement.classList.toggle("sNavtrayPinned", state);
 }

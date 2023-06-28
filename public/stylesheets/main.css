@@ -212,12 +212,17 @@ a.mUnstyled {
 
 #navbarBanner {
 	font-size: 2em;
-	margin-right: 0.75em;
 	font-family: var(--display-font);
 }
 @media only screen and (max-width: 700px) {#navbarBanner { font-size: 1.75em; }}
 
 /* ================================================================== navtray */
+
+#navtrayWrapper {
+	min-width: 0;
+	position: relative;
+	margin-left: 1.5em;
+}
 
 #Navtray {
 	line-height: 0;
@@ -229,12 +234,25 @@ a.mUnstyled {
 }
 #Navbar:not(.sMenuOpen) #Navtray { background-color: var(--bg-lc); }
 @media only screen and (pointer: fine) {#Navtray { max-width: 1em; }}
-@media only screen and (pointer: fine) {#Navbar:not(.sMenuOpen) #Navtray:hover { max-width: calc(var(--content-width) + 1em); }}
-@media only screen and (pointer: coarse) {#Navbar:not(.sMenuOpen) #Navtray { max-width: calc(var(--content-width) + 1em); }}
+@media only screen and (pointer: fine) {#Navbar:not(.sMenuOpen) #navtrayWrapper:hover #Navtray, :root.sNavtrayPinned #Navtray { max-width: calc((var(--child-count) + 1) * 50px); }}
+@media only screen and (pointer: coarse) {#Navbar:not(.sMenuOpen) #Navtray { max-width: calc((var(--child-count) + 1) * 50px); }}
 @media only screen and (pointer: coarse) {#Navbar.sMenuOpen #Navtray { max-width: 1.1em; }}
 
-@media only screen and (pointer: fine) {#Navbar:not(.sMenuOpen) #Navtray:hover #navtrayButtonsWrapper { min-width: 0; }}
-@media only screen and (pointer: coarse) {#navtrayButtonsWrapper { min-width: 0; }}
+#NavtrayPinButton {
+	opacity: 0;
+	transition: 0.15s ease opacity;
+}
+@media only screen and (pointer: fine) {#Navbar:not(.sMenuOpen) #navtrayWrapper:hover #NavtrayPinButton { opacity: 1; }}
+@media only screen and (pointer: coarse) {#NavtrayPinButton { display: none; }}
+
+#NavtrayPinButton img { 
+	width: 1.1em; 
+	padding: 0.75em;
+}
+
+:root:not(.sNavtrayPinned) #NavtrayPinButton img { opacity: 0.25; }
+
+#navtrayButtonsWrapper { min-width: 0; }
 
 #navtrayButtons {
 	overflow: auto;
