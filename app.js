@@ -10,10 +10,14 @@ const session = require('cookie-session');
 const logger = require('morgan');
 const compression = require('compression');
 const flash = require('express-flash');
+const passport = require('passport');
 
 // routing file paths
 const indexRouter = require('./routes/index');
 const blogRouter = require('./routes/blog');
+
+// models
+const User = require('./models/user');
 
 const app = express();
 
@@ -49,6 +53,8 @@ app.use(session({
 }));
 app.use(compression());
 app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // static files
 app.use(express.static(path.join(__dirname, 'public')));
@@ -74,5 +80,10 @@ app.use(function(err, req, res, next) {
 		title: err.status
 	});
 });
+
+// passport Local Strategy
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 module.exports = app;
