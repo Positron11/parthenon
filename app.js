@@ -11,6 +11,7 @@ const logger = require('morgan');
 const compression = require('compression');
 const flash = require('express-flash');
 const passport = require('passport');
+const url = require('url')
 
 // custom middleware imports
 const authMiddleware = require("./middleware/auth_middleware");
@@ -65,7 +66,7 @@ app.use(authMiddleware.sessionAuthData);
 
 // global variables
 app.use(function(req, res, next) {
-	res.locals.url = req.originalUrl || req.url;
+	res.locals.url = url.parse(req.originalUrl || req.url).pathname;
 	return next();
 });
 
