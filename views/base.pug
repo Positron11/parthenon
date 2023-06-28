@@ -25,6 +25,7 @@ html
 		block stylesheets
 			link(rel="stylesheet", href="/stylesheets/reset.css")
 			link(rel="stylesheet", href="/stylesheets/main.css")
+			link(rel="stylesheet", href="/stylesheets/forms.css")
 
 		//- scripts
 		block scripts
@@ -51,6 +52,12 @@ html
 						#DarkModeToggle(onclick="toggleDarkMode(!(localStorage.getItem('dark-mode') == 'true'));").mClickable
 						//- scroll to top
 						img(src="/images/icons/top.svg", onclick="window.scrollTo(0,0);").mClickable
+						//- users and authentication
+						if user
+							form(action="/logout", method="post")
+								button(type="submit").mDiscreet: img(src="/images/icons/logout.svg")
+						else
+							a(href="/login").mUnstyled: img(src="/images/icons/login.svg", onclick="window.scrollTo(0,0);")
 						//- other buttons
 						block toolbar_buttons
 
