@@ -52,14 +52,14 @@ html
 						#DarkModeToggle(onclick="toggleDarkMode(!(localStorage.getItem('dark-mode') == 'true'));").mClickable
 						//- scroll to top
 						img(src="/images/icons/top.svg", onclick="window.scrollTo(0,0);").mClickable
+						//- other buttons
+						block toolbar_buttons
 						//- users and authentication
 						if user
 							form(action=`/logout?next=${url}`, method="post")
 								button(type="submit").mDiscreet: img(src="/images/icons/logout.svg")
 						else
 							a(href=`/login?next=${url}`).mUnstyled: img(src="/images/icons/login.svg")
-						//- other buttons
-						block toolbar_buttons
 
 				//- navigation links
 				nav#NavLinks.uOverlay.Flexbox.mCenter
