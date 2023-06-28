@@ -8,7 +8,7 @@ const auth_controller = require("../controllers/auth_controller");
 
 // login views
 router.get("/login", auth_controller.login_get);
-router.post("/login", passport.authenticate("local", { failureRedirect: "/login" }), auth_controller.login_post);
+router.post("/login", passport.authenticate("local", { failureRedirect: "/login", failureFlash: true }), auth_controller.login_post);
 
 // logout views
 router.post("/logout", auth_controller.logout);

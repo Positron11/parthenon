@@ -8,6 +8,7 @@ exports.login_get = (req, res, next) => {
 exports.login_post = (req, res, next) => {
 	const returnTo = req.session.returnTo;
 	req.session.returnTo = undefined;
+	req.flash("success", `Welcome, ${req.user.username}`);
 	res.redirect(returnTo || "/");
 }
 
