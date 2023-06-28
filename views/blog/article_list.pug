@@ -6,7 +6,7 @@ append stylesheets
 append scripts 
 	script(type="text/javascript", src="/javascripts/balancetext.min.js", defer)
 
-block toolbar_buttons
+block navtray_buttons
 	if user && user.roles.includes("superuser")
 		a(href="/blog/create").mUnstyled: img(src="/images/icons/write.svg")
 

@@ -212,13 +212,14 @@ a.mUnstyled {
 
 #navbarBanner {
 	font-size: 2em;
+	margin-right: 0.75em;
 	font-family: var(--display-font);
 }
 @media only screen and (max-width: 700px) {#navbarBanner { font-size: 1.75em; }}
 
-/* ================================================================== toolbar */
+/* ================================================================== navtray */
 
-#Toolbar {
+#Navtray {
 	line-height: 0;
 	overflow: hidden;
 	padding: 0.8em 1em;
@@ -226,18 +227,29 @@ a.mUnstyled {
 	margin-right: -1em;
 	transition: background-color 0.15s ease, max-width 0.15s ease;
 }
-#Navbar:not(.sMenuOpen) #Toolbar { background-color: var(--bg-lc); }
-@media only screen and (pointer: fine) {#Toolbar { max-width: 1em; }}
-@media only screen and (pointer: fine) {#Navbar:not(.sMenuOpen) #Toolbar:hover { max-width: calc(var(--content-width) + 1em); }}
-@media only screen and (pointer: coarse) {#Navbar:not(.sMenuOpen) #Toolbar { max-width: calc(var(--content-width) + 1em); }}
-@media only screen and (pointer: coarse) {#Navbar.sMenuOpen #Toolbar { max-width: 1.1em; }}
+#Navbar:not(.sMenuOpen) #Navtray { background-color: var(--bg-lc); }
+@media only screen and (pointer: fine) {#Navtray { max-width: 1em; }}
+@media only screen and (pointer: fine) {#Navbar:not(.sMenuOpen) #Navtray:hover { max-width: calc(var(--content-width) + 1em); }}
+@media only screen and (pointer: coarse) {#Navbar:not(.sMenuOpen) #Navtray { max-width: calc(var(--content-width) + 1em); }}
+@media only screen and (pointer: coarse) {#Navbar.sMenuOpen #Navtray { max-width: 1.1em; }}
 
-#toolbarButtons img { width: 1.2em; }
-:root.sDarkMode #toolbarButtons img { filter: invert(); }
+@media only screen and (pointer: fine) {#Navbar:not(.sMenuOpen) #Navtray:hover #navtrayButtonsWrapper { min-width: 0; }}
+@media only screen and (pointer: coarse) {#navtrayButtonsWrapper { min-width: 0; }}
+
+#navtrayButtons {
+	overflow: auto;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+#navtrayButtons::-webkit-scrollbar{ display: none; }
+
+#navtrayButtons img { width: 1.2em; }
+:root.sDarkMode #navtrayButtons img { filter: invert(); }
 
 #DarkModeToggle {
 	width: 1.2em;
 	height: 1.2em;
+	flex-shrink: 0;
 	background-size: cover;
 	background-image: url("/images/icons/light_mode.svg");
 }
