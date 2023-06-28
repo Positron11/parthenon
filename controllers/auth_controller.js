@@ -1,5 +1,6 @@
 // login view get method controller
 exports.login_get = (req, res, next) => {
+	if (req.query.next) { req.session.returnTo = req.query.next }
 	res.render("auth/login", { title: "Log In" });
 }
 
@@ -13,5 +14,5 @@ exports.login_post = (req, res, next) => {
 // logout view controller
 exports.logout = (req, res, next) => {
 	req.logout();
-	res.redirect("/login");
+	res.redirect(req.query.next);
 }

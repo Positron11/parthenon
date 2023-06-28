@@ -63,6 +63,12 @@ app.use(passport.session());
 // custom middleware
 app.use(authMiddleware.sessionAuthData);
 
+// global variables
+app.use(function(req, res, next) {
+	res.locals.url = req.originalUrl || req.url;
+	return next();
+});
+
 // static files
 app.use(express.static(path.join(__dirname, 'public')));
 
