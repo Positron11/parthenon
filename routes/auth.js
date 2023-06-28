@@ -1,9 +1,6 @@
 var express = require("express");
 const passport = require('passport');
 
-// custom middlware
-const authMiddleware = require("../middleware/auth_middleware")
-
 var router = express.Router();
 
 // import controllers
