@@ -1,5 +1,8 @@
 const express = require("express");
 
+// custom middlware
+const authMiddleware = require("../middleware/auth_middleware")
+
 const router = express.Router();
 
 // import controllers
@@ -11,16 +14,16 @@ const comment_controller = require("../controllers/blog/comment_controller");
 router.get("/", blog_controller.article_list);
 
 // article create views
-router.get("/create", article_controller.article_create_get);
-router.post("/create", article_controller.article_create_post);
+router.get("/create", authMiddleware.sessionAuthCheck("superuser"), article_controller.article_create_get);
+router.post("/create", authMiddleware.sessionAuthCheck("superuser"), article_controller.article_create_post);
 
 // article delete views
-router.get("/article/:slug/delete", article_controller.article_delete_get);
-router.post("/article/:slug/delete", article_controller.article_delete_post);
+router.get("/article/:slug/delete", authMiddleware.sessionAuthCheck("superuser"), article_controller.article_delete_get);
+router.post("/article/:slug/delete", authMiddleware.sessionAuthCheck("superuser"), article_controller.article_delete_post);
 
 // article edit views
-router.get("/article/:slug/edit", article_controller.article_update_get);
-router.post("/article/:slug/edit", article_controller.article_update_post);
+router.get("/article/:slug/edit", authMiddleware.sessionAuthCheck("superuser"), article_controller.article_update_get);
+router.post("/article/:slug/edit", authMiddleware.sessionAuthCheck("superuser"), article_controller.article_update_post);
 
 // article detail view
 router.get("/article/:slug", blog_controller.article_detail);
