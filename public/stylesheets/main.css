@@ -283,17 +283,23 @@ a.mUnstyled {
 
 #NavtrayPinButton {
 	opacity: 0;
+	line-height: 0;
+	border-radius: 2em;
+	margin-right: 0.5em;
+	background-color: var(--bg-lc);
 	transition: 0.15s ease opacity;
 }
 @media only screen and (pointer: fine) {#Navbar:not(.sMenuOpen) #navtrayWrapper:hover #NavtrayPinButton { opacity: 1; }}
 @media only screen and (pointer: coarse) {#NavtrayPinButton { display: none; }}
 
 #NavtrayPinButton img { 
-	width: 1.1em; 
-	padding: 0.75em;
+	width: 1em; 
+	padding: 0.6em;
 }
+:root.sDarkMode #NavtrayPinButton img { filter: invert(); }
 
-:root:not(.sNavtrayPinned) #NavtrayPinButton img { opacity: 0.25; }
+:root.sNavtrayPinned #NavtrayPinButtonUnpinnedIcon,
+:root:not(.sNavtrayPinned) #NavtrayPinButtonPinnedIcon { display: none; }
 
 #navtrayButtons { 
 	min-width: 0;

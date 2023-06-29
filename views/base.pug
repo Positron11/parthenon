@@ -42,7 +42,9 @@ html
 				//- navtray wrapper
 				#navtrayWrapper.Flexbox.mVerticallyCenter
 					//- pin button
-					#NavtrayPinButton: img(src="/images/icons/pin.svg", onclick="toggleNavtrayPinned(!(localStorage.getItem('navtray-pinned') == 'true'));").mClickable
+					#NavtrayPinButton(onclick="toggleNavtrayPinned(!(localStorage.getItem('navtray-pinned') == 'true'));").mClickable
+						img#NavtrayPinButtonUnpinnedIcon(src="/images/icons/pin.svg")
+						img#NavtrayPinButtonPinnedIcon(src="/images/icons/pinned.svg")
 				
 					//- navtray
 					#Navtray.Flexbox.mReverse.mMinimalSpacing.mVerticallyCenter.uCalcDimensions

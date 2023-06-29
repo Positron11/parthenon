@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="360px" height="360px" viewBox="0 0 360 360" version="1.2">
-<g id="surface88855">
-<path style="fill:none;stroke-width:25;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 20 340 L 120 240 "/>
-<path style="fill:none;stroke-width:25;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 40 160 L 200 320 "/>
-<path style="fill:none;stroke-width:25;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 40 160 L 140 140 L 200 80 L 200 40 L 220 20 L 340 140 L 320 160 L 280 160 L 220 220 L 200 320 "/>
-<path style="fill:none;stroke-width:25;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 220 20 L 240 20 L 340 120 L 340 140 "/>
-<path style="fill:none;stroke-width:25;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 200 320 L 220 300 L 240 200 "/>
+<g id="surface108975">
+<path style="fill:none;stroke-width:25;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 180 180 C 180 180 100 180 100 100 "/>
+<path style="fill:none;stroke-width:25;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 100 100 C 100 100 100 20 180 20 "/>
+<path style="fill:none;stroke-width:25;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 180 20 C 180 20 260 20 260 100 "/>
+<path style="fill:none;stroke-width:25;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 260 100 C 260 100 260 180 180 180 "/>
+<path style="fill:none;stroke-width:25;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 180 60 C 180 60 220 60 220 100 "/>
+<path style="fill:none;stroke-width:25;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 180 180 L 180 340 "/>
 </g>
 </svg>
