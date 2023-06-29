@@ -126,6 +126,12 @@ a.mUnstyled {
     -webkit-line-clamp: var(--lines);
 }
 
+.uHideScrollbars {
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+.uHideScrollbars::-webkit-scrollbar{ display: none; }
+
 .uSingleLineText {
 	display: block;
 	max-width: 100%;
