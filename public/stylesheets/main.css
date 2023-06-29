@@ -197,6 +197,41 @@ a.mUnstyled {
 
 .Flexbox.mSpaceBetween { justify-content: space-between; }
 
+/* ================================================== blur overflow scrollbox */
+
+.BlurOverflowScrollbox { display: flex; }
+
+.BlurOverflowScrollbox::before,
+.BlurOverflowScrollbox::after {
+	--width: 1.5em;
+	z-index: 1;
+	content: "";
+	height: 1.2em;
+	position: sticky;
+	top: 0; bottom: 0;
+	align-self: center;
+	pointer-events: none;
+	min-width: var(--width);
+	background-size: contain;
+	background-color: inherit;
+	background-repeat: no-repeat;
+	transition: 0.15s ease opacity;
+}
+.BlurOverflowScrollbox::before {
+	left: 0;
+	background-position: center left;
+	margin-right: calc(0px - var(--width));
+	background-image: url("/images/icons/chevron_left.svg");
+}
+.BlurOverflowScrollbox::after {
+	right: 0;
+	background-position: center right;
+	margin-left: calc(0px - var(--width));
+	background-image: url("/images/icons/chevron_right.svg");
+}
+.BlurOverflowScrollbox:not(.sScrollRight)::after,
+.BlurOverflowScrollbox:not(.sScrollLeft)::before { opacity: 0; }
+
 /* ===================================================================== page */
 
 #Page {
@@ -260,14 +295,11 @@ a.mUnstyled {
 
 :root:not(.sNavtrayPinned) #NavtrayPinButton img { opacity: 0.25; }
 
-#navtrayButtonsWrapper { min-width: 0; }
-
-#navtrayButtons {
-	overflow: auto;
-	scrollbar-width: none;
-	-ms-overflow-style: none;
+#navtrayButtons { 
+	min-width: 0;
+	overflow: auto; 
+	background-color: var(--bg-lc);
 }
-#navtrayButtons::-webkit-scrollbar{ display: none; }
 
 #navtrayButtons img { width: 1.2em; }
 :root.sDarkMode #navtrayButtons img { filter: invert(); }
