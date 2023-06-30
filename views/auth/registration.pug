@@ -1,0 +1,33 @@
+extends ../base.pug
+
+append stylesheets
+	link(rel="stylesheet", href="/stylesheets/forms.css")
+
+append scripts
+	script(type="text/javascript", src="/javascripts/auth/registration.js", defer)
+
+block main 
+	//- page header
+	#Header
+		h1 Sign Up.
+
+	.Separator
+
+	//- registration form
+	form#RegistrationForm(action="/register", method="post").Flexbox.mColumn.mCompactSpacing
+		div
+			label(for="RegistrationFormUsernameField") Username
+			input#RegistrationFormUsernameField(type="text", name="username", placeholder="Between 3 and 20 characters", maxlength="20", required)
+
+		div
+			label(for="RegistrationFormPasswordField") Password
+			input#RegistrationFormPasswordField(type="password", name="password", placeholder="At least 8 characters", required)
+
+		div
+			label(for="RegistrationFormCaptchaField") Captcha
+			input#RegistrationFormCaptchaField(type="text", name="captcha", required)
+
+		input#RegistrationFormCaptchaQuestion(type="hidden", name="captchaQuestion")
+		
+		.Flexbox.mRightAlign
+			button(type="submit") Register
