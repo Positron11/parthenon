@@ -36,20 +36,31 @@ block main
 	//- comments
 	#CommentSection.Flexbox.mColumn.mStandardSpacing
 		.Flexbox.mColumn.mMinimalSpacing
-			h2 Comments.
+			div
+				h2 Comments.
+				if !user
+					p.tGray 
+						a(href=`/login?next=${url}`).tGray Log in
+						span  or 
+						a(href=`/register?next=${url}`).tGray sign up
+						span= ` to ${article.comments.length ? "join" : "begin"} the conversation.` 
 
-			//- new comment form
-			form(action="../comment/create", method="post").Flexbox.mColumn.mMinimalSpacing
-				//- comment article id
-				input(type="hidden", name="article", value=article._id)
+			if user
+				//- new comment form
+				form(action="../comment/create", method="post").Flexbox.mColumn.mMinimalSpacing
+					//- comment article id
+					input(type="hidden", name="article", value=article._id)
 
-				//- comment content field
-				textarea(name="content", rows="3", required="true")
-				.Flexbox.mSpaceBetween.mVerticallyCenter
-					//- action dialog
-					.tSmall.tGray.uSingleLineText= article.comments.length ? "Join the discussion." : "Start the discussion."
-					
-					button(type="submit") Comment
+					//- comment author
+					input(type="hidden", name="author", value=user._id)
+
+					//- comment content field
+					textarea(name="content", rows="3", required="true")
+					.Flexbox.mSpaceBetween.mVerticallyCenter
+						//- action dialog
+						.tSmall.tGray.uSingleLineText= article.comments.length ? "Join the discussion." : "Start the discussion."
+						
+						button(type="submit") Comment
 
 		if article.comments.length
 			.Separator

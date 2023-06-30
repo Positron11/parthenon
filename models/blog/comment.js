@@ -7,6 +7,7 @@ const md = new MarkdownIt();
 
 // comment model schema
 const CommentSchema = new Schema({
+	author: { type: Schema.Types.ObjectId, ref: "User", autopopulate: { select: "username" } },
 	article: { type: Schema.Types.ObjectId, ref: "Article" },
 	parent: { type: Schema.Types.ObjectId, ref: "Comment", index: true },
 	content: { type: String, required: true },

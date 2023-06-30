@@ -6,6 +6,7 @@ const Comment = require("../../models/blog/comment");
 // comment create post method controller
 exports.comment_create = [
 	body("article", "Invalid article id.").isMongoId(),
+	body("author", "Invalid author id.").isMongoId(),
 	body("parent", "Invalid parent id.").optional().isMongoId(),
 	body("content", "Invalid content.").trim().isLength({ min: 1 }).escape(),
 		
@@ -17,6 +18,7 @@ exports.comment_create = [
 
 		// create new comment
 		Comment.create({ 
+			author: req.body.author,
 			article: req.body.article,
 			parent: req.body.parent,
 			content: req.body.content
@@ -34,9 +36,18 @@ exports.comment_create = [
 
 // comment delete method controller
 exports.comment_delete = (req, res, next) => {
-	// delete comment
-	Comment.findOneAndDelete({ _id: req.params.id }).then(
-		async result => { 
+	// find comment
+	Comment.findOne({ _id: req.params.id }).then(
+		async result => {
+			// check if user is comment author
+			if (!req.user.roles.includes("superuser") && !req.user._id.equals(result.author._id)) { 
+				const error = new Error("You're not the author of the comment you're trying to delete");
+				error.status = 403;
+				return next(error);
+			}
+
+			// delete comment
+			await result.deleteOne();
 			await result.populate("article", "slug");
 
 			// redirect to article detail and scroll to parent or comment form if top-level
@@ -58,11 +69,20 @@ exports.comment_edit = [
 		if (!errors.isEmpty()) { return res.redirect("back"); }
 
 		// edit comment
-		Comment.findOneAndUpdate({ _id: req.params.id }, { 
-			content: req.body.content
+		Comment.findOne({ _id: req.params.id }).then(
+			async result => {
+				// check if user is comment author
+				if (!(req.user._id.equals(result.author._id))) { 
+					const error = new Error("You're not the author of the comment you're trying to edit");
+					error.status = 403;
+					return next(error);
+				}
 
-		}).then( // redirect to article detail and scroll to comment
-			async result => { 
+				// update comment
+				result.content = req.body.content;
+				await result.save();
+
+				// redirect to article detail and scroll to comment
 				await result.populate("article", "slug");
 				req.flash("success", `Edited comment`);
 				res.redirect(`${result.article.url}#${result._id}`) 

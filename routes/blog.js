@@ -29,12 +29,12 @@ router.post("/article/:slug/edit", authMiddleware.sessionAuthCheck("superuser"),
 router.get("/article/:slug", blog_controller.article_detail);
 
 // comment create method
-router.post("/comment/create", comment_controller.comment_create);
+router.post("/comment/create", authMiddleware.sessionAuthCheck(), comment_controller.comment_create);
 
 // comment delete method
-router.post("/comment/:id/delete", comment_controller.comment_delete);
+router.post("/comment/:id/delete", authMiddleware.sessionAuthCheck(), comment_controller.comment_delete);
 
 // comment edit method
-router.post("/comment/:id/edit", comment_controller.comment_edit);
+router.post("/comment/:id/edit", authMiddleware.sessionAuthCheck(), comment_controller.comment_edit);
 
 module.exports = router;
