@@ -231,6 +231,7 @@ a.mUnstyled {
 }
 .BlurOverflowScrollbox:not(.sScrollRight)::after,
 .BlurOverflowScrollbox:not(.sScrollLeft)::before { opacity: 0; }
+@media only screen and (pointer: fine) {.BlurOverflowScrollbox:not(:hover)::before, .BlurOverflowScrollbox:not(:hover)::after {	opacity: 0; }}
 
 /* ===================================================================== page */
 
@@ -259,12 +260,6 @@ a.mUnstyled {
 
 /* ================================================================== navtray */
 
-#navtrayWrapper {
-	min-width: 0;
-	position: relative;
-	margin-left: 1.5em;
-}
-
 #Navtray {
 	line-height: 0;
 	overflow: hidden;
@@ -275,28 +270,13 @@ a.mUnstyled {
 }
 #Navbar:not(.sMenuOpen) #Navtray { background-color: var(--bg-lc); }
 @media only screen and (pointer: fine) {#Navtray { max-width: 1em; }}
-@media only screen and (pointer: fine) {#Navbar:not(.sMenuOpen) #navtrayWrapper:hover #Navtray, :root.sNavtrayPinned #Navbar:not(.sMenuOpen) #Navtray { 
+@media only screen and (pointer: fine) {#Navbar:not(.sMenuOpen) #Navtray:hover, :root.sNavtrayPinned #Navbar:not(.sMenuOpen) #Navtray { 
 	max-width: calc((var(--child-count) + 1) * 50px); 
 }}
 @media only screen and (pointer: coarse) {#Navbar:not(.sMenuOpen) #Navtray { max-width: calc((var(--child-count) + 1) * 50px); }}
 @media only screen and (pointer: coarse) {#Navbar.sMenuOpen #Navtray { max-width: 1.1em; }}
 
-#NavtrayPinButton {
-	opacity: 0;
-	line-height: 0;
-	border-radius: 2em;
-	margin-right: 0.5em;
-	background-color: var(--bg-lc);
-	transition: 0.15s ease opacity;
-}
-@media only screen and (pointer: fine) {#Navbar:not(.sMenuOpen) #navtrayWrapper:hover #NavtrayPinButton { opacity: 1; }}
 @media only screen and (pointer: coarse) {#NavtrayPinButton { display: none; }}
-
-#NavtrayPinButton img { 
-	width: 1em; 
-	padding: 0.6em;
-}
-:root.sDarkMode #NavtrayPinButton img { filter: invert(); }
 
 :root.sNavtrayPinned #NavtrayPinButtonUnpinnedIcon,
 :root:not(.sNavtrayPinned) #NavtrayPinButtonPinnedIcon { display: none; }

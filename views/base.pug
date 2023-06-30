@@ -35,38 +35,35 @@ html
 	body
 		#Page.Flexbox.mColumn.mStandardSpacing
 			//- navbar
-			header#Navbar.Flexbox.mSpaceBetween.mVerticallyCenter
+			header#Navbar.Flexbox.mSpaceBetween.mMinimalSpacing.mVerticallyCenter
 				//- navbar banner
 				a(href="/").mUnstyled: #navbarBanner Aa.
+		
+				//- navtray
+				#Navtray.Flexbox.mReverse.mMinimalSpacing.mVerticallyCenter.uCalcDimensions
+					//- menu button
+					#NavbarMenuButton(onclick="document.getElementById('Navbar').classList.toggle('sMenuOpen')").mClickable
+						for i in Array(3)
+							.bar
 
-				//- navtray wrapper
-				#navtrayWrapper.Flexbox.mVerticallyCenter
-					//- pin button
-					#NavtrayPinButton(onclick="toggleNavtrayPinned(!(localStorage.getItem('navtray-pinned') == 'true'));").mClickable
-						img#NavtrayPinButtonUnpinnedIcon(src="/images/icons/pin.svg")
-						img#NavtrayPinButtonPinnedIcon(src="/images/icons/pinned.svg")
-				
-					//- navtray
-					#Navtray.Flexbox.mReverse.mMinimalSpacing.mVerticallyCenter.uCalcDimensions
-						//- menu button
-						#NavbarMenuButton(onclick="document.getElementById('Navbar').classList.toggle('sMenuOpen')").mClickable
-							for i in Array(3)
-								.bar
-
-						//- action buttons
-						#navtrayButtons.BlurOverflowScrollbox.uHideScrollbars: .Flexbox.mMinimalSpacing.uChildContainer
-							//- other buttons
-							block navtray_buttons
-							//- scroll to top
-							img(src="/images/icons/top.svg", onclick="window.scrollTo(0,0);").mClickable
-							//- users and authentication
-							if user
-								form(action=`/logout?next=${url}`, method="post")
-									button(type="submit").mDiscreet: img(src="/images/icons/logout.svg")
-							else
-								a(href=`/login?next=${url}`).mUnstyled: img(src="/images/icons/login.svg")
-							//- dark mode toggle
-							#DarkModeToggle(onclick="toggleDarkMode(!(localStorage.getItem('dark-mode') == 'true'));").mClickable
+					//- action buttons
+					#navtrayButtons.BlurOverflowScrollbox.uHideScrollbars: .Flexbox.mMinimalSpacing.uChildContainer
+						//- pin button
+						#NavtrayPinButton(onclick="toggleNavtrayPinned(!(localStorage.getItem('navtray-pinned') == 'true'));").mClickable
+							img#NavtrayPinButtonUnpinnedIcon(src="/images/icons/pin.svg")
+							img#NavtrayPinButtonPinnedIcon(src="/images/icons/pinned.svg")
+						//- other buttons
+						block navtray_buttons
+						//- scroll to top
+						img(src="/images/icons/top.svg", onclick="window.scrollTo(0,0);").mClickable
+						//- users and authentication
+						if user
+							form(action=`/logout?next=${url}`, method="post")
+								button(type="submit").mDiscreet: img(src="/images/icons/logout.svg")
+						else
+							a(href=`/login?next=${url}`).mUnstyled: img(src="/images/icons/login.svg")
+						//- dark mode toggle
+						#DarkModeToggle(onclick="toggleDarkMode(!(localStorage.getItem('dark-mode') == 'true'));").mClickable
 
 				//- navigation links
 				nav#NavLinks.uOverlay.Flexbox.mCenter
