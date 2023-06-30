@@ -30,13 +30,13 @@
 
 .Comment .actions {
 	line-height: 0;
-	margin-top: 0.8em;
+	margin-top: 0.75em;
 	padding: 0.75em 1em;
 	border-radius: 0.75em 2em 2em 2em;
 	background-color: var(--bg-lc);
 }
 
-.Comment .actions img { width: 0.96em; }
+.Comment .actions img { width: 1em; }
 :root.sDarkMode .Comment .actions img { filter: invert(); }
 
 #commentDeleteForm { line-height: 0; }
