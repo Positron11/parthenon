@@ -231,7 +231,11 @@ a.mUnstyled {
 }
 .BlurOverflowScrollbox:not(.sScrollRight)::after,
 .BlurOverflowScrollbox:not(.sScrollLeft)::before { opacity: 0; }
-@media only screen and (pointer: fine) {.BlurOverflowScrollbox:not(:hover)::before, .BlurOverflowScrollbox:not(:hover)::after {	opacity: 0; }}
+@media only screen and (pointer: fine) {
+	.BlurOverflowScrollbox:not(:hover)::before, 
+	.BlurOverflowScrollbox:not(:hover)::after {	
+		opacity: 0; transition-delay: 0.15s; 
+}}
 
 /* ===================================================================== page */
 
