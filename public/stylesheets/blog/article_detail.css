@@ -1,3 +1,15 @@
+/* ================================================================== article */
+
+#articleInfo {
+	padding: 0.75em 1em;
+	align-self: flex-start;
+	background-color: var(--bg-lc);
+	border-radius: 2em 2em 2em 0.75em;
+}
+
+#articleControls img { width: 1em; }
+:root.sDarkMode #articleControls img { filter: invert(); }
+
 /* ================================================================== comment */
 
 .Comment .content .header {
