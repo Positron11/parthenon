@@ -5,8 +5,6 @@
 	align-items: center;
 }
 
-.Comment .content .header .author {	font-family: var(--display-font); }
-
 .Comment .content .header .date {
 	font-size: 0.9em;
 	color: var(--fg-lc);

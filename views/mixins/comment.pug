@@ -4,7 +4,7 @@ mixin Comment(comment)
 		.content.Flexbox.mColumn
 			//- comment author and date
 			.header.Flexbox
-				.author= comment.author.username
+				.author.tDisplay= comment.author.username
 				- var date = new Date(comment.updated_date);
 				.date= `${date.toLocaleTimeString("en-us", { hour: "numeric", minute: "numeric" })} on ${date.toLocaleDateString("en-us", { year:"numeric", month:"long", day:"numeric"})}`
 

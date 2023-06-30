@@ -106,6 +106,8 @@ b { font-weight: 600; }
 
 .tGray { color: var(--fg-lc); }
 
+.tDisplay { font-family: var(--display-font); }
+
 /* ======================================================== unstyle modifiers */
 
 a.mUnstyled {
