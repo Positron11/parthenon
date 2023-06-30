@@ -26,3 +26,18 @@ function blurOverflowBox(element) {
 	element.classList.toggle("sScrollLeft", element.scrollLeft > 5);
 	element.classList.toggle("sScrollRight", (element.scrollWidth - 5) - element.scrollLeft > element.clientWidth);
 }
+
+// copy text to clipboard
+function copyToClipboard(text) {
+	// create dummy textarea and add required text
+    var dummy = document.createElement("textarea");
+    document.body.appendChild(dummy);
+    dummy.value = text;
+    
+    // select text and copy
+    dummy.select();
+    document.execCommand("copy");
+    
+    // remove dummy textarea
+	document.body.removeChild(dummy);
+}

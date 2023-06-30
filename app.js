@@ -66,6 +66,8 @@ app.use(authMiddleware.sessionAuthData);
 
 // global variables
 app.use(function(req, res, next) {
+	res.locals.protocol = req.protocol;
+	res.locals.host = req.get("host");
 	res.locals.url = url.parse(req.originalUrl || req.url).pathname;
 	return next();
 });
