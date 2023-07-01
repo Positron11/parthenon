@@ -1,5 +1,4 @@
 const Article = require("../../models/blog/article");
-const Comment = require("../../models/blog/comment");
 
 // article list view controller
 exports.article_list = (req, res, next) => {
