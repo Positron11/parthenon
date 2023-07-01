@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const slugify = require("slugify");
+const mongoosePaginate = require("mongoose-paginate-v2");
 const MarkdownIt = require("markdown-it");
 const he = require("he");
 
@@ -18,6 +19,9 @@ const ArticleSchema = new Schema({
 }, { 
 	timestamps: { createdAt: "created_date", updatedAt: "updated_date" } 
 });
+
+// article model schema plugins
+ArticleSchema.plugin(mongoosePaginate);
 
 // article url virtual
 ArticleSchema.virtual("url").get(function() {

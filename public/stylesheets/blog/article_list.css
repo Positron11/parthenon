@@ -49,3 +49,23 @@
 	transition: color 0.3s ease; 
 }
 @media only screen and (pointer: fine) {.ArticlePreview:hover .description { color: unset; }}
+
+/* =============================================================== pagination */
+
+#Pagination {
+	line-height: 0;
+	column-gap: 0.5em;
+	border-radius: 2em;
+	padding: 0.75em 1em;
+	background-color: var(--bg-lc);
+}
+
+.paginationButton.sDisabled {
+	opacity: 0.25;
+	pointer-events: none;
+}
+
+#paginationCurrent { padding: 0 0.3em; }
+
+#Pagination img { width: 1.2em; }
+:root.sDarkMode #Pagination img { filter: invert(); }

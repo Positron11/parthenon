@@ -20,7 +20,7 @@ block main
 
 	//- article previews list
 	#ArticlePreviews.Flexbox.mColumn.mStandardSpacing
-		for article in articles
+		for article in articles.docs
 			a.ArticlePreview(href=article.url).mUnstyled.Flexbox
 				//- preview date
 				.date.Flexbox
@@ -36,3 +36,18 @@ block main
 				
 				//- preview description
 				p.description.uTruncateLines(style="--lines:3")!= article.renderDescription()
+
+	.Flexbox.mHorizontallyCenter: #Pagination.Flexbox.mVerticallyCenter
+		//- invert page with respect to backend pagination
+		- var page = articles.totalPages - (articles.page - 1)
+
+		//- previous pages buttons
+		a(href=`${url}?page=${articles.totalPages}`, class=`${articles.hasPrevPage ? "" : "sDisabled"}`).paginationButton.mUnstyled: img(src="/images/icons/double_chevron_left.svg")
+		a(href=`${url}?page=${page + 1}`, class=`${articles.hasPrevPage ? "" : "sDisabled"}`).paginationButton.mUnstyled: img(src="/images/icons/chevron_left.svg")
+		
+		//- current page
+		b#paginationCurrent= page
+
+		//- next pages buttons
+		a(href=`${url}?page=${page - 1}`, class=`${articles.hasNextPage ? "" : "sDisabled"}`).paginationButton.mUnstyled: img(src="/images/icons/chevron_right.svg")
+		a(href=`${url}?page=1`, class=`${articles.hasNextPage ? "" : "sDisabled"}`).paginationButton.mUnstyled: img(src="/images/icons/double_chevron_right.svg")

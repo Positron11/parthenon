@@ -2,14 +2,31 @@ const Article = require("../../models/blog/article");
 
 // article list view controller
 exports.article_list = (req, res, next) => {
-	// get all articles in reverse chronological order
-	Article.find(null, "created_date title subtitle description slug").sort({ created_date: -1 }).then(
-		result => {
-			// render article list view
-			res.render("blog/article_list", { 
-				title: "Blog",
-				articles: result	
-			}); 
+	// set articles per page
+	const pageLimit = 10;
+
+	// get article count
+	Article.countDocuments({}).then(
+		count => {
+			// calculate number of pages
+			const pageCount = Math.ceil(count / pageLimit);
+
+			// get all articles...
+			Article.paginate({}, { 
+				sort: { created_date: -1 }, // ...in reverse chronological order
+				select: "created_date title subtitle description slug", 
+				page: pageCount - (req.query.page - 1) || 1, // invert page with respect to frontend pagination
+				limit: pageLimit }).then(
+				
+				result => {
+					// render article list view
+					res.render("blog/article_list", { 
+						title: "Blog",
+						articles: result 
+					}); 
+				}, 
+				err => { return next(err); }
+			);
 		}, 
 		err => { return next(err); }
 	);
