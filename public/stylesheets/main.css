@@ -25,6 +25,8 @@
 }
 
 :root.sDarkMode {
+	--red: #cf364d;
+
 	--bg-main: var(--dark-gray);
 	--fg-main: var(--off-white);
 

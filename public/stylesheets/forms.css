@@ -55,7 +55,7 @@ button {
 }
 :root.sDarkMode button { background-color: var(--bg-lc); }
 
-button.mDanger { background-color: var(--red); }
+button.mDanger { background-color: var(--red) !important; }
 
 button.mDiscreet {
 	padding: 0 !important;
@@ -65,5 +65,5 @@ button.mDiscreet {
 button[disabled] {
 	color: var(--fg-lc);
 	cursor: not-allowed;
-	background-color: var(--bg-lc);
+	background-color: var(--bg-lc) !important;
 }
