@@ -19,7 +19,6 @@ block main
 	//- delete form
 	form#ArticleDeleteForm(action="", method="post").Flexbox.mSpaceBetween.mMinimalSpacing.mVerticallyCenter
 		//- confirmation step
-		input#articleDeleteFormValidator(
-			type="text", required, pattern!=article.title, title="article title", placeholder="Type article title to confirm...")
+		input#articleDeleteFormValidator(type="text", required, pattern!=article.title, title="article title", placeholder="Type article title to confirm...")
 		
 		button#articleDeleteFormSubmit(type="submit").mDanger Delete
