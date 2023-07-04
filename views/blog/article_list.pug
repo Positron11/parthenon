@@ -35,7 +35,7 @@ block main
 					.subtitle: h4!= article.subtitle 
 				
 				//- preview description
-				p.description.uTruncateLines(style="--lines:3")!= article.renderDescription()
+				p.description.uTruncateLines(style="--lines:3")!= article.renderDescriptionPlaintext()
 
 	.Flexbox.mHorizontallyCenter: #Pagination.Flexbox.mVerticallyCenter
 		//- invert page with respect to backend pagination

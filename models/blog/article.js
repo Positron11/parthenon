@@ -2,12 +2,14 @@ const mongoose = require("mongoose");
 const slugify = require("slugify");
 const mongoosePaginate = require("mongoose-paginate-v2");
 const MarkdownIt = require("markdown-it");
+const plainText = require('markdown-it-plain-text');
 const he = require("he");
 
 const Schema = mongoose.Schema;
 const Comment = require("../../models/blog/comment");
 
 const md = new MarkdownIt();
+md.use(plainText);
 
 // article model schema
 const ArticleSchema = new Schema({
@@ -51,6 +53,12 @@ ArticleSchema.pre("findOneAndDelete", async function(next) {
 // render markdown-parsed description
 ArticleSchema.methods.renderDescription = function() {
 	return md.renderInline(this.description);
+}
+
+// render inline markdown-parsed description
+ArticleSchema.methods.renderDescriptionPlaintext = function() {
+	md.renderInline(this.description);
+	return md.plainText;
 }
 
 // render markdown-parsed content
