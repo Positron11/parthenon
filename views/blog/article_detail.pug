@@ -21,16 +21,18 @@ block navtray_buttons
 block main 
 	//- article
 	#Article.Flexbox.mColumn.mStandardSpacing
-		#articleInfo
-			- var date = new Date(article.created_date);
-			.tSmall
-				span.tDisplay Category · 
-				span= `${date.toLocaleDateString("en-us", { year:"numeric", month:"long", day:"numeric"})}`
+		.Flexbox.mColumn.mCompactSpacing
+			#articleInfo
+				- var date = new Date(article.created_date);
+				.tSmall
+					span.tDisplay Category · 
+					span= `${date.toLocaleDateString("en-us", { year:"numeric", month:"long", day:"numeric"})}`
 
-		//- header
-		#articleHeader
-			h1.balance-text!= article.title
-			h2!= article.subtitle
+			//- header
+			#articleHeader
+				h1.balance-text!= article.title
+				h3!= article.subtitle
+				p.tGray!= article.renderDescription()
 
 		.Separator
 

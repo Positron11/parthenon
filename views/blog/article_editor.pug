@@ -16,7 +16,7 @@ block main
 	//- page header
 	#Header
 		h1 Editor.
-		h2!= form_data === undefined ? "New article." : `Editing "${form_data.title}${ ["!", "?", "."].includes(form_data.title.slice(-1)) ? "" : "."}"`
+		h3!= form_data === undefined ? "New article." : `Editing "${form_data.title}${ ["!", "?", "."].includes(form_data.title.slice(-1)) ? "" : "."}"`
 
 	.Separator 
 

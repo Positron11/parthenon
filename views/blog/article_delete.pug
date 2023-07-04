@@ -10,7 +10,7 @@ block main
 	//- page header
 	#Header
 		h1 Banish.
-		h2!= `Deleting "${article.title}${ ["!", "?", "."].includes(article.title.slice(-1)) ? "" : "."}"`
+		h3!= `Deleting "${article.title}${ ["!", "?", "."].includes(article.title.slice(-1)) ? "" : "."}"`
 
 	p If you proceed, you will permanently delete the article and all associated comments. There is no going back. If you are sure you want to do this, <b>type the article's title in the input below</b>.
 		
