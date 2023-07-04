@@ -52,18 +52,18 @@ html
 						#NavtrayPinButton(onclick="toggleNavtrayPinned(!(localStorage.getItem('navtray-pinned') == 'true'));").mClickable
 							img#NavtrayPinButtonUnpinnedIcon(src="/images/icons/pin.svg")
 							img#NavtrayPinButtonPinnedIcon(src="/images/icons/pinned.svg")
-						//- other buttons
-						block navtray_buttons
+						//- dark mode toggle
+						#DarkModeToggle(onclick="toggleDarkMode(!(localStorage.getItem('dark-mode') == 'true'));").mClickable
 						//- scroll to top
 						img(src="/images/icons/top.svg", onclick="window.scrollTo(0,0);").mClickable
+						//- other buttons
+						block navtray_buttons
 						//- users and authentication
 						if user
 							form(action=`/logout?next=${url}`, method="post")
 								button(type="submit").mDiscreet: img(src="/images/icons/logout.svg")
 						else
 							a(href=`/login?next=${url}`).mUnstyled: img(src="/images/icons/login.svg")
-						//- dark mode toggle
-						#DarkModeToggle(onclick="toggleDarkMode(!(localStorage.getItem('dark-mode') == 'true'));").mClickable
 
 				//- navigation links
 				nav#NavLinks.uOverlay.Flexbox.mCenter
