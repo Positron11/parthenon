@@ -32,7 +32,7 @@ block main
 			#articleHeader
 				h1.balance-text!= article.title
 				h3!= article.subtitle
-				p.tGray!= article.renderDescription()
+				p: i!= article.renderDescription()
 
 		.Separator
 
