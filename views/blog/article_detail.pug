@@ -13,7 +13,6 @@ append scripts
 	script(type="text/javascript", src="/javascripts/blog/article_detail.js", defer)
 
 block navtray_buttons
-	img(src="/images/icons/comments.svg", onclick="document.getElementById('CommentSection').scrollIntoView();").mClickable
 	if user && user.roles.includes("superuser")
 		a(href=`${article.url}/edit`).mUnstyled: img(src="/images/icons/edit.svg")
 		a(href=`${article.url}/delete`).mUnstyled: img(src="/images/icons/trash.svg")

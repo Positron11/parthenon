@@ -7,11 +7,6 @@ append scripts
 	script(type="text/javascript", src="/javascripts/forms.js", defer)
 	script(type="text/javascript", src="/javascripts/autosize.min.js", defer)
 
-block navtray_buttons 
-	img(src="/images/icons/title.svg", onclick="document.getElementById('articleEditorFormTitleFieldLabel').scrollIntoView();").mClickable
-	img(src="/images/icons/content.svg", onclick="document.getElementById('articleEditorFormContentFieldLabel').scrollIntoView();").mClickable
-	img(src="/images/icons/publish.svg", onclick="document.getElementById('articleEditorFormSubmit').scrollIntoView();").mClickable
-
 block main
 	//- page header
 	#Header
