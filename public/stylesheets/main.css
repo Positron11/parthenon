@@ -287,9 +287,6 @@ a.mUnstyled {
 
 @media only screen and (pointer: coarse) {#NavtrayPinButton { display: none; }}
 
-:root.sNavtrayPinned #NavtrayPinButtonUnpinnedIcon,
-:root:not(.sNavtrayPinned) #NavtrayPinButtonPinnedIcon { display: none; }
-
 #navtrayButtons { 
 	min-width: 0;
 	overflow: auto; 
@@ -299,14 +296,18 @@ a.mUnstyled {
 #navtrayButtons img { width: 1.2em; }
 :root.sDarkMode #navtrayButtons img { filter: invert(); }
 
-#DarkModeToggle {
+#DarkModeToggle, #NavtrayPinButton {
 	width: 1.2em;
 	height: 1.2em;
 	flex-shrink: 0;
 	background-size: cover;
-	background-image: url("/images/icons/light_mode.svg");
 }
 
+:root.sDarkMode #NavtrayPinButton {	filter: invert(); }
+#NavtrayPinButton { background-image: url("/images/icons/pin.svg"); }
+:root.sNavtrayPinned #NavtrayPinButton { background-image: url("/images/icons/pinned.svg"); }
+
+#DarkModeToggle { background-image: url("/images/icons/light_mode.svg"); }
 :root.sDarkMode #DarkModeToggle {
 	filter: invert();
 	background-image: url("/images/icons/dark_mode.svg");

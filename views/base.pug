@@ -50,8 +50,6 @@ html
 					#navtrayButtons.BlurOverflowScrollbox.uHideScrollbars: .Flexbox.mMinimalSpacing.uChildContainer
 						//- pin button
 						#NavtrayPinButton(onclick="toggleNavtrayPinned(!(localStorage.getItem('navtray-pinned') == 'true'));").mClickable
-							img#NavtrayPinButtonUnpinnedIcon(src="/images/icons/pin.svg")
-							img#NavtrayPinButtonPinnedIcon(src="/images/icons/pinned.svg")
 						//- scroll to top
 						img(src="/images/icons/top.svg", onclick="window.scrollTo(0,0);").mClickable
 						//- other buttons
