@@ -28,6 +28,10 @@ block main
 			input#RegistrationFormPasswordField(type="password", name="password", placeholder="At least 8 characters", required)
 
 		div
+			label(for="RegistrationFormPasswordConfirmField") Confirm Password
+			input#RegistrationFormPasswordField(type="password", name="confirmpass", placeholder="One more time", required)
+
+		div
 			label(for="RegistrationFormCaptchaField") Captcha
 			input#RegistrationFormCaptchaField(type="text", name="captcha", required)
 

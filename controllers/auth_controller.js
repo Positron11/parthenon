@@ -17,7 +17,9 @@ exports.registration_post = [
 			return result ? Promise.reject("A user with this name already exists.") : true 
 		}) 
 	}),
-	body("password", "Password must be at least 8 characters long.").isLength({ min: 8 }),
+	body("password", "Password must be at least 8 characters long.").isLength({ min: 8 }).custom((value, {req, loc, path}) => {
+		return value == req.body.confirmpass || Promise.reject("Slow down, your password confirmation doesn't match.");
+	}),
 	body("captcha", "Incorrect captcha response.").trim().custom((value, {req, loc, path}) => {
 		return value == eval(req.body.captchaQuestion) || Promise.reject();
 	}),
