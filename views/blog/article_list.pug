@@ -41,7 +41,7 @@ block main
 					.subtitle: h4!= article.subtitle 
 				
 				//- preview description
-				p.description(style="--lines:3").uTruncateLines: i!= article.renderDescriptionPlaintext()
+				p.description.uTruncateLines(style="--lines:3")!= article.renderDescriptionPlaintext()
 
 	//- pagination
 	if articles.docs.length && articles.totalPages > 1
