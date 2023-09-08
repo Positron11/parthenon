@@ -19,6 +19,7 @@ const authMiddleware = require("./middleware/auth_middleware");
 // routing file paths
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
+const userRouter = require('./routes/user');
 const blogRouter = require('./routes/blog');
 
 // models
@@ -78,6 +79,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // routing
 app.use('/', indexRouter);
 app.use('/', authRouter);
+app.use('/', userRouter);
 app.use('/blog', blogRouter);
 
 // catch 404 and forward to error handler

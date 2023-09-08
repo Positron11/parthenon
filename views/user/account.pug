@@ -1,0 +1,51 @@
+extends ../base.pug
+
+append scripts
+	script(type="text/javascript", src="/javascripts/forms.js", defer)
+
+block main 
+	//- page header
+	#Header
+		h1 Account
+		h3= `Hello, ${user.username}.` 
+
+		p.tGray 
+			span View and edit your account details here. If you'd like to view your profile and activity, head over to your 
+			a(href="/users/") profile page
+			span .
+
+	.Separator
+
+	h2#passwordFormHeader Update Password.
+
+	form#PasswordForm(action=`/user/${user._id}/update-password`, method="post").Flexbox.mColumn.mCompactSpacing
+		div
+			label(for="passwordFormOldPassField") Old Password
+			input#passwordFormOldPassField(type="password", name="oldpass", required, placeholder="Out with the old...")
+
+		div
+			label(for="passwordFormNewPassField") New Password
+			input#passwordFormNewPassField(type="password", name="newpass", required, placeholder="...in with the new")
+
+		div
+			label(for="passwordFormNewPassField") Confirm New Password
+			input#passwordFormNewPassField(type="password", name="confirmpass", required, placeholder="One more time")
+
+		.Flexbox.mRightAlign
+			button(type="submit") Update
+
+		.Separator.mSection
+
+	h2#userDeleteFormHeader Delete Account.
+
+	form#UserDeleteForm(action=`/user/${user._id}/delete`, method="post").Flexbox.mColumn.mCompactSpacing
+		div
+			label(for="userDeleteFormUsernameField") Username 
+			input#userDeleteFormUsernameField(type="text", required, autocomplete="off", pattern!=user.username, placeholder="Are you sure...", title="username", data-for="userDeleteFormSubmit").jPatternInput
+		
+		div
+			label(for="userDeleteFormPasswordField") Password
+			input#userDeleteFormPasswordField(type="password", name="password", required, placeholder="...you want to do this?")
+
+		.Flexbox.mRightAlign
+			button#userDeleteFormSubmit(type="submit").mDanger.jPatternMatchRequired Delete
