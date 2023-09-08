@@ -4,7 +4,7 @@ append stylesheets
 	link(rel="stylesheet", href="/stylesheets/forms.css")
 
 append scripts
-	script(type="text/javascript", src="/javascripts/blog/article_delete.js", defer)
+	script(type="text/javascript", src="/javascripts/forms.js", defer)
 
 block main 
 	//- page header
@@ -19,6 +19,6 @@ block main
 	//- delete form
 	form#ArticleDeleteForm(action="", method="post").Flexbox.mSpaceBetween.mMinimalSpacing.mVerticallyCenter
 		//- confirmation step
-		input#articleDeleteFormValidator(type="text", required, pattern!=article.title, title="article title", placeholder="Type article title to confirm...")
+		input#articleDeleteFormValidator(type="text", required, pattern!=article.title, title="article title", placeholder="Type article title to confirm..." data-for="articleDeleteFormSubmit").jPatternInput
 		
-		button#articleDeleteFormSubmit(type="submit").mDanger Delete
+		button#articleDeleteFormSubmit(type="submit").mDanger.jPatternMatchRequired Delete
