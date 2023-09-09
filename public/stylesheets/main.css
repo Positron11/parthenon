@@ -65,7 +65,8 @@
 	font-weight: 400;
 	font-family: var(--display-font);
 }
-:is(h1, h2, h3, h4, p) + :is(h1, h2, h3, h4) { margin-top: calc(var(--standard-spacing) / 2); }
+:is(h1, h2, h3, h4) + :is(h1, h2, h3, h4) { margin-top: calc(var(--standard-spacing) / 2); }
+p + :is(h1, h2, h3, h4) { margin-top: calc(var(--standard-spacing) / 1); }
 
 h1 { 
 	font-size: 4em; 
