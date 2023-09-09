@@ -12,7 +12,7 @@ mixin Comment(comment)
 			.body!= comment.renderContent()
 
 		//- comment edit form
-		form.editForm(action=`../comment/${comment._id}/edit`, method="post").internalCommentForm.Flexbox.mColumn.mMinimalSpacing 
+		form.editForm(action=`/writings/${article.slug}/comment/${comment._id}/edit`, method="post").internalCommentForm.Flexbox.mColumn.mMinimalSpacing 
 			textarea(name="content", rows="1", required="true")!= comment.content
 			.Flexbox.mRightAlign: button(type="submit") Edit
 
@@ -29,7 +29,7 @@ mixin Comment(comment)
 					img(src="/images/icons/edit.svg", onclick=`toggleCommentForm(this, 'Edit'); document.getElementById('${comment._id}').scrollIntoView();`).mClickable
 				//- delete form
 				if user._id.equals(comment.author._id) || user.roles.includes("superuser")
-					form.deleteForm(action=`../comment/${comment._id}/delete`, method="post")
+					form.deleteForm(action=`/writings/${article.slug}/comment/${comment._id}/delete`, method="post")
 						button(type="submit").mDiscreet: img(src="/images/icons/trash.svg")
 			//- copy link
 			img(src="/images/icons/copy_link.svg", onclick=`copyToClipboard("${protocol}://${host}${url}#${comment._id}")`).mClickable
@@ -38,7 +38,7 @@ mixin Comment(comment)
 		.replies(class=comment.replies.length ? null : "sEmpty").Flexbox.mColumn.mCompactSpacing
 			//- reply form
 			if user
-				form.replyForm(action="../comment/create", method="post").internalCommentForm.Flexbox.mColumn.mMinimalSpacing
+				form.replyForm(action=`/writings/${article.slug}/comment/create`, method="post").internalCommentForm.Flexbox.mColumn.mMinimalSpacing
 					//- parent metadata
 					input(type="hidden", name="article", value=comment.article)
 					input(type="hidden", name="parent", value=comment._id)

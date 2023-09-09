@@ -18,23 +18,23 @@ router.get("/create", authMiddleware.sessionAuthCheck("superuser"), article_cont
 router.post("/create", authMiddleware.sessionAuthCheck("superuser"), article_controller.article_create_post);
 
 // article delete views
-router.get("/article/:slug/delete", authMiddleware.sessionAuthCheck("superuser"), article_controller.article_delete_get);
-router.post("/article/:slug/delete", authMiddleware.sessionAuthCheck("superuser"), article_controller.article_delete_post);
+router.get("/:slug/delete", authMiddleware.sessionAuthCheck("superuser"), article_controller.article_delete_get);
+router.post("/:slug/delete", authMiddleware.sessionAuthCheck("superuser"), article_controller.article_delete_post);
 
 // article edit views
-router.get("/article/:slug/edit", authMiddleware.sessionAuthCheck("superuser"), article_controller.article_update_get);
-router.post("/article/:slug/edit", authMiddleware.sessionAuthCheck("superuser"), article_controller.article_update_post);
+router.get("/:slug/edit", authMiddleware.sessionAuthCheck("superuser"), article_controller.article_update_get);
+router.post("/:slug/edit", authMiddleware.sessionAuthCheck("superuser"), article_controller.article_update_post);
 
 // article detail view
-router.get("/article/:slug", blog_controller.article_detail);
+router.get("/:slug", blog_controller.article_detail);
 
 // comment create method
-router.post("/comment/create", authMiddleware.sessionAuthCheck(), comment_controller.comment_create);
+router.post("/:slug/comment/create", authMiddleware.sessionAuthCheck(), comment_controller.comment_create);
 
 // comment delete method
-router.post("/comment/:id/delete", authMiddleware.sessionAuthCheck(), comment_controller.comment_delete);
+router.post("/:slug/comment/:id/delete", authMiddleware.sessionAuthCheck(), comment_controller.comment_delete);
 
 // comment edit method
-router.post("/comment/:id/edit", authMiddleware.sessionAuthCheck(), comment_controller.comment_edit);
+router.post("/:slug/comment/:id/edit", authMiddleware.sessionAuthCheck(), comment_controller.comment_edit);
 
 module.exports = router;

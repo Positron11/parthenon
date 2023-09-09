@@ -54,7 +54,7 @@ block main
 
 			if user
 				//- new comment form
-				form(action="../comment/create", method="post").Flexbox.mColumn.mMinimalSpacing
+				form(action=`/writings/${article.slug}/comment/create`, method="post").Flexbox.mColumn.mMinimalSpacing
 					//- comment article id
 					input(type="hidden", name="article", value=article._id)
 

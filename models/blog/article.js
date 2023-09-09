@@ -27,7 +27,7 @@ ArticleSchema.plugin(mongoosePaginate);
 
 // article url virtual
 ArticleSchema.virtual("url").get(function() {
-	return `/blog/article/${this.slug}`;
+	return `/writings/${this.slug}`;
 });
 
 // article comments virtual

@@ -8,13 +8,13 @@ append scripts
 
 block navtray_buttons
 	if user && user.roles.includes("superuser")
-		a(href="/blog/create").mUnstyled: img(src="/images/icons/write.svg")
+		a(href="/writings/create").mUnstyled: img(src="/images/icons/write.svg")
 
 block main 
 	//- page header
 	#Header
-		h1 The Dispatch.
-		h3 A collection of my writings.
+		h1 Writings.
+		h3 A collection of my prose.
 
 	.Separator
 
@@ -23,8 +23,8 @@ block main
 		//- empty article list placeholder
 		if !articles.docs.length
 			div
-				h2 Emptiness.
-				p.tGay There's nothing to see here. Yet.
+				h2 Nothing.
+				p.tGray There's nothing to see here. Yet.
 
 		for article in articles.docs
 			a.ArticlePreview(href=article.url).mUnstyled.Flexbox

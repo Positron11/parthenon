@@ -93,7 +93,7 @@ exports.article_delete_post = (req, res, next) => {
 
 			// go back to article list view
 			req.flash("success", "Deleted article");
-			res.redirect("/blog") 
+			res.redirect("/writings") 
 		},
 		err => { return next(err); }
 	);
