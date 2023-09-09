@@ -4,7 +4,10 @@ mixin Comment(comment)
 		.content.Flexbox.mColumn
 			//- comment author and date
 			.header.Flexbox
-				.author.tDisplay= comment.author.username
+				if comment.author
+					.author.tDisplay= comment.author.username
+				else 
+					.author.tDisplay.tGray [Deleted]
 				- var date = new Date(comment.updated_date);
 				.date= `${date.toLocaleTimeString("en-us", { hour: "numeric", minute: "numeric" })} on ${date.toLocaleDateString("en-us", { year:"numeric", month:"long", day:"numeric"})}`
 
@@ -25,10 +28,10 @@ mixin Comment(comment)
 				//- reply button
 				img(src="/images/icons/reply.svg", onclick=`toggleCommentForm(this, 'Reply'); document.getElementById('${comment._id}').scrollIntoView();`).mClickable
 				//- edit button
-				if user._id.equals(comment.author._id)
+				if comment.author && user._id.equals(comment.author._id)
 					img(src="/images/icons/edit.svg", onclick=`toggleCommentForm(this, 'Edit'); document.getElementById('${comment._id}').scrollIntoView();`).mClickable
 				//- delete form
-				if user._id.equals(comment.author._id) || user.roles.includes("superuser")
+				if (comment.author && user._id.equals(comment.author._id)) || user.roles.includes("superuser")
 					form.deleteForm(action=`/writings/${article.slug}/comment/${comment._id}/delete`, method="post")
 						button(type="submit").mDiscreet: img(src="/images/icons/trash.svg")
 			//- copy link
