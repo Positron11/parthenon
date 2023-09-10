@@ -12,6 +12,11 @@ block main
 	#Announcement.Flexbox.mColumn.mMinimalSpacing
 		.Flexbox.mVerticallyCenter.mMinimalSpacing.mWrap
 			div: h3.tGray Bulletin:
-			- var date = new Date(bulletin.created_date);
-			div: h2= `${date.getDate()}/${date.getMonth() + 1}`
-		.content!= bulletin.renderContent()
+			if bulletin
+				- var date = new Date(bulletin.created_date);
+			div: h2= bulletin ? `${date.getDate()}/${date.getMonth() + 1}` : "*crickets*"
+		if bulletin
+			.content!= bulletin.renderContent()
+			a(href="#").tGray Read older bulletins. 
+		else 
+			.content.tGray All's quiet on the western front. Read older bulletins <a href="#">here</a>.

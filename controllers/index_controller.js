@@ -2,7 +2,9 @@ const Bulletin = require("../models/bulletin");
 
 // home page controller
 exports.index = (req, res, next) => {
-	Bulletin.findOne({}, {}, { sort: { 'created_at' : -1 } }).then(
+	const cutoffDate = new Date();
+	cutoffDate.setMonth(cutoffDate.getMonth() - 1);
+	Bulletin.findOne({ "created_date": { "$gt": cutoffDate } }, {}, { sort: { 'created_at' : -1 } }).then(
 		result => {
 			res.render("index/index", { 
 				title: "Home",
