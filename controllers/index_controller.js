@@ -4,7 +4,7 @@ const Bulletin = require("../models/bulletin");
 exports.index = (req, res, next) => {
 	const cutoffDate = new Date();
 	cutoffDate.setMonth(cutoffDate.getMonth() - 1);
-	Bulletin.findOne({ "created_date": { "$gt": cutoffDate } }, {}, { sort: { 'created_at' : -1 } }).then(
+	Bulletin.findOne({ "created_date": { "$gt": cutoffDate } }, {}, { sort: { 'created_date' : -1 } }).then(
 		result => {
 			res.render("index/index", { 
 				title: "Home",
