@@ -27,10 +27,9 @@ CommentSchema.virtual("replies", {
 CommentSchema.plugin(require("mongoose-autopopulate"))
 
 // deletion cascade
-CommentSchema.pre("findOneAndDelete", async function(next) {
-	const comment = await this.model.findOne(this.getQuery());
-	for (const reply of comment.replies) {
-		await this.model.findOneAndDelete({ _id: reply._id });
+CommentSchema.pre("deleteOne", { document: true, query: false }, async function(next) {
+	for (const reply of this.replies) {
+		await reply.deleteOne();
 	}; next();
 });
 
