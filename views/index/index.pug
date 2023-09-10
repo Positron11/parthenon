@@ -17,6 +17,6 @@ block main
 			div: h2= bulletin ? `${date.getDate()}/${date.getMonth() + 1}` : "*crickets*"
 		if bulletin
 			.content!= bulletin.renderContent()
-			a(href="#").tGray Read older bulletins. 
+			a(href="/bulletins").tGray Read older bulletins. 
 		else 
-			.content.tGray All's quiet on the western front. Read older bulletins <a href="#">here</a>.
+			.content.tGray All's quiet on the western front. Read older bulletins <a href="/bulletins">here</a>.

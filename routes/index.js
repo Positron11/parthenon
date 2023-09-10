@@ -14,4 +14,7 @@ router.get("/about", index_controller.about);
 // contact page view
 router.get("/contact", index_controller.contact);
 
+// bulletins page view
+router.get("/bulletins", index_controller.bulletins);
+
 module.exports = router;

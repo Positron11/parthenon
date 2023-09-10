@@ -1,0 +1,19 @@
+extends ../base.pug
+
+block main 
+	//- page header
+	#Header
+		h1 The Dispatch.
+		h3 Bulletin archives.
+
+	.Separator
+
+	if bulletins
+		#BulletinBoard.Flexbox.mColumn.mCompactSpacing
+			for bulletin in bulletins 
+				.Bulletin
+					- var date = new Date(bulletin.created_date);
+					.Flexbox.mVerticallyCenter.mMinimalSpacing 	
+						div: h2= date.toLocaleDateString("en-us", { month:"long", day:"numeric"})
+						div: h3.tGray= date.toLocaleDateString("en-us", { year:"numeric"})
+					p!= bulletin.renderContent()

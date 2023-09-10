@@ -24,3 +24,16 @@ exports.about = (req, res, next) => {
 exports.contact = (req, res, next) => {
 	res.render("index/contact", { title: "Contact" });
 }
+
+// bulletins page controller
+exports.bulletins = (req, res, next) => {
+	Bulletin.find({}, {}, { sort: { 'created_date' : -1 } }).then(
+		result => {
+			res.render("index/bulletins", { 
+				title: "Bulletins",
+				bulletins: result
+			});
+		}, 
+		err => { return next(err); }
+	);
+}
