@@ -26,10 +26,10 @@ block main
 
 						//- parent preview
 						if comment.parent
-							i.parentPreview.uSingleLineText.tSmall!= `Replying to: "${comment.parent.renderContentPlaintext()}"`
+							p.parentPreview.uTruncateLines(style="--lines: 2").tSmall: i!= `Replying to: "${comment.parent.renderContentPlaintext()}"`
 
 						//- content preview
-						p.uTruncateLines(style="--lines: 3; margin: 0em 0")!= comment.renderContentPlaintext() 
+						p.uTruncateLines(style="--lines: 3")!= comment.renderContentPlaintext() 
 						
 						//- date
 						- var date = new Date(comment.updated_date);
