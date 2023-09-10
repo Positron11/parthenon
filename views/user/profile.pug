@@ -22,11 +22,11 @@ block main
 						//- article title
 						.tDisplay
 							span.tSmall.tGray Article: 
-							span= `${comment.article.title}`
+							span!= `${comment.article.title}`
 
 						//- parent preview
 						if comment.parent
-							i.parentPreview.uSingleLineText.tSmall= `Replying to: "${comment.parent.renderContentPlaintext()}"`
+							i.parentPreview.uSingleLineText.tSmall!= `Replying to: "${comment.parent.renderContentPlaintext()}"`
 
 						//- content preview
 						p.uTruncateLines(style="--lines: 3; margin: 0em 0")!= comment.renderContentPlaintext() 
