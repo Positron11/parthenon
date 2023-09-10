@@ -1,7 +1,8 @@
 .CommentPreview {
 	display: flex;
-	row-gap: 0.5em;
+	row-gap: 0.75em;
 	flex-direction: column;
 }
 
-.CommentPreview .parentPreview { margin-top: 0.3em; }
+.CommentPreview .article { margin-bottom: -0.25em; }
+.CommentPreview .parentPreview { margin-bottom: -0.5em; }

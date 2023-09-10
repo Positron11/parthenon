@@ -20,13 +20,13 @@ block main
 					//- comment preview
 					a.CommentPreview(href=`/writings/${comment.article.slug}#${comment._id}`).mUnstyled
 						//- article title
-						.tDisplay
+						.article.tDisplay
 							span.tSmall.tGray Article: 
 							span!= `${comment.article.title}`
 
 						//- parent preview
 						if comment.parent
-							p.parentPreview.uTruncateLines(style="--lines: 2").tSmall: i!= `Replying to: "${comment.parent.renderContentPlaintext()}"`
+							.parentPreview: p.uTruncateLines(style="--lines: 2").tSmall: i!= `Replying to: "${comment.parent.renderContentPlaintext()}"`
 
 						//- content preview
 						p.uTruncateLines(style="--lines: 3")!= comment.renderContentPlaintext() 
