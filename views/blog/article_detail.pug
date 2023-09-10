@@ -30,8 +30,10 @@ block main
 			//- header
 			#articleHeader
 				h1.balance-text!= article.title
-				h3!= article.subtitle
-				p.tGray!= article.renderDescription()
+				if article.subtitle
+					h3!= article.subtitle
+				if article.description
+					p.tGray!= article.renderDescription()
 
 		.Separator
 

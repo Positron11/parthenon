@@ -38,10 +38,11 @@ block main
 				//- preview header
 				.header.Flexbox.mColumn.mMinimalSpacing
 					.title: h3!= article.title
-					.subtitle: h4!= article.subtitle 
+					if article.subtitle
+						.subtitle: h4!= article.subtitle 
 				
 				//- preview description
-				p.description.uTruncateLines(style="--lines:3")!= article.renderDescriptionPlaintext()
+				p.description.uTruncateLines(style="--lines:3")!= article.description ? article.renderDescriptionPlaintext() : article.renderContentPreview()
 
 	//- pagination
 	if articles.docs.length && articles.totalPages > 1

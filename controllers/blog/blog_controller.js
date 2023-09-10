@@ -14,7 +14,6 @@ exports.article_list = (req, res, next) => {
 			// get all articles...
 			Article.paginate({}, { 
 				sort: { created_date: -1 }, // ...in reverse chronological order
-				select: "created_date title subtitle description slug", 
 				page: pageCount - (req.query.page - 1) || 1, // invert page with respect to frontend pagination
 				limit: pageLimit }).then(
 				

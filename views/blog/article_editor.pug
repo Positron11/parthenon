@@ -23,11 +23,11 @@ block main
 		
 		div
 			label(for="articleEditorFormSubtitleField") Subtitle
-			input#articleEditorFormSubtitleField(type="text", name="subtitle", required="true", maxlength="40", autocomplete="off", value!=(form_data === undefined ? "" : form_data.subtitle))
+			input#articleEditorFormSubtitleField(type="text", name="subtitle", maxlength="40", autocomplete="off", value!=(form_data === undefined ? "" : form_data.subtitle))
 
 		div
 			label(for="articleEditorFormDescriptionField") Description
-			textarea#articleEditorFormDescriptionField(name="description", required="true", rows="4", maxlength="300")!= (form_data === undefined ? "" : form_data.description)
+			textarea#articleEditorFormDescriptionField(name="description", rows="4", maxlength="300")!= (form_data === undefined ? "" : form_data.description)
 
 		div
 			label#articleEditorFormContentFieldLabel(for="articleEditorFormContentField") Content

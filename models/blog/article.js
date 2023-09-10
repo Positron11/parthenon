@@ -15,8 +15,8 @@ md.use(plainText);
 const ArticleSchema = new Schema({
 	title: { type: String, required: true, maxlength: 40 },
 	slug: { type: String, required: true, unique: true },
-	subtitle: { type: String, required: true, maxlength: 40 },
-	description: { type: String, required: true, maxlength: 300 },
+	subtitle: { type: String, maxlength: 40 },
+	description: { type: String, maxlength: 300 },
 	content: { type: String, required: true }
 }, { 
 	timestamps: { createdAt: "created_date", updatedAt: "updated_date" } 
@@ -64,6 +64,12 @@ ArticleSchema.methods.renderDescriptionPlaintext = function() {
 // render markdown-parsed content
 ArticleSchema.methods.renderContent = function() {
 	return md.render(this.content);
+}
+
+// render inline markdown-parsed content
+ArticleSchema.methods.renderContentPreview = function() {
+	md.renderInline(String(this.content).slice(0, 150));
+	return md.plainText;
 }
 
 module.exports = mongoose.model("Article", ArticleSchema);
