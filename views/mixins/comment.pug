@@ -5,7 +5,7 @@ mixin Comment(comment)
 			//- comment author and date
 			.header.Flexbox
 				if comment.author
-					.author.tDisplay= comment.author.username
+					a.author(href=`/users/${comment.author.username}`).mUnstyled.tDisplay= comment.author.username
 				else 
 					.author.tDisplay.tGray [Deleted]
 				- var date = new Date(comment.updated_date);

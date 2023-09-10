@@ -1,9 +1,11 @@
 const mongoose = require("mongoose");
 const MarkdownIt = require("markdown-it");
+const plainText = require('markdown-it-plain-text');
 
 const Schema = mongoose.Schema;
 
 const md = new MarkdownIt();
+md.use(plainText);
 
 // comment model schema
 const CommentSchema = new Schema({
@@ -36,6 +38,12 @@ CommentSchema.pre("deleteOne", { document: true, query: false }, async function(
 // render markdown-parsed content
 CommentSchema.methods.renderContent = function() {
 	return md.render(this.content);
+}
+
+// render plaintext content
+CommentSchema.methods.renderContentPlaintext = function() {
+	md.renderInline(this.content);
+	return md.plainText;
 }
 
 module.exports = mongoose.model("Comment", CommentSchema);

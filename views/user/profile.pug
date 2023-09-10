@@ -1,0 +1,40 @@
+extends ../base.pug
+
+append stylesheets
+	link(rel="stylesheet", href="/stylesheets/profile.css")
+
+block main 
+	//- page header
+	#Header
+		h1= profilee.username
+		h3 A life on Parthenon.
+
+	.Separator
+	
+	#CommentHistory.Flexbox.mColumn.mCompactSpacing
+		h2 Comment History
+		
+		if comments.length
+			.Flexbox.mColumn.mCompactSpacing
+				for comment in comments 
+					//- comment preview
+					a.CommentPreview(href=`/writings/${comment.article.slug}#${comment._id}`).mUnstyled
+						//- article title
+						.tDisplay
+							span.tSmall.tGray Article: 
+							span= `${comment.article.title}`
+
+						//- parent preview
+						if comment.parent
+							i.parentPreview.uSingleLineText.tSmall= `Replying to: "${comment.parent.renderContentPlaintext()}"`
+
+						//- content preview
+						p.uTruncateLines(style="--lines: 3; margin: 0em 0")!= comment.renderContentPlaintext() 
+						
+						//- date
+						- var date = new Date(comment.updated_date);
+						.tGray.tSmall= ` - ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
+		else 
+			div
+				h3 *crickets*
+				p.tGray Sometimes, just listening is enough.

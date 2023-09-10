@@ -1,5 +1,7 @@
-const User = require("../models/user");
 const { body, validationResult } = require("express-validator");
+
+const User = require("../models/user");
+const Comment = require("../models/blog/comment");
 
 // account view get method controller
 exports.account_get = (req, res, next) => { res.render("user/account", { title: "Account" }); }
@@ -95,3 +97,24 @@ exports.user_delete = [
 		);
 	}
 ]
+
+// profile view get method controller
+exports.profile = (req, res, next) => {
+	User.findOne({ "username": req.params.username }).then(
+		user => {
+			Comment.find({ "author": user._id }, {}, { sort: { "created_date": -1 } })
+				.populate({ path: "article", select: "slug title" })
+				.populate({ path: "parent", select: "content" }).then(
+				comments => {
+					res.render("user/profile", { 
+						title: user.username,
+						profilee: user,
+						comments: comments 
+					}); 
+				},
+				err => { return next(err); }
+			);
+		},
+		err => { return next(err); }
+	);
+}

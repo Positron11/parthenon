@@ -1,0 +1,7 @@
+.CommentPreview {
+	display: flex;
+	row-gap: 0.5em;
+	flex-direction: column;
+}
+
+.CommentPreview .parentPreview { margin: 0.5em 0 0.1em 0; }
