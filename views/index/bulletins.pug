@@ -14,6 +14,6 @@ block main
 				.Bulletin
 					- var date = new Date(bulletin.created_date);
 					.Flexbox.mVerticallyCenter.mMinimalSpacing 	
-						div: h2= date.toLocaleDateString("en-us", { month:"long", day:"numeric"})
-						div: h3.tGray= date.toLocaleDateString("en-us", { year:"numeric"})
+						div: h3= date.toLocaleDateString("en-us", { month:"long", day:"numeric"})
+						div: h4.tGray= date.toLocaleDateString("en-us", { year:"numeric"})
 					p!= bulletin.renderContent()
