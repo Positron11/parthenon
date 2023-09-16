@@ -102,6 +102,13 @@ exports.user_delete = [
 exports.profile = (req, res, next) => {
 	User.findOne({ "username": req.params.username }).then(
 		user => {
+			// if no user found
+			if (user === null) {
+				const error = new Error(`No user by the name of ${req.params.username} exists`);
+				error.status = 404;
+				return next(error);
+			}
+
 			Comment.find({ "author": user._id }, {}, { sort: { "created_date": -1 } })
 				.populate({ path: "article", select: "slug title" })
 				.populate({ path: "parent", select: "content" }).then(
