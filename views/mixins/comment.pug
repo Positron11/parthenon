@@ -26,10 +26,10 @@ mixin Comment(comment)
 				a(href=`/login?next=${url}`): img(src="/images/icons/reply.svg")
 			else 
 				//- reply button
-				img(src="/images/icons/reply.svg", onclick=`toggleCommentForm(this, 'Reply'); document.getElementById('${comment._id}').scrollIntoView();`).mClickable
+				img(src="/images/icons/reply.svg", onclick=`toggleCommentForm(this, 'Reply');`).mClickable
 				//- edit button
 				if comment.author && user._id.equals(comment.author._id)
-					img(src="/images/icons/edit.svg", onclick=`toggleCommentForm(this, 'Edit'); document.getElementById('${comment._id}').scrollIntoView();`).mClickable
+					img(src="/images/icons/edit.svg", onclick=`toggleCommentForm(this, 'Edit');`).mClickable
 				//- delete form
 				if (comment.author && user._id.equals(comment.author._id)) || user.roles.includes("superuser")
 					form.deleteForm(action=`/writings/${article.slug}/comment/${comment._id}/delete`, method="post")
